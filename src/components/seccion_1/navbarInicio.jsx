@@ -1,4 +1,4 @@
-import '../../css/seccion_1/navbarInicio.css'
+import '../css/seccion_1/navbarInicio.css'
 import { BurgerMenu } from './BurgerMenu'
 
 export const NavbarInicio = () => {
@@ -9,13 +9,13 @@ export const NavbarInicio = () => {
                 <span className="logo logo-desktop">Barista</span>
                 <span className="logo logo-mobile">B</span>
                 <div className="nav-links">
-                    <a href="#" className="nav-link active">Home</a>
-                    <a href="#" className="nav-link">About</a>
-                    <a href="#" className="nav-link">Our Menu</a>
-                    <a href="#" className="nav-link">Reviews</a>
-                    <a href="#" className="nav-link">Contact</a>
+                    <a href="#" className="nav-link active">Inicio</a>
+                    <a href="#" className="nav-link">Conócenos</a>
+                    <a href="#" className="nav-link">Menús</a>
+                    <a href="#" className="nav-link">Reseñas</a>
+                    <a href="#" className="nav-link">Contacto</a>
                     <button className="reservation-btn">
-                        Reservation <span>↗</span>
+                        Reservacion <span>↗</span>
                     </button>
                 </div>
             </div>
