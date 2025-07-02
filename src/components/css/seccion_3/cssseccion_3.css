@@ -1,0 +1,149 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #b78752;
+}
+
+.team-section {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #b78752;
+  color: white;
+}
+
+.subheading {
+  font-style: italic;
+  color: #e6e6e6;
+  margin: 0;
+}
+
+.subheading span {
+  font-weight: bold;
+  color: #fff;
+}
+
+.heading {
+  font-size: 2.8rem;
+  font-weight: bold;
+  margin: 10px 0 40px;
+}
+
+.carousel-wrapper {
+  position: relative;
+  width: calc((286px * 4) + (30px * 3)); /* Ancho de 4 cards + 3 gaps */
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.team-container {
+  display: flex;
+  gap: 30px;
+  transition: transform 0.5s ease;
+  will-change: transform;
+}
+
+.team-card {
+  min-width: 286px;
+  max-width: 286px;
+  height: 410px;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  background-color: #000;
+  color: #fff;
+  text-align: left;
+  transition: transform 0.3s;
+}
+
+.team-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(188, 108, 37, 1));
+  z-index: 1;
+}
+
+.team-card img {
+  width: 286px;
+  height: 410px;
+  object-fit: cover;
+  filter: brightness(0.7);
+  display: block;
+}
+
+.team-info {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 40%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.3), transparent);
+  z-index: 2;
+}
+
+.team-info h3 {
+  margin: 0 0 5px;
+  font-size: 1.75rem;
+  position: relative;
+  z-index: 3;
+}
+
+.team-info p {
+  margin: 0;
+  font-size: 1.25rem;
+  color: #e0e0e0;
+  position: relative;
+  z-index: 3;
+}
+
+.badge {
+  background-color: #f39c12;
+  color: white;
+  font-size: 0.75rem;
+  padding: 2px 8px;
+  border-radius: 12px;
+  margin-left: 8px;
+  vertical-align: middle;
+  position: relative;
+  z-index: 3;
+}
+
+.boss {
+  background-color: #bc6c25;
+}
+
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.171);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 50%;
+  transition: background 0.5s;
+  user-select: none;
+}
+
+.arrow:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.arrow.left {
+  left: 10px;
+}
+
+.arrow.right {
+  right: 10px;
+}
