@@ -6,8 +6,22 @@ export const NavbarInicio = () => {
         <nav id="navbarInicio">
             <div>
                 <BurgerMenu />
-                <span className="logo logo-desktop">Barista</span>
-                <span className="logo logo-mobile">B</span>
+                <div className="logo-container logo-desktop">
+                    <img
+                        src="/logo.png"
+                        alt="Logo Cafetería"
+                        className="logo"
+                    />
+                    <span className="logo-text">Barista</span>
+                </div>
+                <div className="logo-container logo-mobile">
+                    <img
+                        src="/logo.png"
+                        alt="Logo Cafetería"
+                        className="logo"
+                    />
+                    <span className="logo-text">Barista</span>
+                </div>
                 <div className="nav-links">
                     <a href="#" className="nav-link active">Inicio</a>
                     <a href="#" className="nav-link">Conócenos</a>

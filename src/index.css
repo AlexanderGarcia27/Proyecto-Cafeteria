@@ -10,19 +10,37 @@ body {
     color: #333;
     background-image: url('./image-D.jpg');
     background-size: cover;
-    background-attachment: fixed;
+    background-attachment: scroll;
     background-position: center;
     background-repeat: no-repeat;
     min-height: 100vh;
-    padding-top: 80px; /* Ajusta según la altura de tu navbar */
+    padding-top: 120px;
+    overflow-x: hidden;
 }
 
+/* Tablet breakpoint */
+@media (max-width: 1024px) {
+    body {
+        padding-top: 110px;
+    }
+}
+
+/* Mobile breakpoint */
 @media (max-width: 768px) {
     body {
         background-image: url('/image-P.jpg');
-        background-size: contain;
+        background-size: cover;
         background-position: center top;
         background-repeat: no-repeat;
+        background-attachment: scroll;
+        padding-top: 100px;
+    }
+}
+
+/* Small mobile breakpoint */
+@media (max-width: 480px) {
+    body {
+        padding-top: 90px;
     }
 }
 
@@ -33,8 +51,87 @@ body {
     padding: 0 20px;
 }
 
+/* Responsive container */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 5px;
+    }
+}
+
 /* Estilos para el contenido principal */
 main {
-    min-height: calc(100vh - 80px);
+    min-height: calc(100vh - 120px);
     padding: 2rem 0;
+}
+
+@media (max-width: 768px) {
+    main {
+        min-height: calc(100vh - 100px);
+        padding: 1rem 0;
+    }
+}
+
+@media (max-width: 480px) {
+    main {
+        min-height: calc(100vh - 90px);
+        padding: 0.5rem 0;
+    }
+}
+
+/* Utility classes for responsive design */
+.hidden-mobile {
+    display: block;
+}
+
+.hidden-desktop {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .hidden-mobile {
+        display: none;
+    }
+    
+    .hidden-desktop {
+        display: block;
+    }
+}
+
+/* Responsive text utilities */
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+@media (max-width: 768px) {
+    .text-center-mobile {
+        text-align: center;
+    }
+    
+    .text-left-mobile {
+        text-align: left;
+    }
+    
+    .text-right-mobile {
+        text-align: right;
+    }
 } 
