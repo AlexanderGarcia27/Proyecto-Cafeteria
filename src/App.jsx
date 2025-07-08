@@ -6,9 +6,7 @@ import {Carrusel} from './components/seccion_3/carrusel'
 function App() {
   return (
     <>
-      <NavbarInicio />
-      <TextComponent />
-      <Carrusel/>
+      <Carrusel></Carrusel>
       
     </>
   )
