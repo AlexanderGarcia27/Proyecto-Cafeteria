@@ -13,27 +13,57 @@ export const Carrusel = () => {
     { name: "Andrés ", role: "Entrenador de Baristas", img: "pexels-elletakesphotos-2101154.jpg", text: "Comparte su pasión y conocimiento para asegurar la calidad de cada taza." },
   ];
 
-  const itemsPerView = 4;
-  const [startIndex, setStartIndex] = useState(itemsPerView); 
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [startIndex, setStartIndex] = useState(4); 
   const containerRef = useRef(null);
 
-  const extendedList = [
-    ...baristas.slice(-itemsPerView),
-    ...baristas,
-    ...baristas.slice(0, itemsPerView),
-  ];
+  const getItemsPerView = () => {
+    if (windowWidth <= 767) return 1; 
+    if (windowWidth <= 1024) return 2; 
+    return 4; 
+  };
 
-  const maxIndex = baristas.length + itemsPerView; 
+  const itemsPerView = getItemsPerView();
+  const isMobile = windowWidth <= 767;
+
+  const extendedList = isMobile 
+    ? baristas 
+    : [
+        ...baristas.slice(-itemsPerView),
+        ...baristas,
+        ...baristas.slice(0, itemsPerView),
+      ];
+
+  const maxIndex = isMobile ? 0 : baristas.length + itemsPerView; 
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    setStartIndex(getItemsPerView());
+  }, [windowWidth]);
 
   const handlePrev = () => {
-    setStartIndex((prev) => prev - 1);
+    if (!isMobile) {
+      setStartIndex((prev) => prev - 1);
+    }
   };
 
   const handleNext = () => {
-    setStartIndex((prev) => prev + 1);
+    if (!isMobile) {
+      setStartIndex((prev) => prev + 1);
+    }
   };
 
   useEffect(() => {
+    if (isMobile) return; 
+
     const container = containerRef.current;
     const cardWidth = 286 + 30; 
 
@@ -57,7 +87,7 @@ export const Carrusel = () => {
     return () => {
       container.removeEventListener("transitionend", handleTransitionEnd);
     };
-  }, [startIndex, baristas.length, itemsPerView, maxIndex]);
+  }, [startIndex, baristas.length, itemsPerView, maxIndex, isMobile]);
 
   return (
     <div className="team-section">
@@ -65,7 +95,9 @@ export const Carrusel = () => {
       <h2 className="heading">Conoce nuestro personal</h2>
 
       <div className="carousel-wrapper">
-        <button className="arrow left" onClick={handlePrev}>&#10094;</button>
+        {!isMobile && (
+          <button className="arrow left" onClick={handlePrev}>&#10094;</button>
+        )}
 
         <div className="team-container" ref={containerRef}>
           {extendedList.map((person, idx) => (
@@ -79,7 +111,9 @@ export const Carrusel = () => {
           ))}
         </div>
 
-        <button className="arrow right" onClick={handleNext}>&#10095;</button>
+        {!isMobile && (
+          <button className="arrow right" onClick={handleNext}>&#10095;</button>
+        )}
       </div>
     </div>
   );
