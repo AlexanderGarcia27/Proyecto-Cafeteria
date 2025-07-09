@@ -1,17 +1,20 @@
-import { NavbarInicio } from './components/seccion_1/navbarInicio'
-import { TextComponent } from './components/seccion_1/textComponent'
-import { BackgroundSection } from './components/seccion_2/BackgroundSection'
-import { ImageSection } from './components/seccion_2/ImageSection'
-import { TextButtonSection } from './components/seccion_2/TextButtonSection'
-import './index.css'
+import { NavbarInicio } from './components/seccion_1/navbarInicio';
+import { TextComponent } from './components/seccion_1/textComponent';
+import BackgroundSection1 from './components/seccion_1/BackgroundSection1';
+import { BackgroundSection } from './components/seccion_2/BackgroundSection';
+import { ImageSection } from './components/seccion_2/ImageSection';
+import { TextButtonSection } from './components/seccion_2/TextButtonSection';
+import './index.css';
 
 function App() {
   return (
     <>
-      <NavbarInicio />
-      <TextComponent />
+      <BackgroundSection1>
+        <NavbarInicio />
+        <TextComponent />
+      </BackgroundSection1>
       <BackgroundSection>
-        <ImageSection src="../public/image_2.jpg" alt="Cafe KL">
+        <ImageSection src="../src/assets/imagenes_2/image_2.jpg" alt="Cafe KL">
           <div className="section2-image-text">
             Acompañándote desde 2015.<br />El mejor café en Zacualtipan.
           </div>
@@ -19,7 +22,7 @@ function App() {
         <TextButtonSection />
       </BackgroundSection>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
