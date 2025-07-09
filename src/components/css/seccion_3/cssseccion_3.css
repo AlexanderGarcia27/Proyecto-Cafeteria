@@ -31,7 +31,7 @@ body {
 
 .carousel-wrapper {
   position: relative;
-  width: calc((286px * 4) + (30px * 3)); /* Ancho de 4 cards + 3 gaps */
+  width: calc((286px * 4) + (30px * 3)); 
   margin: 0 auto;
   overflow: hidden;
 }
@@ -147,10 +147,16 @@ body {
   right: 10px;
 }
 
+<<<<<<< HEAD
 /* Responsive Design - Tablet */
 @media (max-width: 1024px) and (min-width: 768px) {
   .carousel-wrapper {
     width: calc((286px * 2) + 30px); /* Ancho de 2 cards + 1 gap */
+=======
+@media (max-width: 1024px) and (min-width: 768px) {
+  .carousel-wrapper {
+    width: calc((286px * 2) + 30px); 
+>>>>>>> afece24fbc377df0cb9c6cbfe3673e1a47c1fab6
   }
   
   .heading {
@@ -166,7 +172,10 @@ body {
   }
 }
 
+<<<<<<< HEAD
 /* Responsive Design - Mobile */
+=======
+>>>>>>> afece24fbc377df0cb9c6cbfe3673e1a47c1fab6
 @media (max-width: 767px) {
   .carousel-wrapper {
     width: 100%;
@@ -205,10 +214,18 @@ body {
   }
   
   .arrow {
+<<<<<<< HEAD
     display: none; /* Ocultar flechas en móvil */
+=======
+    display: none;
+>>>>>>> afece24fbc377df0cb9c6cbfe3673e1a47c1fab6
   }
   
   .team-section {
     padding: 40px 15px;
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> afece24fbc377df0cb9c6cbfe3673e1a47c1fab6
