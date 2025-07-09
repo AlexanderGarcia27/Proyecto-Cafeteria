@@ -20,7 +20,6 @@ function App() {
         </ImageSection>
         <TextButtonSection />
       </BackgroundSection>
-      <Carrusel/>
     </>
   )
 }
