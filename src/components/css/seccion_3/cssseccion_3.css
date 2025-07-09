@@ -1,15 +1,11 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #b78752;
-}
 
 .team-section {
   text-align: center;
   padding: 60px 20px;
   background-color: #b78752;
   color: white;
+  width: 96vw;
+  
 }
 
 .subheading {
@@ -78,7 +74,7 @@ body {
 .team-info {
   position: absolute;
   bottom: 0;
-  width: 100%;
+  width: 92%;
   height: 40%;
   padding: 20px;
   display: flex;

@@ -1,0 +1,217 @@
+.contact-section {
+  width: auto;
+  min-height: 100vh;
+  background: 
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(188, 108, 37, 1)),
+    url('/src/assets/pagina-contacto/rohit-khadgi-lEbR6nR8V1A-unsplash.jpg') no-repeat center center / cover;
+  color: #ffffff;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.overlay {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.contact-container {
+  width: 100%;
+  text-align: left;
+  padding-top: 150px;     
+  padding-left: 80px;     
+  padding-right: 20px;    
+  padding-bottom: 40px;   
+  max-width: 900px;
+}
+
+.contact-container h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.contact-container h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  font-weight: normal;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+   
+  width: 70%;
+  max-width: 900px;
+    
+  padding-top: 15px; 
+  padding-left: 0; 
+}
+
+
+
+.input-group {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.input-field {
+  flex: 1 1 200px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding-top: 20px; 
+}
+
+label {
+  margin-bottom: 5px;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  padding: 12px;
+  border: 1px solid #976A41;
+  background-color: transparent;
+  border-radius: 5px;
+  color: #ffffff;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+  
+}
+
+.input-help {
+  height: 120px;
+  padding-top: 0;
+  text-align: left;
+  display: flex;
+  align-items: flex-start;
+}
+
+.input-help::placeholder {
+  text-align: left;
+  vertical-align: top;
+  display: flex;
+  align-items: flex-start;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #ffffff;
+  opacity: 0.85;
+  
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+button {
+  background-color: #bc6c25;
+  border: none;
+  padding: 14px;
+  border-radius: 30px;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  width: fit-content;
+  align-self: center;
+  padding-left: 30px;
+  padding-right: 30px;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+button:hover {
+  background-color: #a95a1c;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+.contact-footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 60px;
+  gap: 20px;
+  padding: 70px 70px 0 70px; 
+  box-sizing: border-box;
+  width: 100%;
+}
+
+#h4-footer {
+  font-style: italic;
+  font-family: var(--body-font-family);
+  font-weight: normal; /* 🔒 Esto evita que se vea en negrita */
+  margin-bottom: 1.5rem !important;
+}
+
+
+#p-footer {
+  line-height: 2; 
+}
+
+
+.contact-info {
+  flex: 1 1 300px;
+  min-width: 250px;
+}
+
+.contact-info h4 {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.contact-info p {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.social-icons {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.footer-note {
+  text-align: start;
+  font-size: 16px;
+  color: #ffffff;
+  padding: 10px 50px 50px 70px; /* arriba 0, derecha 50px, abajo 50px, izquierda 50px */
+}
+
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .contact-form {
+    max-width: 100%;
+  }
+
+  .input-group {
+    flex-direction: column;
+  }
+
+  .contact-footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    
+  }
+
+  .contact-info {
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  button {
+    width: 100%;
+  }
+}
