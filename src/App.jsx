@@ -21,7 +21,6 @@ function App() {
         <TextButtonSection />
       </BackgroundSection>
       <Carrusel/>
-      <MenuCard/>
     </>
   )
 }

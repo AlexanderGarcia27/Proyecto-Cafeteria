@@ -17,29 +17,18 @@ export const Carrusel = () => {
   const [startIndex, setStartIndex] = useState(4); 
   const containerRef = useRef(null);
 
-<<<<<<< HEAD
   // Determinar items por vista basado en el tamaño de pantalla
   const getItemsPerView = () => {
     if (windowWidth <= 767) return 1; // Mobile: mostrar todos verticalmente
     if (windowWidth <= 1024) return 2; // Tablet: 2 items
     return 4; // Desktop: 4 items
-=======
-  const getItemsPerView = () => {
-    if (windowWidth <= 767) return 1; 
-    if (windowWidth <= 1024) return 2; 
-    return 4; 
->>>>>>> afece24fbc377df0cb9c6cbfe3673e1a47c1fab6
   };
 
   const itemsPerView = getItemsPerView();
   const isMobile = windowWidth <= 767;
 
   const extendedList = isMobile 
-<<<<<<< HEAD
     ? baristas // En móvil, mostrar solo la lista original
-=======
-    ? baristas 
->>>>>>> afece24fbc377df0cb9c6cbfe3673e1a47c1fab6
     : [
         ...baristas.slice(-itemsPerView),
         ...baristas,
@@ -48,10 +37,7 @@ export const Carrusel = () => {
 
   const maxIndex = isMobile ? 0 : baristas.length + itemsPerView; 
 
-<<<<<<< HEAD
   // Escuchar cambios en el tamaño de la ventana
-=======
->>>>>>> afece24fbc377df0cb9c6cbfe3673e1a47c1fab6
   useEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
@@ -61,10 +47,7 @@ export const Carrusel = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-<<<<<<< HEAD
   // Resetear el índice cuando cambie el tamaño de pantalla
-=======
->>>>>>> afece24fbc377df0cb9c6cbfe3673e1a47c1fab6
   useEffect(() => {
     setStartIndex(getItemsPerView());
   }, [windowWidth]);
@@ -82,11 +65,7 @@ export const Carrusel = () => {
   };
 
   useEffect(() => {
-<<<<<<< HEAD
     if (isMobile) return; // No aplicar transformaciones en móvil
-=======
-    if (isMobile) return; 
->>>>>>> afece24fbc377df0cb9c6cbfe3673e1a47c1fab6
 
     const container = containerRef.current;
     const cardWidth = 286 + 30; 
