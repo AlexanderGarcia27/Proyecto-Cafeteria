@@ -15,6 +15,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: all 0.3s ease;
 }
 
 #navbarInicio > div {
@@ -37,10 +38,9 @@
     font-size: 1.1rem;
     text-decoration: none !important;
     transition: color 0.2s;
-    line-height: 1; /* Ayuda a la alineación */
-    display: flex;   /* Asegura que se comporte igual que el botón */
+    line-height: 1;
+    display: flex;
     align-items: center;
-    
 }
 
 .nav-link.active {
@@ -71,35 +71,157 @@ nav.nav-links a.nav-link {
     text-decoration: none !important;
 }
 
-.logo-desktop {
-    display: inline;
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
+
+.logo {
+    height: 48px;
+    width: auto;
+    display: inline-block;
+    vertical-align: middle;
+    filter: brightness(0) invert(1);
+}
+
+.logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.logo-desktop {
+    display: flex;
+}
+
 .logo-mobile {
     display: none;
 }
 
 @media (max-width: 768px) {
-    #navbarInicio > div {
-        display: flex;
-        flex-direction: row;
+    .logo-desktop {
+        display: none !important;
+    }
+    .logo-mobile {
+        display: flex !important;
         align-items: center;
         justify-content: center;
         width: 100%;
-        max-width: 100vw;
-        position: relative;
-    }
-    .burger-menu {
-        order: 1;
-        margin-right: 0.5rem;
     }
     .logo {
-        order: 2;
+        height: 64px;
+    }
+    .logo-text {
+        font-size: 2rem;
+    }
+    .logo-container {
+        gap: 2rem;
+        justify-content: center;
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        height: 54px;
+    }
+    .logo-text {
+        font-size: 1.5rem;
+    }
+    .logo-container {
+        gap: 1.5rem;
+        justify-content: center;
+        width: 100%;
+    }
+}
+
+/* Tablet breakpoint */
+@media (max-width: 1024px) {
+    #navbarInicio {
+        margin-left: 2rem;
+        margin-right: 2rem;
+        padding: 1rem 2rem;
+    }
+    
+    .nav-links {
+        gap: 2rem;
+    }
+    
+    .nav-link {
+        font-size: 1rem;
+    }
+    
+    .reservation-btn {
+        font-size: 1rem;
+        padding: 0.4rem 1.2rem;
+    }
+}
+
+/* Mobile breakpoint */
+@media (max-width: 768px) {
+    #navbarInicio {
+        position: fixed;
+        top: 1.2rem;
+        left: 1.2rem;
+        right: 1.2rem;
+        height: 7rem;
+        padding: 2rem 2.5rem;
+        border-radius: 2rem;
+        box-shadow: 0 2px 16px 0 rgba(0,0,0,0.10);
+        background: rgba(20, 20, 20, 0.45);
+        backdrop-filter: blur(1px);
+        z-index: 1000;
+    }
+
+    .burger-menu {
+        order: 3;
+        margin-left: auto;
+    }
+    .logo-desktop {
+        display: none !important;
+    }
+    .logo-mobile {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
         flex: 1;
+        order: 2;
         text-align: center;
         margin: 0 auto;
     }
+    .logo {
+        height: 48px;
+    }
+    .logo-text {
+        font-size: 1.5rem;
+    }
+    .logo-container {
+        gap: 0.7rem;
+        justify-content: center;
+        width: auto;
+    }
     .nav-links {
         display: none !important;
+    }
+}
+
+/* Small mobile breakpoint */
+@media (max-width: 480px) {
+    #navbarInicio {
+        margin: 0;
+        padding: 0.5rem 0.5rem;
+        height: 4rem;
+        border-radius: 0.5rem;
+    }
+    .logo {
+        height: 40px;
+    }
+    .logo-text {
+        font-size: 1.5rem;
+    }
+    .logo-container {
+        gap: 0.5rem;
     }
 }
 
@@ -117,6 +239,7 @@ nav.nav-links a.nav-link {
     z-index: 2000;
     position: relative;
 }
+
 .burger-menu span {
     display: block;
     width: 28px;
@@ -142,12 +265,15 @@ nav.nav-links a.nav-link {
 .burger-overlay {
     display: none !important;
 }
+
 .burger-nav-links {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 2rem;
+    padding-top: 4rem;
 }
+
 .burger-nav-links .nav-link {
     font-size: 2rem;
     color: #fff;
@@ -155,13 +281,16 @@ nav.nav-links a.nav-link {
     font-weight: 600;
     transition: color 0.2s;
 }
+
 .burger-nav-links .nav-link.active {
     color: #ffb347;
 }
+
 .burger-nav-links .reservation-btn {
     font-size: 1.3rem;
     padding: 0.8rem 2.2rem;
 }
+
 .close-burger {
     position: absolute;
     top: 2rem;
@@ -198,55 +327,102 @@ nav.nav-links a.nav-link {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 2.5rem 2rem;
-    position: fixed;
-    top: 0;
-    left: -48px;
-    margin: 0 !important;
-    border-radius: 0 !important;
-    animation: drawerIn 0.3s cubic-bezier(.4,1.6,.6,1) forwards;
+    padding: 2rem;
+    position: relative;
+    animation: drawerIn 0.3s ease-out;
 }
-
 
 @keyframes drawerIn {
     from { transform: translateX(-100%); }
     to { transform: translateX(0); }
 }
+
 .close-burger {
     position: absolute;
-    top: 1.2rem;
-    right: 1.2rem;
+    top: 2rem;
+    right: 2rem;
     background: none;
     border: none;
     color: #fff;
-    font-size: 2.2rem;
+    font-size: 2.5rem;
     cursor: pointer;
     z-index: 3100;
 }
+
 .burger-nav-links {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 2rem;
-    margin-top: 2.5rem;
+    padding-top: 4rem;
     width: 100%;
 }
+
 .burger-nav-links .nav-link {
-    font-size: 1.3rem;
+    font-size: 2rem;
     color: #fff;
     text-decoration: none;
     font-weight: 600;
     transition: color 0.2s;
 }
+
 .burger-nav-links .nav-link.active {
     color: #ffb347;
 }
+
 .burger-nav-links .reservation-btn {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     padding: 0.8rem 2.2rem;
-    width: 100%;
-    margin-top: 0;
-    align-self: stretch;
+    margin-top: 2rem;
+}
+
+/* Mobile drawer adjustments */
+@media (max-width: 480px) {
+    .drawer {
+        width: 85vw;
+        min-width: 200px;
+        padding: 1.5rem;
+    }
+    
+    .burger-nav-links .nav-link {
+        font-size: 1.6rem;
+    }
+    
+    .burger-nav-links .reservation-btn {
+        font-size: 1.1rem;
+        padding: 0.6rem 1.8rem;
+    }
+    
+    .close-burger {
+        top: 1.5rem;
+        right: 1.5rem;
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    #navbarInicio > div {
+        justify-content: flex-start;
+    }
+    .logo-mobile {
+        justify-content: flex-start;
+        text-align: left;
+        margin: 0;
+        padding-left: 0.2rem;
+    }
+    .logo-container {
+        justify-content: flex-start;
+        width: auto;
+    }
+    .burger-menu {
+        margin-left: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-mobile {
+        padding-left: 0.1rem;
+    }
 }
 
 
