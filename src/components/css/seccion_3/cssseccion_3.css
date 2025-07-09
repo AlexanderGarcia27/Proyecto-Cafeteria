@@ -119,7 +119,6 @@ body {
   background-color: #bc6c25;
 }
 
-
 .arrow {
   position: absolute;
   top: 50%;
@@ -146,4 +145,70 @@ body {
 
 .arrow.right {
   right: 10px;
+}
+
+/* Responsive Design - Tablet */
+@media (max-width: 1024px) and (min-width: 768px) {
+  .carousel-wrapper {
+    width: calc((286px * 2) + 30px); /* Ancho de 2 cards + 1 gap */
+  }
+  
+  .heading {
+    font-size: 2.2rem;
+  }
+  
+  .team-info h3 {
+    font-size: 1.5rem;
+  }
+  
+  .team-info p {
+    font-size: 1.1rem;
+  }
+}
+
+/* Responsive Design - Mobile */
+@media (max-width: 767px) {
+  .carousel-wrapper {
+    width: 100%;
+    max-width: 350px;
+    overflow: visible;
+  }
+  
+  .team-container {
+    flex-direction: column;
+    gap: 20px;
+    transform: none !important;
+  }
+  
+  .team-card {
+    min-width: 100%;
+    max-width: 100%;
+    height: 350px;
+  }
+  
+  .team-card img {
+    width: 100%;
+    height: 350px;
+  }
+  
+  .heading {
+    font-size: 1.8rem;
+    margin: 10px 0 30px;
+  }
+  
+  .team-info h3 {
+    font-size: 1.4rem;
+  }
+  
+  .team-info p {
+    font-size: 1rem;
+  }
+  
+  .arrow {
+    display: none; /* Ocultar flechas en móvil */
+  }
+  
+  .team-section {
+    padding: 40px 15px;
+  }
 }

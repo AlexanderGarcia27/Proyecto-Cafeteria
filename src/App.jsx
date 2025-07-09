@@ -1,13 +1,16 @@
+import MenuCard from './components/ComponentMenuS4'
 import { NavbarInicio } from './components/seccion_1/navbarInicio'
 import { TextComponent } from './components/seccion_1/textComponent'
+import { Carrusel } from './components/seccion_3/carrusel'
 import './index.css'
-import {Carrusel} from './components/seccion_3/carrusel'
 
 function App() {
   return (
     <>
-      <Carrusel></Carrusel>
-      
+      <NavbarInicio />
+      <TextComponent />
+      <Carrusel/>
+      <MenuCard/>
     </>
   )
 }
