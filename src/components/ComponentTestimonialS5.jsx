@@ -16,18 +16,25 @@ const ComponentTestimonialS5 = () => {
         <div className="testimonial-timeline-dot top"></div>
         <div className="testimonial-timeline-dot middle"></div>
         <div className="testimonial-timeline-dot bottom"></div>
-        {/* Card 1 */}
-        <div style={{gridRow: 1, gridColumn: 1, position: 'relative', display: 'flex', alignItems: 'center'}}>
+        
+        {/* Contenedor 1 con triángulo orientado hacia arriba */}
+        <div className="card-container1" style={{gridRow: 1, gridColumn: 1, position: 'relative', display: 'flex', alignItems: 'center'}}>
+          <div className="triangle-bullet triangle-right triangle-stick-top-right"></div>
           <ComponentCard1 />
         </div>
-        {/* Card 2 */}
-        <div style={{gridRow: 1, gridColumn: 2, alignSelf: 'end', position: 'relative', display: 'flex', alignItems: 'center'}}>
+        
+        {/* Contenedor 2 con triángulo orientado hacia la derecha */}
+        <div className="card-container2" style={{gridRow: 1, gridColumn: 2, alignSelf: 'end', position: 'relative', display: 'flex', alignItems: 'center'}}>
+          <div className="triangle-bullet triangle-left triangle-stick-top"></div>
           <ComponentCard2 />
         </div>
-        {/* Card 3 */}
-        <div style={{gridRow: 2, gridColumn: 1, position: 'relative', display: 'flex', alignItems: 'center'}}>
+        
+        {/* Contenedor 3 con triángulo orientado hacia abajo */}
+        <div className="card-container3" style={{gridRow: 2, gridColumn: 1, position: 'relative', display: 'flex', alignItems: 'center'}}>
+          <div className="triangle-bullet triangle-right2 triangle-position-bottom-right"></div>
           <ComponentCard3/>
         </div>
+        
         {/* Espacio vacío (abajo derecha) */}
         <div style={{gridRow: 2, gridColumn: 2}}></div>
       </div>

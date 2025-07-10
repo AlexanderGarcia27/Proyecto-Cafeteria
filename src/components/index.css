@@ -3,6 +3,69 @@ body {
     font-family: Arial, sans-serif;
     min-height: 100%;
   }
+  
+  /* Estilos para los contenedores de cards */
+  .card-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  /* Estilos para los triángulos tipo viñeta */
+  .triangle-bullet {
+    width: 0;
+    height: 0;
+    flex-shrink: 0;
+    z-index: 10;
+  }
+  
+  /* Triángulo pegado a la parte superior de la card */
+  .triangle-stick-top {
+    position: absolute;
+    top: 0;
+    left: 3px;
+    transform: translateY(1255%);
+  }
+  
+  /* Triángulo arriba a la derecha */
+  .triangle-stick-top-right {
+    position: absolute;
+    top: 0;
+    right: 5px;
+    transform: translateY(5%);
+  }
+  
+  .triangle-position-bottom-right {
+    position: absolute;
+    bottom: 0;
+    right: 5px;
+    transform: translateY(10%);
+  }
+  
+      
+  /* Triángulo orientado hacia la izquierda */
+  .triangle-left {
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    border-right: 20px solid #fff;
+  }
+  
+  /* Triángulo orientado hacia la derecha */
+  .triangle-right {
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    border-left: 20px solid #fff;
+  }
+  
+  /* Triángulo orientado hacia la derecha */
+  .triangle-right2 {
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    border-left: 20px solid #fff;
+  }
+  
+  
   .testimonial-card-right {
     transform: translateX(5%) translateY(105%);
   }
@@ -68,9 +131,9 @@ body {
     transform: translate(-50%, -50%);
     z-index: 1;
   }
-  .testimonial-timeline-dot.top { top: 0; }
+  .testimonial-timeline-dot.top { top: 2%; }
   .testimonial-timeline-dot.middle { top: 50%; }
-  .testimonial-timeline-dot.bottom { bottom: 0; top: auto; }
+  .testimonial-timeline-dot.bottom { bottom: 9%; top: 98%; }
   .testimonial-card {
     background: transparent;
     border-radius: 18px;
@@ -181,6 +244,22 @@ body {
     align-items: center;
     gap: 40px;
     padding: 0 20px;
+  }
+
+  .card-container1 {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+  .card-container2 {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+  .card-container3{
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
   }
 
   .testimonial-card {
