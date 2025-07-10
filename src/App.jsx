@@ -1,19 +1,12 @@
-import MenuCard from './components/ComponentMenuS4'
-import { NavbarInicio } from './components/seccion_1/navbarInicio'
-import { TextComponent } from './components/seccion_1/textComponent'
-import { Carrusel } from './components/seccion_3/carrusel'
-import { BackgroundSection } from './components/seccion_2/BackgroundSection'
-import { ImageSection } from './components/seccion_2/ImageSection'
-import { TextButtonSection } from './components/seccion_2/TextButtonSection'
-import { LoginPage } from './components/LoginPage'
-import './index.css'
 import { NavbarInicio } from './components/seccion_1/navbarInicio';
 import { TextComponent } from './components/seccion_1/textComponent';
 import BackgroundSection1 from './components/seccion_1/BackgroundSection1';
 import { BackgroundSection } from './components/seccion_2/BackgroundSection';
 import { ImageSection } from './components/seccion_2/ImageSection';
 import { TextButtonSection } from './components/seccion_2/TextButtonSection';
+import { Carrusel } from './components/seccion_3/carrusel';
 import './index.css';
+import MenuCard from './components/ComponentMenuS4'
 
 function App() {
   return (
@@ -30,13 +23,10 @@ function App() {
         </ImageSection>
         <TextButtonSection />
       </BackgroundSection>
-      <LoginPage/>
       <Carrusel/>
       <MenuCard/>
-       
     </>
   );
 }
 
-export default App
-
+export default App;
