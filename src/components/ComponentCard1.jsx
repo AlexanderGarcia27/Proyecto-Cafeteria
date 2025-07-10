@@ -36,7 +36,7 @@ const InteractiveStars = ({ rating, onChange }) => {
 const ComponentCard1 = () => {
   const [rating, setRating] = useState(testimonial.rating);
   return (
-    <div className="testimonial-card">
+    <div className="testimonial-card testimonial-card-left">
       <img className="card-bg" src={testimonial.bg} alt="bg" />
       <div className="card-content">
         <div className="profile">

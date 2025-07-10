@@ -1,4 +1,3 @@
-import React from "react";
 import ComponentCard1 from "../components/ComponentCard1";
 import ComponentCard2 from "../components/ComponentCard2";
 import ComponentCard3 from "../components/ComponentCard3";
