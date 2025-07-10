@@ -5,6 +5,7 @@ import { Carrusel } from './components/seccion_3/carrusel'
 import { BackgroundSection } from './components/seccion_2/BackgroundSection'
 import { ImageSection } from './components/seccion_2/ImageSection'
 import { TextButtonSection } from './components/seccion_2/TextButtonSection'
+import { LoginPage } from './components/LoginPage'
 import './index.css'
 
 function App() {
@@ -20,6 +21,10 @@ function App() {
         </ImageSection>
         <TextButtonSection />
       </BackgroundSection>
+      <LoginPage/>
+      <Carrusel/>
+      <MenuCard/>
+       
     </>
   )
 }
