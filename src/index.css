@@ -8,56 +8,34 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     color: #333;
-    background-image: url('./image-D.jpg');
-    background-size: cover;
-    background-attachment: scroll;
-    background-position: center center;
-    background-repeat: no-repeat;
-    min-height: 100vh;
-    padding-top: 120px;
+    padding-top: 0;
     overflow-x: hidden;
 }
 
-@media (max-width: 768px) {
-    body {
-        background-image: url('/image-P.jpg');
-        background-size: cover;
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-attachment: scroll;
-        padding-top: 100px;
-    }
-}
-
-/* Tablet breakpoint */
 @media (max-width: 1024px) {
     body {
-        padding-top: 110px;
+        padding-top: 0;
     }
 }
 
-/* Mobile breakpoint */
 @media (max-width: 768px) {
     body {
-        padding-top: 100px;
+        padding-top: 0;
     }
 }
 
-/* Small mobile breakpoint */
 @media (max-width: 480px) {
     body {
-        padding-top: 90px;
+        padding-top: 0;
     }
 }
 
-/* Estilos adicionales para mejorar la apariencia general */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-/* Responsive container */
 @media (max-width: 1024px) {
     .container {
         padding: 0 15px;
@@ -76,7 +54,6 @@ body {
     }
 }
 
-/* Estilos para el contenido principal */
 main {
     min-height: calc(100vh - 120px);
     padding: 2rem 0;
@@ -96,7 +73,6 @@ main {
     }
 }
 
-/* Utility classes for responsive design */
 .hidden-mobile {
     display: block;
 }
@@ -109,13 +85,11 @@ main {
     .hidden-mobile {
         display: none;
     }
-    
     .hidden-desktop {
         display: block;
     }
 }
 
-/* Responsive text utilities */
 .text-center {
     text-align: center;
 }
@@ -132,11 +106,9 @@ main {
     .text-center-mobile {
         text-align: center;
     }
-    
     .text-left-mobile {
         text-align: left;
     }
-    
     .text-right-mobile {
         text-align: right;
     }
