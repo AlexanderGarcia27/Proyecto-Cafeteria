@@ -7,6 +7,7 @@ import { TextButtonSection } from './components/seccion_2/TextButtonSection';
 import { Carrusel } from './components/seccion_3/carrusel';
 import './index.css';
 import MenuCard from './components/ComponentMenuS4'
+import {Contact} from './components/seccion_6/contact'
 
 function App() {
   return (
