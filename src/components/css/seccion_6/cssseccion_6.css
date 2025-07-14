@@ -46,8 +46,7 @@
   flex-direction: column;
   width: 100%;
   max-width: 900px;
-  padding-top: 15px; 
-  padding-left: 0; 
+  padding-top: 15px;
 }
 
 .input-group {
@@ -58,7 +57,7 @@
 }
 
 .input-field {
-  flex: 1 1 200px;
+  flex: 1 1 80px;
   display: flex;
   flex-direction: column;
   text-align: left;
@@ -69,15 +68,15 @@
   margin-right: 25%;
 }
 
-label {
+.contact-form label {
   margin-bottom: 5px;
   color: #ffffff;
   font-weight: 500;
   font-size: clamp(14px, 2vw, 16px);
 }
 
-input[type="text"],
-input[type="email"] {
+.contact-form input[type="text"],
+.contact-form input[type="email"] {
   padding: 12px;
   border: 1px solid #976A41;
   background-color: transparent;
@@ -113,7 +112,7 @@ textarea::placeholder {
   opacity: 0.85;
 }
 
-textarea {
+.contact-form textarea {
   padding: 12px;
   border: 1px solid #976A41;
   background-color: transparent;
@@ -126,9 +125,10 @@ textarea {
   min-height: 110px;
 }
 
-button {
+.contact-form button {
   background-color: #bc6c25;
   border: none;
+  padding: 14px 30px;
   border-radius: 30px;
   color: white;
   font-weight: bold;
@@ -136,21 +136,21 @@ button {
   cursor: pointer;
   width: fit-content;
   align-self: center;
+  margin: 75px auto 0 auto;
   transition: background 0.3s, box-shadow 0.3s;
-  margin-top: 15px;
 }
 
-button:hover {
+.contact-form button:hover {
   background-color: #a95a1c;
   box-shadow: 0 2px 8px rgba(0,0,0,0.12);
 }
 
 .contact-footer {
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
   margin-top: 60px;
-  gap: 30px;
   padding: 70px 40px 0 40px; 
   box-sizing: border-box;
   width: 100%;
@@ -170,7 +170,7 @@ button:hover {
 }
 
 .contact-info {
-  flex: 1 1 300px;
+  flex: 1 1 60px;
   min-width: 250px;
 }
 
@@ -229,26 +229,90 @@ button:hover {
   padding: 10px 40px 50px 40px;
 }
 
-/* Tablet */
-@media (max-width: 1024px) {
+/* Tablet grande */
+@media (max-width: 1024px) and (min-width: 769px) {
   .contact-container {
     padding: 100px 30px 30px 30px;
   }
   
-  .contact-footer {
-    padding: 50px 30px 0 30px;
-    gap: 25px;
+  .contact-form {
+    padding-right: calc(15% + 60px);
+    padding-left: calc(15% + 60px);
+    align-items: center;
+  }
+
+  input[type="text"],
+  input[type="email"] {
+    width: 85%;
+  }
+
+  textarea {
+    width: 85%;
+    margin: 0 auto;
   }
   
-  .footer-note {
-    padding: 10px 30px 40px 30px;
+  .input-field {
+    width: 100%;
+    align-items: center;
   }
-  .social-icon i {
-    font-size: 18px;
+
+  .contact-footer {
+    padding: 70px 15% 0 15%;
+  }
+
+  .contact-info {
+    flex: 1 1 60px;
+    min-width: 200px;
+    max-width: 250px;
   }
 }
 
-/* Responsivo */
+/* Tablet mediana */
+@media (max-width: 768px) and (min-width: 601px) {
+  .contact-section {
+    background: 
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(188, 108, 37, 1)),
+      url('/src/assets/pagina-contacto/mihai-moisa-Djtc1T38-GY-unsplash.jpg') no-repeat center center / cover;
+    min-height: 100vh;
+  }
+
+  .contact-container {
+    padding: 80px 20px 20px 20px;
+  }
+
+  .contact-form {
+    padding-right: calc(12% + 60px);
+    padding-left: calc(12% + 60px);
+    align-items: center;
+  }
+
+  input[type="text"],
+  input[type="email"] {
+    width: 85%;
+  }
+
+  textarea {
+    width: 85%;
+    margin: 0 auto;
+  }
+
+  .input-field {
+    width: 100%;
+    align-items: center;
+  }
+
+  .contact-footer {
+    padding: 70px 12% 0 12%;
+  }
+
+  .contact-info {
+    flex: 1 1 60px;
+    min-width: 180px;
+    max-width: 220px;
+  }
+}
+
+/* Tablet pequeña y móvil grande */
 @media (max-width: 768px) {
   .contact-section {
     background: 
@@ -270,9 +334,15 @@ button:hover {
   .contact-form {
     max-width: 100%;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0 20px;
+    box-sizing: border-box;
   }
 
   .input-group {
+    width: 100%;
     flex-direction: column;
     gap: 15px;
   }
@@ -280,6 +350,26 @@ button:hover {
   .input-field {
     flex: none;
     width: 100%;
+    margin: 0;
+    align-items: stretch;
+  }
+
+  .input-field label {
+    text-align: left;
+    width: 100%;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  .input-help {
+    width: 100%;
+    margin: 0;
   }
 
   .contact-footer {
@@ -311,52 +401,77 @@ button:hover {
     padding: 5px 20px 5px 20px;
   }
 
+ 
+
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    width: 100%;
+    margin: 0;
+  }
 }
 
-/* Móvil pequeño */
-@media (max-width: 480px) {
-  .contact-container {
-    padding: 15px 15px 15px 15px;
-  }
-
-  .contact-container h1 {
-    font-size: 28px;
-  }
-
-  .contact-container h3 {
-    font-size: 16px;
-  }
-
-  .contact-footer {
-    padding: 15px 15px 0 15px;
-    gap: 10px;
-    margin-top: 40px;
-  }
-
-  .footer-note {
-    padding: 5px 15px 5px 15px;
+/* Móvil mediano */
+@media (max-width: 600px) {
+  .input-field {
+    width: 100%;
   }
 
   input[type="text"],
   input[type="email"],
   textarea {
+    width: 100%;
+  }
+}
+
+/* Móvil pequeño */
+@media (max-width: 480px) {
+  .contact-form .input-field {
+    width: 100%;
+  }
+
+  .contact-form input[type="text"],
+  .contact-form input[type="email"],
+  .contact-form textarea {
+    width: 100%;
     padding: 10px;
-    font-size: 16px; /* Evita zoom en iOS */
   }
 
-  .social-icons {
-    margin-top: 30px;
+  .contact-form button {
+    font-size: 16px;
+  }
+}
+
+/* Móvil muy pequeño */
+@media (max-width: 360px) {
+  .contact-form .input-field {
+    width: 100%;
   }
 
-  #h4-footer {
-    margin-bottom: 0rem !important;
+  .contact-form input[type="text"],
+  .contact-form input[type="email"],
+  .contact-form textarea {
+    width: 100%;
   }
+}
 
+/* Si quieres ajustar el margen solo en desktop: */
+@media (min-width: 900px) {
+  .contact-form button {
+    margin: 75px 0 0 0; /* Puedes ajustar aquí si quieres alinearlo diferente en desktop */
+  }
+}
+
+/* En tablet y desktop: en fila */
+@media (min-width: 600px) {
+  .contact-footer {
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 48px; /* Espacio entre bloques */
+  }
   .contact-info {
-    padding: 1px 0 0px 0;
-    flex: 1 1 100px;
-  }
-  .social-icon i {
-    font-size: 20px;
+    min-width: 200px; /* Opcional: ancho mínimo para cada bloque */
+    text-align: left;  /* Opcional: alinea el texto a la izquierda */
   }
 }
