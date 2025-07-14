@@ -26,6 +26,7 @@ function App() {
       </BackgroundSection>
       <Carrusel/>
       <MenuCard/>
+      <Contact/>
     </>
   );
 }

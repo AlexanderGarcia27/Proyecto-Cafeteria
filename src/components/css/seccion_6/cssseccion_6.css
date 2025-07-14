@@ -129,7 +129,6 @@ textarea {
 button {
   background-color: #bc6c25;
   border: none;
-  padding: 14px 30px;
   border-radius: 30px;
   color: white;
   font-weight: bold;
@@ -137,7 +136,6 @@ button {
   cursor: pointer;
   width: fit-content;
   align-self: center;
-  margin-right: 27%;
   transition: background 0.3s, box-shadow 0.3s;
   margin-top: 15px;
 }
@@ -313,11 +311,6 @@ button:hover {
     padding: 5px 20px 5px 20px;
   }
 
-  button {
-    width: 100%;
-    max-width: 250px;
-    margin-top: 25px;
-  }
 }
 
 /* Móvil pequeño */
@@ -349,12 +342,6 @@ button:hover {
   textarea {
     padding: 10px;
     font-size: 16px; /* Evita zoom en iOS */
-  }
-
-  button {
-    padding: 12px 20px;
-    font-size: 16px;
-    margin-top: 75px;
   }
 
   .social-icons {

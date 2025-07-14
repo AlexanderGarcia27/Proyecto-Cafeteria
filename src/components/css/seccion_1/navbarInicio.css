@@ -11,7 +11,7 @@
     margin-left: 3rem;
     margin-right: 3rem;
     border-radius: 16px;
-    z-index: 1000;
+    z-index: 9999;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -142,12 +142,13 @@ nav.nav-links a.nav-link {
         box-shadow: 0 2px 16px 0 rgba(0,0,0,0.10);
         background: rgba(20, 20, 20, 0.45);
         backdrop-filter: blur(1px);
-        z-index: 1000;
+        z-index: 9999;
     }
 
     .burger-menu {
         order: 3;
         margin-left: auto;
+        z-index: 10000;
     }
     .logo-desktop {
         display: none !important;
@@ -207,7 +208,7 @@ nav.nav-links a.nav-link {
     background: transparent;
     border: none;
     cursor: pointer;
-    z-index: 2000;
+    z-index: 10000;
     position: relative;
 }
 
@@ -271,7 +272,7 @@ nav.nav-links a.nav-link {
     color: #fff;
     font-size: 2.5rem;
     cursor: pointer;
-    z-index: 3100;
+    z-index: 10002;
 }
 
 .drawer-overlay {
@@ -281,7 +282,7 @@ nav.nav-links a.nav-link {
     width: 100vw;
     height: 100vh;
     background: rgba(20, 20, 20, 0.5);
-    z-index: 3000;
+    z-index: 10001;
     display: flex;
     align-items: stretch;
     justify-content: flex-start;
@@ -317,7 +318,7 @@ nav.nav-links a.nav-link {
     color: #fff;
     font-size: 2.5rem;
     cursor: pointer;
-    z-index: 3100;
+    z-index: 10002;
 }
 
 .burger-nav-links {
