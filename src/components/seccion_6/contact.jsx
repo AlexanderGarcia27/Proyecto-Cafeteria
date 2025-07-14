@@ -6,7 +6,7 @@ export const Contact = () => {
     <div className="contact-section">
       <div className="overlay">
         <div className="contact-container">
-          <h3>Saluda</h3>
+          <h3>Saludar</h3>
           <h1>Contacto</h1>
           <form className="contact-form">
             <div className="input-group">
