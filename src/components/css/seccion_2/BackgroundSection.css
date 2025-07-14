@@ -1,0 +1,19 @@
+.section2-background {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 85vh;
+  height: 700px;
+  background: #5a4327;
+  padding: 4.5rem 0;
+}
+
+@media (max-width: 900px) {
+  .section2-background {
+    flex-direction: column;
+    padding: 2rem 0;
+    height: auto;
+    min-height: unset;
+    align-items: center;
+  }
+} 
