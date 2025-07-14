@@ -8,6 +8,7 @@ import { Carrusel } from './components/seccion_3/carrusel';
 import './index.css';
 import MenuCard from './components/ComponentMenuS4'
 import {Contact} from './components/seccion_6/contact'
+import ComponentTestimonialS5 from './components/ComponentTestimonialS5'
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
       </BackgroundSection>
       <Carrusel/>
       <MenuCard/>
+      <ComponentTestimonialS5/>
       <Contact/>
     </>
   );
