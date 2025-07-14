@@ -19,11 +19,11 @@ export const BurgerMenu = () => {
           <div className="drawer" onClick={e => e.stopPropagation()}>
             <button className="close-burger" onClick={() => setOpen(false)}>&times;</button>
             <nav className="burger-nav-links">
-              <a href="#" className="nav-link active">Home</a>
-              <a href="#" className="nav-link">About</a>
-              <a href="#" className="nav-link">Our Menu</a>
-              <a href="#" className="nav-link">Reviews</a>
-              <a href="#" className="nav-link">Contact</a>
+              <a href="#" className="nav-link">Inicio</a>
+              <a href="#" className="nav-link">Conócenos</a>
+              <a href="#" className="nav-link">Menús</a>
+              <a href="#" className="nav-link">Reseñas</a>
+              <a href="#" className="nav-link">Contacto</a>
               <button className="reservation-btn" style={{marginTop: '2rem'}}>
                 Reservation <span>↗</span>
               </button>
