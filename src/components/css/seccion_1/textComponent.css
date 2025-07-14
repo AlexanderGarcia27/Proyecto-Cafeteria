@@ -60,7 +60,7 @@ body {
     height: 240px;
     position: absolute;
     top: 8.5rem;
-    right: 2rem;
+    right: 1rem;
     background: rgba(20, 20, 20, 0.65);
     transform: rotate(135deg);
     border-radius: 15px;
@@ -129,31 +129,38 @@ body {
 }
 
 .btn {
-    border: none;
-    border-radius: 2rem;
-    font-size: 1.1rem;
-    font-weight: 600;
-    padding: 0.7rem 2rem;
-    cursor: pointer;
-    transition: background 0.2s, color 0.2s;
-    min-width: 140px;
+  border: none;
+  border-radius: 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 0.7rem 2rem;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  min-width: 140px;
 }
 
 .btn-white {
-    color: #fff;
-    background: rgba(20, 20, 20, 0.20);
+  color: #fff;
+  background: rgba(20, 20, 20, 0.60);
 }
 
 .btn-orange {
-    background: #c97a2b;
-    color: #fff;
+  background: #c97a2b;
+  color: #fff;
 }
 
-.btn-orange:hover, .btn-white:hover {
-    opacity: 0.85;
+.btn-white:hover {
+  background: #fff;
+  color: #000;
+  box-shadow: 0 2px 8px rgba(201, 122, 43, 0.15);
 }
 
-/* Estilos para el contenido adicional */
+.btn-orange:hover {
+  background: #d5914d;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(201, 122, 43, 0.15);
+}
+
 .additional-content {
     padding: 4rem 2rem;
     max-width: 1200px;
@@ -224,7 +231,7 @@ body {
 }
 
 /* Mobile breakpoint */
-@media (max-width: 768px) {
+@media (max-width: 500px) {
     .text-container {
         min-height: 100vh;
         display: flex;
@@ -436,10 +443,10 @@ body {
     text-align: center;
   }
   .rectangulo {
-    width: 230px;
-    height: 200px;
+    width: 350px;
+    height: 250px;
     top: 7rem;
-    right: 12rem;
+    right: 1rem;
   }
 }
 
@@ -463,3 +470,32 @@ body {
   }
 }
 
+@media (max-width: 380px) {
+  .text-container {
+    padding: 0.5rem 0.2rem;
+  }
+  .main-title {
+    font-size: 2rem;
+  }
+  .subtitle {
+    font-size: 1rem;
+  }
+  .welcome-text {
+    font-size: 0.9rem;
+  }
+  .button-row {
+    gap: 0.5rem;
+  }
+  .btn {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    min-width: 90px;
+  }
+  .rectangulo{
+    width: 220px;
+    height: 150px;
+    top: 9rem;
+    right: 2rem;
+    border-radius: 8px;
+  }
+}
