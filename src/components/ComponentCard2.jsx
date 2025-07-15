@@ -3,8 +3,8 @@ import "../components/index.css";
 const testimonial = {
     name: " Roberto",
     role: "Cliente",
-    img: "https://randomuser.me/api/portraits/men/32.jpg",
-    bg: "https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=400&q=80",
+    img: "https://firebasestorage.googleapis.com/v0/b/integradora-314a9.appspot.com/o/perfil2.jpg?alt=media&token=2c8e89e1-c7ff-40d8-84a3-6f8caede24e2",
+    bg: "https://firebasestorage.googleapis.com/v0/b/integradora-314a9.appspot.com/o/g-l-B4vRi4uc4kM-unsplash.jpg?alt=media&token=45152f59-8073-4223-9a2f-483d24bb5a68",
     text: "Vine por recomendación y quedé fascinado. Sus chilaquiles son deliciosos y el café, de verdad, tiene un sabor único. Un rincón auténtico en Hidalgo.",
     rating: 5
 };

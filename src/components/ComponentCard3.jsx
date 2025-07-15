@@ -3,8 +3,8 @@ import "../components/index.css";
 const testimonial = {
     name: "Alfredo",
     role: "Cliente Nueva",
-    img: "../assets/perfil1.jpg",
-    bg: "https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=400&q=",
+    img: "https://firebasestorage.googleapis.com/v0/b/integradora-314a9.appspot.com/o/perfil3.jpg?alt=media&token=cf92f475-6105-4cc0-ad96-6cfba318aa5e",
+    bg: "https://firebasestorage.googleapis.com/v0/b/integradora-314a9.appspot.com/o/g-l-0ERCY889EBw-unsplash.jpg?alt=media&token=aa6f633a-f2d6-47c3-9f03-dd2dee6b5e48",
     text: "Descubrí esta cafetería hace poco y ya es un imprescindible. Su latte art es hermoso y el café con leche es mi nuevo favorito. ¡Volveré pronto!",
     rating: 5
 };
