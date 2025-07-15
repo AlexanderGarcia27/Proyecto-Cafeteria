@@ -644,5 +644,11 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .triangle-bullet {
+    display: none !important;
+  }
+}
+
  
  
