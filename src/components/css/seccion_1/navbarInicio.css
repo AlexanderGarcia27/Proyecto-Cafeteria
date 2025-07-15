@@ -92,6 +92,10 @@ nav.nav-links a.nav-link {
     font-weight: 700;
     color: #fff;
 }
+#navbarInicio {
+    position: fixed;
+    z-index: 9999 !important;
+  }
 
 @media (max-width: 768px) {
     .logo {

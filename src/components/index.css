@@ -18,7 +18,7 @@
     width: 0;
     height: 0;
     flex-shrink: 0;
-    z-index: 10;
+   
   }
   
   /* Triángulo pegado a la parte superior de la card */
@@ -26,22 +26,22 @@
     position: absolute;
     top: 0;
     left: 2px;
-    transform: translateY(1330%);
+    transform: translateY(1370%);
   }
   
   /* Triángulo arriba a la derecha */
   .triangle-stick-top-right {
     position: absolute;
     top: 0;
-    right: 2.8px;
-    transform: translateY(1%);
+    right: 8px;
+    transform: translateY(2%);
   }
   
   .triangle-position-bottom-right {
     position: absolute;
     bottom: 0;
-    right: 3px;
-    transform: translateY(10%);
+    right: 8px;
+    transform: translateY(1%);
   }
   
       
@@ -119,7 +119,7 @@
     width: 3px;
     background: #fff;
     transform: translateX(-50%);
-    z-index: 0;
+    
   }
   .testimonial-timeline-dot {
     position: absolute;
@@ -130,7 +130,7 @@
     border: 3px solid #7d5b52;
     border-radius: 50%;
     transform: translate(-50%, -50%);
-    z-index: 1;
+   
   }
   .testimonial-timeline-dot.top { top: 2%; }
   .testimonial-timeline-dot.middle { top: 50%; }
@@ -143,7 +143,7 @@
     overflow: hidden;
     width: 370px;
     max-width: 90vw;
-    z-index: 2;
+   
     display: flex;
     flex-direction: column;
     padding: 0;
