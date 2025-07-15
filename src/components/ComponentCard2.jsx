@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import "../components/index.css";
 const testimonial = {
-    name: "Don",
-    role: "Customers",
+    name: " Roberto",
+    role: "Cliente",
     img: "https://randomuser.me/api/portraits/men/32.jpg",
     bg: "https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=400&q=80",
-    text: "Lorem ipsum dolor sit amet, consectetur a  dipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    rating: 4.5
+    text: "Vine por recomendación y quedé fascinado. Sus chilaquiles son deliciosos y el café, de verdad, tiene un sabor único. Un rincón auténtico en Hidalgo.",
+    rating: 5
 };
 
 const InteractiveStars = ({ rating, onChange }) => {

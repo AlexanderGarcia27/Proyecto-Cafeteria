@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import "../components/index.css";
 const testimonial = {
-    name: "Sandra",
-    role: "Customers",
+    name: "Luis",
+    role: "Clienta Frecuente",
     img: "https://randomuser.me/api/portraits/women/68.jpg",
     bg: "https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=400&q=80",
-    text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    rating: 4.5
+    text: "¡El mejor café de Zacualtipán! Siempre me siento como en casa, el ambiente es increíble y el servicio de sus baristas es excepcional. ¡Mi lugar favorito para empezar el día!",
+    rating: 5
 };
 
 const InteractiveStars = ({ rating, onChange }) => {

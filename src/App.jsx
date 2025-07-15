@@ -26,6 +26,7 @@ function App() {
         <TextButtonSection />
       </BackgroundSection>
       <Carrusel/>
+      <MenuCard/> 
       <ComponentTestimonialS5/>
       <Contact/>
     </>
