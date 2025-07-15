@@ -1,5 +1,6 @@
 import '../css/seccion_1/navbarInicio.css'
 import { BurgerMenu } from './BurgerMenu'
+import {Link} from "react-router"
 
 export const NavbarInicio = () => {
     return (
@@ -20,9 +21,9 @@ export const NavbarInicio = () => {
                     <a href="#" className="nav-link">Menús</a>
                     <a href="#" className="nav-link">Reseñas</a>
                     <a href="#" className="nav-link">Contacto</a>
-                    <button className="reservation-btn">
+                    <Link to="/reservacion" className='reservation-btn' style={{textDecoration: "none"}} >
                         Reservacion <span>↗</span>
-                    </button>
+                    </Link>
                 </div>
             </div>
         </nav>
