@@ -1,4 +1,5 @@
-import imagenFondo from '../assets/cafeF.jpg';
+import imagenFondo from '../assets/fondo.jpg';
+import imagenCel from '../assets/fondo_cel.jpg';
 import './menu.css';
 const MenuCard = () => {
     return (
@@ -12,6 +13,13 @@ const MenuCard = () => {
                 background-repeat: no-repeat; 
                 background-attachment: fixed; 
                 width: 100%;
+            }
+            
+            /* Cambiar imagen de fondo para dispositivos móviles y tablets */
+            @media (max-width: 1024px) {
+                .menuXD {
+                    background-image: url(${imagenCel});
+                }
             }
             `}
         </style>

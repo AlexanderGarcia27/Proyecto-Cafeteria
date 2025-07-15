@@ -3,8 +3,8 @@ import "../components/index.css";
 const testimonial = {
     name: "Luis",
     role: "Clienta Frecuente",
-    img: "https://randomuser.me/api/portraits/women/68.jpg",
-    bg: "https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=400&q=80",
+    img: "https://firebasestorage.googleapis.com/v0/b/integradora-314a9.appspot.com/o/perfil1.jpg?alt=media&token=b658fc02-396c-40b8-91af-0377a4aef491",
+    bg: "https://firebasestorage.googleapis.com/v0/b/integradora-314a9.appspot.com/o/michael-boskovski-CY2N4pZmsbw-unsplash.jpg?alt=media&token=85318670-4027-45df-85c5-3bacd244d87a  ",
     text: "¡El mejor café de Zacualtipán! Siempre me siento como en casa, el ambiente es increíble y el servicio de sus baristas es excepcional. ¡Mi lugar favorito para empezar el día!",
     rating: 5
 };

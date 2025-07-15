@@ -26,7 +26,7 @@
     position: absolute;
     top: 0;
     left: 2px;
-    transform: translateY(1230%);
+    transform: translateY(1330%);
   }
   
   /* Triángulo arriba a la derecha */
@@ -641,6 +641,12 @@
     margin: 20px 0 0 0;
     padding-bottom: 16px;
     min-height: 30px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .triangle-bullet {
+    display: none !important;
   }
 }
 
