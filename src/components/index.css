@@ -649,6 +649,15 @@
     display: none !important;
   }
 }
+@media (max-width: 1024px) {
+  .testimonial-timeline {
+    display: none !important;
+  }
+}
+@media (max-width: 1024px) {
+  .testimonial-timeline-dot {
+    display: none !important;
+  }
+}
 
- 
  

@@ -9,33 +9,24 @@ const testimonial = {
     rating: 5
 };
 
-const InteractiveStars = ({ rating, onChange }) => {
-  const [hovered, setHovered] = useState(null);
-  return (
-    
-    <span className="testimonial-stars">
-      {[1, 2, 3, 4, 5].map((star) => (
-        <span
-          key={star}
-          style={{
-            cursor: "pointer",
-            color: (hovered || rating) >= star ? "#fff" : "#bdbdbd",
-            fontSize: "1.2rem",
-            transition: "color 0.2s"
-          }}
-          onMouseEnter={() => setHovered(star)}
-          onMouseLeave={() => setHovered(null)}
-          onClick={() => onChange(star)}
-        >
-          ★
-        </span>
-      ))}
-    </span>
-  );
-};
+const FixedStars = ({ rating }) => (
+  <span className="testimonial-stars">
+    {[1, 2, 3, 4, 5].map((star) => (
+      <span
+        key={star}
+        style={{
+          color: rating >= star ? "#fff" : "#bdbdbd",
+          fontSize: "1.2rem",
+        }}
+      >
+        ★
+      </span>
+    ))}
+  </span>
+);
 
 const ComponentCard2 = () => {
-  const [rating, setRating] = useState(testimonial.rating);
+  const rating = testimonial.rating;
   return (
     <div className="testimonial-card testimonial-card-right">
       <img className="card-bg" src={testimonial.bg} alt="bg" />
@@ -52,7 +43,7 @@ const ComponentCard2 = () => {
       <div className="divider"></div>
       <div className="testimonial-footer">
         <span className="testimonial-rating">{rating}&nbsp;&nbsp;Rating</span>
-        <InteractiveStars rating={rating} onChange={setRating} />
+        <FixedStars rating={rating} />
       </div>
     </div>
   );
