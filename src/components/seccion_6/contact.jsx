@@ -7,6 +7,7 @@ export const Contact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [successMsg, setSuccessMsg] = useState("");
 
   const handleSubmit = async(e) => {
     e.preventDefault();
@@ -18,7 +19,20 @@ export const Contact = () => {
     }
 
     const result = await sendEmail(data);
-    console.log(result);
+
+    if (result && result.message && !result.message.toLowerCase().includes("error")) {
+      setSuccessMsg("¡Mensaje enviado correctamente!");
+      setName("");
+      setEmail("");
+      setMessage("");
+      console.log("Mensaje enviado correctamente");
+      setTimeout(() => {
+        window.location.reload();
+      }, 2000);
+    } else {
+      setSuccessMsg("Hubo un error al enviar el mensaje. Inténtalo de nuevo.");
+      console.log("Hubo un error al enviar el mensaje");
+    }
   }
 
 
@@ -28,6 +42,9 @@ export const Contact = () => {
         <div className="contact-container">
           <h3>Saludar</h3>
           <h1>Contacto</h1>
+          {successMsg && (
+            <div className="success-message">{successMsg}</div>
+          )}
           <form className="contact-form" onSubmit={handleSubmit}>
             <div className="input-group">
               <div className="input-field">
