@@ -7,7 +7,8 @@ function App() {
   
   return (
     <>
-    {/*<ComponentMenuS4/>*/}
+    {/**/}
+    <ComponentMenuS4/>
     <ComponentTestimonialS5/>
     </>
   )

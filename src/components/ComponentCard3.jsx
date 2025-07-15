@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import "../components/index.css";
 const testimonial = {
-    name: "Olivia",
-    role: "Customers",
-    img: "https://randomuser.me/api/portraits/women/65.jpg",
-    bg: "https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=400&q=80",
-    text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    rating: 4.5
+    name: "Alfredo",
+    role: "Cliente Nueva",
+    img: "../assets/perfil1.jpg",
+    bg: "https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=400&q=",
+    text: "Descubrí esta cafetería hace poco y ya es un imprescindible. Su latte art es hermoso y el café con leche es mi nuevo favorito. ¡Volveré pronto!",
+    rating: 5
 };
 
 const InteractiveStars = ({ rating, onChange }) => {
