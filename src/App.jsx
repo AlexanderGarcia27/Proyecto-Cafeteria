@@ -17,7 +17,6 @@ function App() {
         <NavbarInicio />
         <TextComponent />
       </BackgroundSection1>
-      
       <BackgroundSection>
         <ImageSection src="../src/assets/imagenes_2/image_2.jpg" alt="Cafe KL">
           <div className="section2-image-text">
@@ -27,7 +26,6 @@ function App() {
         <TextButtonSection />
       </BackgroundSection>
       <Carrusel/>
-      <MenuCard/>
       <ComponentTestimonialS5/>
       <Contact/>
     </>
