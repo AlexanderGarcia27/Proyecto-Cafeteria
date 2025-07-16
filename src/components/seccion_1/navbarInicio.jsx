@@ -1,6 +1,6 @@
 import '../css/seccion_1/navbarInicio.css'
 import { BurgerMenu } from './BurgerMenu'
-import {Link} from "react-router"
+import { Link } from "react-router"
 
 export const NavbarInicio = () => {
     return (
@@ -16,12 +16,13 @@ export const NavbarInicio = () => {
                     <span className="logo-text">Barista</span>
                 </div>
                 <div className="nav-links">
-                    <a href="#" className="nav-link">Inicio</a>
-                    <a href="#" className="nav-link">Conócenos</a>
-                    <a href="#" className="nav-link">Menús</a>
-                    <a href="#" className="nav-link">Reseñas</a>
-                    <a href="#" className="nav-link">Contacto</a>
-                    <Link to="/reservacion" className='reservation-btn' style={{textDecoration: "none"}} >
+                    <a href="#inicio" className="nav-link">Inicio</a>
+                    <a href="#conocenos" className="nav-link">Conócenos</a>
+                    <a href="#baristas" className="nav-link">Baristas</a>
+                    <a href="#menu" className="nav-link">Menús</a>
+                    <a href="#reseñas" className="nav-link">Reseñas</a>
+                    <a href="#contacto" className="nav-link">Contacto</a>
+                    <Link to="/reservacion" className='reservation-btn' style={{ textDecoration: "none" }} >
                         Reservacion <span>↗</span>
                     </Link>
                 </div>

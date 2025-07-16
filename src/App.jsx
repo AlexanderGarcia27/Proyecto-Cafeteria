@@ -13,10 +13,13 @@ import ComponentTestimonialS5 from './components/ComponentTestimonialS5'
 function App() {
   return (
     <>
+      <div id='inicio'>
       <BackgroundSection1>
         <NavbarInicio />
         <TextComponent />
       </BackgroundSection1>
+      </div>
+      <div id='conocenos'>
       <BackgroundSection>
         <ImageSection src="../src/assets/imagenes_2/image_2.jpg" alt="Cafe KL">
           <div className="section2-image-text">
@@ -25,10 +28,19 @@ function App() {
         </ImageSection>
         <TextButtonSection />
       </BackgroundSection>
-      <Carrusel/>
-      <MenuCard/>
-      <ComponentTestimonialS5/>
-      <Contact/>
+      </div>
+      <div id='baristas'>
+        <Carrusel/>
+      </div>
+      <div id='menu'>
+        <MenuCard/>
+      </div>
+      <div id='reseñas'>
+        <ComponentTestimonialS5/>
+      </div>
+      <div id='contacto'>
+        <Contact/>
+      </div> 
     </>
   );
 }
