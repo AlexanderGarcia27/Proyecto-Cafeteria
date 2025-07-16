@@ -49,7 +49,7 @@ const MenuCard = () => {
 
                 <div className="menu-item-row">
                     <span className="menu-item-name"> Chilaquiles Rojos o Verdes
-                        <span className="recommend-badge">Recommend</span>
+                        <span className="recommend-badge">Recomendado</span>
                     </span>
                     <span className="menu-item-price">150.00</span>
                 </div>
@@ -93,7 +93,7 @@ const MenuCard = () => {
 
                 <div className="menu-item-row">
                     <span className="menu-item-name">Café con Leche Clásico 
-                        <span className="recommend-badge">Recommend</span>
+                        <span className="recommend-badge">Recomendado</span>
                     </span>
                     <span className="menu-item-price">59.00</span>
                 </div>
