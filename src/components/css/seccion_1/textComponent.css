@@ -137,6 +137,8 @@ body {
   cursor: pointer;
   transition: background 0.2s, color 0.2s, box-shadow 0.2s;
   min-width: 140px;
+  text-decoration: none;
+  display: inline-block;
 }
 
 .btn-white {

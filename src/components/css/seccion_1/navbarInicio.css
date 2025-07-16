@@ -140,11 +140,11 @@ nav.nav-links a.nav-link {
     }
 
     .nav-links {
-        gap: 1rem;
+        gap: 0.8rem;
     }
 
     .nav-link {
-        font-size: 15px;
+        font-size: 13px;
     }
 
     .reservation-btn {
@@ -501,7 +501,7 @@ nav.nav-links a.nav-link {
         width: 60vw;
         max-width: 80vw;
         min-width: 120px;
-        height: 70vh;
+        height: 80vh;
         padding: 1rem 0.5rem 1rem 0.5rem;
         border-radius: 0 1rem 1rem 0;
         overflow-y: hidden;
