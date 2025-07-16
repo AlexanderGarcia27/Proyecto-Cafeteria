@@ -75,7 +75,7 @@ export const Contact = () => {
         </div>
 
         <div className="footer-note">
-          <p>Copyright ©</p>
+          <p>Copyright © {new Date().getFullYear()}</p>
         </div>
       </div>
     </div>
