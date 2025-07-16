@@ -17,6 +17,7 @@ export const NavbarInicio = () => {
                 <div className="nav-links">
                     <a href="#inicio" className="nav-link">Inicio</a>
                     <a href="#conocenos" className="nav-link">Conócenos</a>
+                    <a href="#baristas" className="nav-link">Baristas</a>
                     <a href="#menu" className="nav-link">Menús</a>
                     <a href="#reseñas" className="nav-link">Reseñas</a>
                     <a href="#contacto" className="nav-link">Contacto</a>
