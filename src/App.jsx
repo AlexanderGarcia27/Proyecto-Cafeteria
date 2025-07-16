@@ -9,10 +9,11 @@ import './index.css';
 function App() {
   return (
     <>
-      <BackgroundSection1>
+      <BackgroundSection1 id='inicio'>
         <NavbarInicio />
         <TextComponent />
       </BackgroundSection1>
+      <div id='conocenos'>
       <BackgroundSection>
         <ImageSection src="../src/assets/imagenes_2/image_2.jpg" alt="Cafe KL">
           <div className="section2-image-text">
@@ -21,6 +22,7 @@ function App() {
         </ImageSection>
         <TextButtonSection />
       </BackgroundSection>
+      </div>
     </>
   );
 }
