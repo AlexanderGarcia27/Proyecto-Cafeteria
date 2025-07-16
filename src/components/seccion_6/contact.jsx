@@ -8,9 +8,20 @@ export const Contact = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [successMsg, setSuccessMsg] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Función para obtener el año actual
+  const getCurrentYear = () => {
+    return new Date().getFullYear();
+  };
 
   const handleSubmit = async(e) => {
     e.preventDefault();
+    
+    // Evitar múltiples envíos
+    if (isSubmitting) return;
+    
+    setIsSubmitting(true);
 
     const data = {
       name,
@@ -18,20 +29,27 @@ export const Contact = () => {
       message
     }
 
-    const result = await sendEmail(data);
+    try {
+      const result = await sendEmail(data);
 
-    if (result && result.message && !result.message.toLowerCase().includes("error")) {
-      setSuccessMsg("¡Mensaje enviado correctamente!");
-      setName("");
-      setEmail("");
-      setMessage("");
-      console.log("Mensaje enviado correctamente");
-      setTimeout(() => {
-        window.location.reload();
-      }, 2000);
-    } else {
+      if (result && result.message && !result.message.toLowerCase().includes("error")) {
+        setSuccessMsg("¡Mensaje enviado correctamente!");
+        setName("");
+        setEmail("");
+        setMessage("");
+        console.log("Mensaje enviado correctamente");
+        setTimeout(() => {
+          window.location.reload();
+        }, 2000);
+      } else {
+        setSuccessMsg("Hubo un error al enviar el mensaje. Inténtalo de nuevo.");
+        console.log("Hubo un error al enviar el mensaje");
+      }
+    } catch (error) {
+      console.error("Error en el envío:", error);
       setSuccessMsg("Hubo un error al enviar el mensaje. Inténtalo de nuevo.");
-      console.log("Hubo un error al enviar el mensaje");
+    } finally {
+      setIsSubmitting(false);
     }
   }
 
@@ -60,7 +78,9 @@ export const Contact = () => {
               <label>¿En qué podemos ayudarte?</label>
               <textarea placeholder="Inserta aquí tu duda" className="input-help" value={message} onChange={(e) => setMessage(e.target.value)} />
             </div>
-            <button type="submit">Enviar Mensaje</button>
+            <button type="submit" disabled={isSubmitting}>
+              {isSubmitting ? "Enviando..." : "Enviar Mensaje"}
+            </button>
           </form>
         </div>
 
@@ -112,7 +132,7 @@ export const Contact = () => {
         </div>
 
         <div className="footer-note">
-          <p>Copyright ©</p>
+          <p>Copyright © {getCurrentYear()}</p>
         </div>
       </div>
     </div>
