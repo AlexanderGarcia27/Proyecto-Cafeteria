@@ -4,7 +4,11 @@
   padding: 60px 20px;
   background-color: #b78752;
   color: white;
+<<<<<<< HEAD
+  width: auto;
+=======
   width: auto
+>>>>>>> 812edb8b24ae57d4e0ef0cf7494e7a3fd31986d7
   
 }
 
@@ -152,9 +156,10 @@
   right: 11px;
 }
 
+/* Responsive Design - Tablet */
 @media (max-width: 1024px) and (min-width: 768px) {
   .carousel-wrapper {
-    width: calc((286px * 2) + 30px); 
+    width: calc((286px * 2) + 30px); /* Ancho de 2 cards + 1 gap */
   }
   
   .heading {
@@ -170,6 +175,7 @@
   }
 }
 
+/* Responsive Design - Mobile */
 @media (max-width: 767px) {
   .carousel-wrapper {
     width: 100%;
@@ -208,7 +214,7 @@
   }
   
   .arrow {
-    display: none;
+    display: none; /* Ocultar flechas en móvil */
   }
   
   .team-section {

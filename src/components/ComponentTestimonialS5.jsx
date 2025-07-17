@@ -5,11 +5,12 @@ import "../components/index.css";
 
 const ComponentTestimonialS5 = () => {
   return (
+    <div className="testimonialXD">
     <div className="testimonial-section">
     
       <div className="testimonial-header">
-        <p>Reviews by Customers</p>
-        <h1>Testimonials</h1>
+        <p>Opiniones de clientes</p>
+        <h1>Testimonios</h1>
       </div>
       <div className="testimonial-grid">
         <div className="testimonial-timeline"></div>
@@ -38,6 +39,7 @@ const ComponentTestimonialS5 = () => {
         {/* Espacio vacío (abajo derecha) */}
         <div style={{gridRow: 2, gridColumn: 2}}></div>
       </div>
+    </div>
     </div>
   );
 };

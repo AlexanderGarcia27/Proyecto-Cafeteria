@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import {Link} from "react-router"
 
 export const BurgerMenu = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <>  
+    <>
       <button
         className="burger-menu"
         onClick={() => setOpen(true)}
@@ -25,9 +26,9 @@ export const BurgerMenu = () => {
               <a href="#menu" className="nav-link">Menús</a>
               <a href="#reseñas" className="nav-link">Reseñas</a>
               <a href="#contacto" className="nav-link">Contacto</a>
-              <button className="reservation-btn" style={{marginTop: '2rem'}}>
-                Reservation <span>↗</span>
-              </button>
+              <Link to="/reservacion" className='reservation-btn' style={{ textDecoration: "none" }} >
+                Reservacion <span>↗</span>
+              </Link>
             </nav>
           </div>
         </div>

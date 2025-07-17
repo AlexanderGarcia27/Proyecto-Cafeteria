@@ -1,27 +1,64 @@
+import { useState } from 'react';
 import '../css/seccion_6/cssseccion_6.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import {sendEmail} from "../../services/contactService";
 
 export const Contact = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [successMsg, setSuccessMsg] = useState("");
+
+  const handleSubmit = async(e) => {
+    e.preventDefault();
+
+    const data = {
+      name,
+      email,
+      message
+    }
+
+    const result = await sendEmail(data);
+
+    if (result && result.message && !result.message.toLowerCase().includes("error")) {
+      setSuccessMsg("¡Mensaje enviado correctamente!");
+      setName("");
+      setEmail("");
+      setMessage("");
+      console.log("Mensaje enviado correctamente");
+      setTimeout(() => {
+        window.location.reload();
+      }, 2000);
+    } else {
+      setSuccessMsg("Hubo un error al enviar el mensaje. Inténtalo de nuevo.");
+      console.log("Hubo un error al enviar el mensaje");
+    }
+  }
+
+
   return (
     <div className="contact-section">
       <div className="overlay">
         <div className="contact-container">
           <h3>Saludar</h3>
           <h1>Contacto</h1>
-          <form className="contact-form">
+          {successMsg && (
+            <div className="success-message">{successMsg}</div>
+          )}
+          <form className="contact-form" onSubmit={handleSubmit}>
             <div className="input-group">
               <div className="input-field">
                 <label>Nombre</label>
-                <input type="text" placeholder="Tu nombre aquí" />
+                <input type="text" placeholder="Tu nombre aquí" value={name} onChange={(e) => setName(e.target.value)} />
               </div>
               <div className="input-field">
                 <label>Correo electrónico</label>
-                <input type="email" placeholder="Escribe tu email" />
+                <input type="email" placeholder="Escribe tu email" value={email} onChange={(e) => setEmail(e.target.value)} />
               </div>
             </div>
             <div className="input-field">
               <label>¿En qué podemos ayudarte?</label>
-              <textarea placeholder="Inserta aquí tu duda" className="input-help" />
+              <textarea placeholder="Inserta aquí tu duda" className="input-help" value={message} onChange={(e) => setMessage(e.target.value)} />
             </div>
             <button type="submit">Enviar Mensaje</button>
           </form>

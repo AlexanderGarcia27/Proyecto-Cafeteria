@@ -1,101 +1,29 @@
-import imagenFondo from '../assets/cafeF.jpg';
+import imagenFondo from '../assets/fondo.jpg';
+import imagenCel from '../assets/fondo_cel.jpg';
+import './menu.css';
 const MenuCard = () => {
     return (
         <>
         <style>
-                {`
-                body {
-                    background-image: url(${imagenFondo});
-                    background-size: cover; 
-                    background-position: center; 
-                    background-repeat: no-repeat; 
-                    background-attachment: fixed; 
+            {`
+            .menuXD {
+                background-image: url(${imagenFondo});
+                background-size: cover; 
+                background-position: center; 
+                background-repeat: no-repeat; 
+                background-attachment: fixed; 
+                width: 100%;
+            }
+            
+            /* Cambiar imagen de fondo para dispositivos móviles y tablets */
+            @media (max-width: 1024px) {
+                .menuXD {
+                    background-image: url(${imagenCel});
                 }
-                 .menu-cards-container {
-                        display: flex;
-                        justify-content: center;
-                        gap: 32px;
-                        flex-wrap: wrap;
-                    }
-                    .menu-card {
-                        background-color: rgba(0, 0, 0, 0.65);
-                        padding: 32px 28px;
-                        border-radius: 16px;
-                        width: 420px;
-                        color: #fff;
-                        font-family: 'Segoe UI', Arial, sans-serif;
-                        box-shadow: 0 4px 16px rgba(0,0,0,0.18);
-                        margin: 40px auto;
-                        position: relative;
-                    }
-                    .menu-title {
-                        font-size: 1.1rem;
-                        font-style: italic;
-                        text-align: center;
-                        margin-bottom: 8px;
-                        opacity: 0.85;
-                    }
-                    .menu-header {
-                        font-size: 2rem;
-                        font-weight: bold;
-                        margin-bottom: 24px;
-                        text-align: center;
-                    }
-                    .menu-item-row {
-                        display: flex;
-                        justify-content: space-between;
-                        align-items: center;
-                        margin-bottom: 8px;
-                    }
-                    .menu-item-name {
-                        font-weight: 600;
-                        font-size: 1.15rem;
-                    }
-                    .menu-item-price {
-                        font-weight: 500;
-                        font-size: 1.1rem;
-                        color: #dda15e;
-                        margin-left: 12px;
-                        position: relative;
-                    }
-                    .menu-item-price::before {
-                        content: "$";
-                        margin-right: 2px;
-                    }
-                    .menu-item-desc {
-                        font-size: 0.97rem;
-                        color: rgba(255, 255, 255, 0.35);
-                        margin-bottom: 12px;
-                        margin-right: 100px;
-                    }
-                    .menu-item-oldprice {
-                        text-decoration: line-through;
-                        color: rgba(255, 255, 255, 0.35);
-                        font-size: 1rem;
-                        margin-right: 6px;
-                        position: relative;
-                    }
-                    .menu-item-oldprice::before {
-                        content: "$";
-                        margin-right: 2px;
-                    }
-                    .recommend-badge {
-                        background: #bc6c25;
-                        color: #ffffff;
-                        border-radius: 8px;
-                        font-size: 0.85rem;
-                        font-weight: 600;
-                        padding: 2px 10px;
-                        margin-left: 10px;
-                    }
-                    .menu-divider {
-                        border: none;
-                        border-top: 1px solid #333;
-                        margin: 16px 0 12px 0;
-                    }
-                `}
-            </style>
-            <body>
+            }
+            `}
+        </style>
+            <div className="menuXD">
                 <div className="menu-cards-container">
                 {/*card 1 xd*/}
             <div className="menu-card col-12 col-md-6 col-lg-4">
@@ -121,7 +49,7 @@ const MenuCard = () => {
 
                 <div className="menu-item-row">
                     <span className="menu-item-name"> Chilaquiles Rojos o Verdes
-                        <span className="recommend-badge">Recommend</span>
+                        <span className="recommend-badge">Recomendado</span>
                     </span>
                     <span className="menu-item-price">150.00</span>
                 </div>
@@ -165,7 +93,7 @@ const MenuCard = () => {
 
                 <div className="menu-item-row">
                     <span className="menu-item-name">Café con Leche Clásico 
-                        <span className="recommend-badge">Recommend</span>
+                        <span className="recommend-badge">Recomendado</span>
                     </span>
                     <span className="menu-item-price">59.00</span>
                 </div>
@@ -186,7 +114,7 @@ const MenuCard = () => {
                 <div className="menu-item-desc">Selección especial de té verde, infusión aromática.</div>
             </div>
             </div>
-            </body>
+            </div>
             
         </>
     );
