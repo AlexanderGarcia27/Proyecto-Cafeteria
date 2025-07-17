@@ -15,11 +15,12 @@ export const NavbarInicio = () => {
                     <span className="logo-text">Barista</span>
                 </div>
                 <div className="nav-links">
-                    <a href="#" className="nav-link">Inicio</a>
-                    <a href="#" className="nav-link">Conócenos</a>
-                    <a href="#" className="nav-link">Menús</a>
-                    <a href="#" className="nav-link">Reseñas</a>
-                    <a href="#" className="nav-link">Contacto</a>
+                    <a href="#inicio" className="nav-link">Inicio</a>
+                    <a href="#conocenos" className="nav-link">Conócenos</a>
+                    <a href="#baristas" className="nav-link">Baristas</a>
+                    <a href="#menu" className="nav-link">Menús</a>
+                    <a href="#reseñas" className="nav-link">Reseñas</a>
+                    <a href="#contacto" className="nav-link">Contacto</a>
                     <button className="reservation-btn">
                         Reservacion <span>↗</span>
                     </button>

@@ -12,7 +12,7 @@ export const TextButtonSection = () => {
         <br />
         Ven y disfruta de un ambiente acogedor ideal para relajarte, trabajar o compartir un momento especial, te esperamos para que pruebes la diferencia.
       </p>
-      <button className="section2-btn">Conocer Baristas</button>
+      <a className="section2-btn" href='#baristas'>Conocer Baristas</a>
     </div>
   );
 } 

@@ -48,6 +48,8 @@
   font-weight: 600;
   cursor: pointer;
   transition: background 0.2s, color 0.2s;
+  text-decoration: none;
+  display: inline-block;
 }
 
 .section2-btn:hover {

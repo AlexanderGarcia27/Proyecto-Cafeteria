@@ -13,8 +13,8 @@ export const TextComponent = () => {
                     Tu café  <span className="italic">favorito</span> para el día a día.
                 </div>
                 <div className="button-row">
-                    <button className="btn btn-white">Conocenos</button>
-                    <button className="btn btn-orange">Ver menú</button>
+                    <a className="btn btn-white" href='#conocenos'>Conocenos</a>
+                    <a className="btn btn-orange" href='#menu'>Ver menú</a>
                 </div>
             </div>
         </div>
