@@ -1,14 +1,20 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../css/login/login.css';
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
         // Aquí irá la lógica de autenticación
         console.log('Email:', email, 'Password:', password);
+        
+        // Por ahora, simplemente redirigimos al home
+        // TODO: Agregar validación real de credenciales
+        navigate('/home');
     };
 
     return (
@@ -47,7 +53,7 @@ const Login = () => {
                     </button>
 
                     <button type="button" className="google-button">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google logo" />
+                        <img src="/src/assets/login/image.png" alt="Google logo" />
                         Sign up with Google
                     </button>
 

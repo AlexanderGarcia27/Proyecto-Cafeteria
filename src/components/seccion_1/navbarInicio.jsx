@@ -1,6 +1,6 @@
 import '../css/seccion_1/navbarInicio.css'
 import { BurgerMenu } from './BurgerMenu'
-import { Link } from "react-router"
+import { Link } from "react-router-dom"
 
 export const NavbarInicio = () => {
     return (
