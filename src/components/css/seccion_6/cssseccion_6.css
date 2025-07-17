@@ -145,6 +145,13 @@ textarea::placeholder {
   box-shadow: 0 2px 8px rgba(0,0,0,0.12);
 }
 
+.contact-form button.sending {
+  background-color: #e0b07a;
+  color: #fff;
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
 .contact-footer {
   display: flex;
   flex-direction: column;

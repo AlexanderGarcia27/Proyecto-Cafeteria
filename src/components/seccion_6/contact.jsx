@@ -9,49 +9,94 @@ export const Contact = () => {
   const [message, setMessage] = useState("");
   const [successMsg, setSuccessMsg] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorName, setErrorName] = useState("");
+  const [errorEmail, setErrorEmail] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   // Función para obtener el año actual
   const getCurrentYear = () => {
     return new Date().getFullYear();
   };
 
+  const validateEmail = (email) => {
+    // Validación básica de email
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
+
   const handleSubmit = async(e) => {
     e.preventDefault();
-    
-    // Evitar múltiples envíos
     if (isSubmitting) return;
-    
-    setIsSubmitting(true);
 
-    const data = {
-      name,
-      email,
-      message
+    // Limpiar errores previos
+    setErrorName("");
+    setErrorEmail("");
+    setErrorMessage("");
+    setSuccessMsg("");
+
+    let valid = true;
+    if (!name.trim()) {
+      setErrorName("Por favor, ingresa tu nombre.");
+      valid = false;
+    }
+    if (!email.trim()) {
+      setErrorEmail("Por favor, ingresa tu correo electrónico.");
+      valid = false;
+    } else if (!validateEmail(email)) {
+      setErrorEmail("Por favor, ingresa un correo válido.");
+      valid = false;
+    }
+    if (!message.trim()) {
+      setErrorMessage("Por favor, escribe tu mensaje.");
+      valid = false;
+    }
+    if (!valid) {
+      setIsSubmitting(false);
+      return;
     }
 
+    setIsSubmitting(true);
+    // Codificar el email en base64
+    const encodedEmail = btoa(email);
+    const data = { name, email: encodedEmail, message };
     try {
       const result = await sendEmail(data);
-
       if (result && result.message && !result.message.toLowerCase().includes("error")) {
         setSuccessMsg("¡Mensaje enviado correctamente!");
         setName("");
         setEmail("");
         setMessage("");
-        console.log("Mensaje enviado correctamente");
         setTimeout(() => {
           window.location.reload();
         }, 2000);
       } else {
         setSuccessMsg("Hubo un error al enviar el mensaje. Inténtalo de nuevo.");
-        console.log("Hubo un error al enviar el mensaje");
+        setTimeout(() => {
+          window.location.reload();
+        }, 5000); // Espera 5 segundos antes de recargar
       }
     } catch (error) {
-      console.error("Error en el envío:", error);
       setSuccessMsg("Hubo un error al enviar el mensaje. Inténtalo de nuevo.");
+      setTimeout(() => {
+        window.location.reload();
+      }, 5000); // Espera 5 segundos antes de recargar
     } finally {
       setIsSubmitting(false);
     }
   }
+
+  // Limpiar error al escribir
+  const handleNameChange = (e) => {
+    setName(e.target.value);
+    if (errorName) setErrorName("");
+  };
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+    if (errorEmail) setErrorEmail("");
+  };
+  const handleMessageChange = (e) => {
+    setMessage(e.target.value);
+    if (errorMessage) setErrorMessage("");
+  };
 
 
   return (
@@ -67,23 +112,30 @@ export const Contact = () => {
             <div className="input-group">
               <div className="input-field">
                 <label>Nombre</label>
-                <input type="text" placeholder="Tu nombre aquí" value={name} onChange={(e) => setName(e.target.value)} />
+                <input type="text" placeholder="Tu nombre aquí" value={name} onChange={handleNameChange} />
+                {errorName && <div className="error-message">{errorName}</div>}
               </div>
               <div className="input-field">
                 <label>Correo electrónico</label>
-                <input type="email" placeholder="Escribe tu email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                <input type="email" placeholder="Escribe tu email" value={email} onChange={handleEmailChange} />
+                {errorEmail && <div className="error-message">{errorEmail}</div>}
               </div>
             </div>
             <div className="input-field">
               <label>¿En qué podemos ayudarte?</label>
-              <textarea placeholder="Inserta aquí tu duda" className="input-help" value={message} onChange={(e) => setMessage(e.target.value)} />
+              <textarea placeholder="Inserta aquí tu duda" className="input-help" value={message} onChange={handleMessageChange} />
+              {errorMessage && <div className="error-message">{errorMessage}</div>}
             </div>
-            <button type="submit" disabled={isSubmitting}>
+            <button 
+              type="submit" 
+              disabled={isSubmitting}
+              className={isSubmitting ? "sending" : ""}
+            >
               {isSubmitting ? "Enviando..." : "Enviar Mensaje"}
             </button>
           </form>
         </div>
-
+        /**Aqui va lo de pregubtas uwu debajo de aqui */
         <div className="contact-footer">
           <div className="contact-info">
             <h4 id="h4-footer">¿Dónde encontrarnos?</h4>
