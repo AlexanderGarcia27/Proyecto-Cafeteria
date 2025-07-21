@@ -70,7 +70,7 @@ const Reservacion = () => {
         </h2>
         <div style={{ width: "100%", maxWidth: 600, height: "600px" }}>
           <InlineWidget
-            url="https://calendly.com/2022259-utsh/30min?hide_gdpr_banner=1"
+            url="https://calendly.com/mxvalentin1822/30min?hide_gdpr_banner=1"
             styles={{
               width: "100%",
               height: "100%",
@@ -85,7 +85,6 @@ const Reservacion = () => {
               hideLandingPageDetails: true,
               hideGdprBanner: true,
             }}
-            prefill={{ name: "", email: "" }}
           />
         </div>
       </div>

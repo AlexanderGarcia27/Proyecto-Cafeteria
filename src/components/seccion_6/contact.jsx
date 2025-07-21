@@ -135,7 +135,6 @@ export const Contact = () => {
             </button>
           </form>
         </div>
-        /**Aqui va lo de pregubtas uwu debajo de aqui */
         <div className="contact-footer">
           <div className="contact-info">
             <h4 id="h4-footer">¿Dónde encontrarnos?</h4>
