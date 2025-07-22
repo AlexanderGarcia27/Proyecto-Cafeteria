@@ -499,3 +499,10 @@ textarea::placeholder {
     text-align: left;  /* Opcional: alinea el texto a la izquierda */
   }
 }
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea,
+.input-help {
+  font-size: 16px;
+}
