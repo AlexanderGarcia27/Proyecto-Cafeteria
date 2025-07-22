@@ -2,6 +2,7 @@ import { useState } from 'react';
 import '../css/seccion_6/cssseccion_6.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import {sendEmail} from "../../services/contactService";
+import FAQ from '../FAQ';
 
 export const Contact = () => {
   const [name, setName] = useState("");
@@ -135,7 +136,9 @@ export const Contact = () => {
             </button>
           </form>
         </div>
-        /**Aqui va lo de pregubtas uwu debajo de aqui */
+        {/*Aqui inicia lo de preguntas uwu debajo de aqui */}
+        <FAQ />
+        {/*Aqui termina  lo de preguntas uwu sobre aqui */}
         <div className="contact-footer">
           <div className="contact-info">
             <h4 id="h4-footer">¿Dónde encontrarnos?</h4>
