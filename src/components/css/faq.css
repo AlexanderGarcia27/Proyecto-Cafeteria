@@ -82,6 +82,15 @@
   transform: rotate(180deg);
 }
 
+.rotar-taza {
+  transition: transform 0.4s cubic-bezier(0.4, 0.2, 0.2, 1);
+  transform: rotate(-20deg);
+}
+
+.faq-question.active .faq-icon .rotar-taza {
+  transform: rotate(180deg);
+}
+
 .faq-answer {
   display: none;
   background: transparent;
