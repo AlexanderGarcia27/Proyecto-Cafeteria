@@ -113,19 +113,43 @@ export const Contact = () => {
             <div className="input-group">
               <div className="input-field">
                 <label>Nombre</label>
-                <input type="text" placeholder="Tu nombre aquí" value={name} onChange={handleNameChange} />
-                {errorName && <div className="error-message">{errorName}</div>}
+                <input
+                  type="text"
+                  placeholder="Tu nombre aquí"
+                  value={name}
+                  onChange={handleNameChange}
+                  disabled={isSubmitting}
+                />
+                <div className="error-message" style={{ minHeight: "1.5em" }}>
+                  {errorName}
+                </div>
               </div>
               <div className="input-field">
                 <label>Correo electrónico</label>
-                <input type="email" placeholder="Escribe tu email" value={email} onChange={handleEmailChange} />
-                {errorEmail && <div className="error-message">{errorEmail}</div>}
+                <input
+                  type="email"
+                  placeholder="Escribe tu email"
+                  value={email}
+                  onChange={handleEmailChange}
+                  disabled={isSubmitting}
+                />
+                <div className="error-message" style={{ minHeight: "1.5em" }}>
+                  {errorEmail}
+                </div>
               </div>
             </div>
             <div className="input-field">
               <label>¿En qué podemos ayudarte?</label>
-              <textarea placeholder="Inserta aquí tu duda" className="input-help" value={message} onChange={handleMessageChange} />
-              {errorMessage && <div className="error-message">{errorMessage}</div>}
+              <textarea
+                placeholder="Inserta aquí tu duda"
+                className="input-help"
+                value={message}
+                onChange={handleMessageChange}
+                disabled={isSubmitting}
+              />
+              <div className="error-message" style={{ minHeight: "1.5em" }}>
+                {errorMessage}
+              </div>
             </div>
             <button 
               type="submit" 
