@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./css/faq.css";
 
-// COMPONENTE SVG: Taza cerrada (cup-hot-fill)
+
 const CupFill = ({ className }) => (
   <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
     width="32" height="32" viewBox="0 0 50 50"
@@ -17,7 +17,7 @@ const CupFill = ({ className }) => (
   </svg>
 );
 
-// COMPONENTE SVG: Taza abierta (cup-hot1)
+
 const CupHot1 = ({ className }) => (
   <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
     width="32" height="32" viewBox="0 0 50 50"
