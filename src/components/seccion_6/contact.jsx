@@ -2,6 +2,7 @@ import { useState } from 'react';
 import '../css/seccion_6/cssseccion_6.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import {sendEmail} from "../../services/contactService";
+import FAQ from '../FAQ';
 
 export const Contact = () => {
   const [name, setName] = useState("");
@@ -159,6 +160,7 @@ export const Contact = () => {
             </button>
           </form>
         </div>
+        <FAQ />
         <div className="contact-footer">
           <div className="contact-info">
             <h4 id="h4-footer">¿Dónde encontrarnos?</h4>
