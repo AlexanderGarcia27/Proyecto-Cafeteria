@@ -1,10 +1,15 @@
 import { createBrowserRouter } from "react-router";
 import App from "../App";
 import Reservacion from "../components/Reservacion";
+import Login from "../components/login/login";
 
 let router = createBrowserRouter([
     {
         path: "/",
+        Component: Login
+    },
+    {
+        path: "/home",
         Component: App
     },
     {
