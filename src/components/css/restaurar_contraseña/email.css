@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=AR+One+Sans:wght@400;500;600;700&display=swap');
+
+.restaurar-bg {
+    min-height: 100vh;
+    background: #7C5B4A;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.restaurar-logo {
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+.restaurar-titulo {
+    color: white;
+    font-family: 'AR One Sans', sans-serif;
+    font-weight: 400;
+    font-size: 2rem;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.restaurar-descripcion {
+    color: white;
+    font-size: 1.25rem;
+    font-family: 'AR One Sans', sans-serif;
+    margin-bottom: 30px;
+    text-align: center;
+    max-width: 600px;
+}
+
+.restaurar-form {
+    background: white;
+    padding: 3rem 3rem;
+    border-radius: 25px;
+    min-width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.restaurar-label {
+    align-self: flex-start;
+    margin-bottom: 8px;
+    color: #333;
+    font-size: 1rem;
+}
+
+.restaurar-input {
+    width: 100%;
+    padding: 0.7rem;
+    border-radius: 12px;
+    border: 1px solid #888;
+    margin-bottom: 25px;
+    font-size: 1rem;
+    outline: none;
+}
+
+.restaurar-boton {
+    background: #C46B21;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 0.8rem 2rem;
+    margin-top: 2rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    font-weight: 400;
+}
+
+@media (max-width: 28.125rem) {
+    .restaurar-form {
+        width: 100%;
+        padding: 2rem;
+    }
+
+    .restaurar-titulo {
+        font-size: 1.5rem;
+    }
+
+    .restaurar-descripcion {
+        font-size: 1rem;
+    }
+
+    .restaurar-boton {
+        font-size: 0.9rem;
+    }
+
+}
+
+@media (max-width: 28.125rem) {
+    .restaurar-bg {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .restaurar-boton {
+        margin-top: 1rem;
+    }
+}
+
+@media (max-width: 51.25rem) {
+    .restaurar-titulo {
+        font-size: 2.5rem;
+    }
+
+    .restaurar-descripcion {
+        font-size: 1.3rem;
+    }
+
+    .restaurar-label {
+        font-size: 1.3rem;
+    }
+
+    .restaurar-input {
+        font-size: 1.2rem;
+    }
+
+    .restaurar-form {
+        min-width: 200px;
+        width: 65%;
+        padding: 2rem;
+    }
+
+}
+@media (max-width: 51.25rem) {
+}

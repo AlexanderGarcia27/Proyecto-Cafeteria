@@ -5,11 +5,13 @@ import { BackgroundSection } from './components/seccion_2/BackgroundSection';
 import { ImageSection } from './components/seccion_2/ImageSection';
 import { TextButtonSection } from './components/seccion_2/TextButtonSection';
 import './index.css';
+import { Email } from './components/restaurar_Contraseña/email';
+import { Password } from './components/restaurar_Contraseña/password';
 
 function App() {
   return (
     <>
-      <BackgroundSection1 id='inicio'>
+      {/* <BackgroundSection1>
         <NavbarInicio />
         <TextComponent />
       </BackgroundSection1>
@@ -22,8 +24,10 @@ function App() {
           </ImageSection>
           <TextButtonSection />
         </BackgroundSection>
-      </div>
-    </>
+      </div> */}
+      <Email />
+      {/* <Password /> */}
+      </>
   );
 }
 
