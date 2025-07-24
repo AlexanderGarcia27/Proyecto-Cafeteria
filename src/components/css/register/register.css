@@ -33,6 +33,7 @@
     justify-content: center;
     border-top-right-radius: 0 !important;
     border-bottom-right-radius: 0 !important;
+    min-height: 34rem;
 }
 
 .login-image-container {
@@ -41,6 +42,7 @@
     align-items: center;
     justify-content: center;
     background: #fff;
+    min-height: 34rem;
 }
 
 .login-side-image {
@@ -92,17 +94,6 @@ input.form-input {
     margin-right: auto;
 }
 
-.forgot-password {
-    display: block;
-    text-align: right;
-    color: #C4804D;
-    text-decoration: none;
-    margin-bottom: 1.3rem;
-    font-size: 0.9rem;
-    font-family: 'AR One Sans', sans-serif;
-    font-weight: 400;
-}
-
 .login-button {
     width: 80%;
     padding: 0.4375rem;
@@ -124,34 +115,12 @@ input.form-input {
     background-color: #A67B5B;
 }
 
-.google-button {
-    width: 80%;
-    padding: 0.4375rem;
-    background-color: white;
-    border: 0.0625rem solid #808080;
-    border-radius: 0.75rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.28125rem;
-    cursor: pointer;
-    margin-bottom: 1.3rem;
-    margin-left: auto;
-    margin-right: auto;
-    font-size: 1rem;
-}
-
-.google-button img {
-    width: 1.5rem;
-    height: 1.5rem;
-}
-
 .register-text {
     text-align: center;
     color: #666;
     font-family: 'AR One Sans', sans-serif;
     font-weight: 400;
-    font-size: 1rem;
+    font-size: 0.9rem;
 }
 
 .register-link {
@@ -159,6 +128,7 @@ input.form-input {
     text-decoration: none;
     font-family: 'AR One Sans', sans-serif;
     font-weight: 400;
+    cursor: pointer;
 }
 @media (max-width: 50rem) {
     .login-flex {
@@ -214,13 +184,12 @@ input.form-input {
   }
 }
 
-@media (max-width: 64rem) and (min-width: 64rem) {
-  .login-flex {
-    max-width: 48rem;
-  }
+@media (max-width: 64rem) {
   .login-card {
     border-radius: 1.25rem !important;
-    
+    border-top-right-radius: 1.25rem !important;
+    border-bottom-right-radius: 1.25rem !important;
+    border-top-left-radius: 1.25rem !important;
+    border-bottom-left-radius: 1.25rem !important;
   }
 }
-

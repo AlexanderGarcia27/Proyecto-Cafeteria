@@ -1,20 +1,24 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../css/login/login.css';
+import '../css/register/register.css';
 import fondoCel from '../../assets/fondo_cel.jpg';
 
-const Login = () => {
+const Register = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Aquí irá la lógica de autenticación
+        // Aquí iría la lógica de registro
+        if (password !== confirmPassword) {
+            alert('Las contraseñas no coinciden');
+            return;
+        }
         console.log('Email:', email, 'Password:', password);
-        // Por ahora, simplemente redirigimos al home
-        // TODO: Agregar validación real de credenciales
-        navigate('/home');
+        // Redirigir a login o home después de registrar
+        navigate('/login');
     };
 
     return (
@@ -22,7 +26,7 @@ const Login = () => {
             <div className="login-flex">
                 <div className="login-card">
                     <h1 className="login-title">Bienvenido</h1>
-                    <p className="login-subtitle">Inicie sesion en su cuenta</p>
+                    <p className="login-subtitle">Registra tu cuenta</p>
                     <form onSubmit={handleSubmit}>
                         <div className="form-group">
                             <label className="form-label">Correo electronico</label>
@@ -44,25 +48,33 @@ const Login = () => {
                                 required
                             />
                         </div>
-                        <a href="#" className="forgot-password">¿Olvidaste tu contraseña?</a>
+                        <div className="form-group">
+                            <label className="form-label">Confirma contraseña</label>
+                            <input
+                                type="password"
+                                className="form-input"
+                                value={confirmPassword}
+                                onChange={(e) => setConfirmPassword(e.target.value)}
+                                required
+                            />
+                        </div>
                         <button type="submit" className="login-button">
-                            Iniciar sesion
-                        </button>
-                        <button type="button" className="google-button">
-                            <img src="/src/assets/login/image.png" alt="Google logo" />
-                            Sign up with Google
+                            Registrarse
                         </button>
                         <p className="register-text">
-                            ¿No tienes cuenta? <a href="#" className="register-link" onClick={(e) => { e.preventDefault(); navigate('/register'); }}>Registrate aquí</a>
+                            ¿Ya tienes una cuenta?{' '}
+                            <a href="#" className="register-link" onClick={(e) => { e.preventDefault(); navigate('/'); }}>
+                                Inicia sesion aqui
+                            </a>
                         </p>
                     </form>
                 </div>
                 <div className="login-image-container">
-                    <img src={fondoCel} alt="Fondo login" className="login-side-image" />
+                    <img src={fondoCel} alt="Fondo registro" className="login-side-image" />
                 </div>
             </div>
         </div>
     );
 };
 
-export default Login;
+export default Register;
