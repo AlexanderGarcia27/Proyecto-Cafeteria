@@ -20,14 +20,14 @@ function App() {
       </BackgroundSection1>
       </div>
       <div id='conocenos'>
-        <BackgroundSection>
-          <ImageSection src="../src/assets/imagenes_2/image_2.jpg" alt="Cafe KL">
-            <div className="section2-image-text">
-              Acompañándote desde 2015.<br />El mejor café en Zacualtipan.
-            </div>
-          </ImageSection>
-          <TextButtonSection />
-        </BackgroundSection>
+      <BackgroundSection>
+        <ImageSection src="../src/assets/imagenes_2/image_2.jpg" alt="Cafe KL">
+          <div className="section2-image-text">
+            Acompañándote desde 2015.<br />El mejor café en Zacualtipan.
+          </div>
+        </ImageSection>
+        <TextButtonSection />
+      </BackgroundSection>
       </div>
       <div id='baristas'>
         <Carrusel/>
