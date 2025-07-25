@@ -1,8 +1,8 @@
-{/* Aqui van a ir los componentes que van a ir en la tienda */}
+import PaginaProductos from "./PaginaProductos";
 function Tienda() {
   return (
     <>
-      <div>Hola aqui va todo de la Tienda</div>
+      <PaginaProductos/>
     </>
   );
 }
