@@ -1,48 +1,38 @@
-import { useState } from 'react';
-import '../css/restaurar_contraseña/email.css';
+import { useState } from "react";
+import logoCafe from "../../assets/imagenes_1/logo.png"; // Ajusta la ruta si es necesario
+import "../css/restaurar_contraseña/email.css";
 
 export const Email = () => {
-    const [correo, setCorreo] = useState('');
+    const [email, setEmail] = useState("");
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        alert("Si el correo está registrado, recibirás instrucciones para restablecer tu contraseña.");
     };
 
     return (
-        <div className="restaurar-bg">
-            <img
-                src="../src/assets/imagenes_1/logo.png"
-                alt="Logo"
-                className="restaurar-logo"
-            />
-            <h1 className="restaurar-titulo">
-                Restaurar contraseña
-            </h1>
-            <p className="restaurar-descripcion">
-                Ingresa la direccion de correo electronico asociada a tu cuenta y haz clic en “Restablecer contraseña”
+        <div className="email-container">
+            <div className="email-logo">
+                <img src={logoCafe} alt="Logo cafetería" className="logo-img" />
+            </div>
+            <h2 className="email-title">Restaurar contraseña</h2>
+            <p className="email-subtitle">
+                Ingresa la dirección de correo electrónico asociada a tu cuenta y haz clic en “Restablecer contraseña”
             </p>
-            <form
-                onSubmit={handleSubmit}
-                className="restaurar-form"
-            >
-                <label
-                    htmlFor="correo"
-                    className="restaurar-label"
-                >
-                    Correo electronico
+            <form onSubmit={handleSubmit} className="email-card">
+                <label htmlFor="email" className="email-label">
+                    Correo electrónico
                 </label>
                 <input
-                    id="correo"
+                    id="email"
                     type="email"
-                    value={correo}
-                    onChange={e => setCorreo(e.target.value)}
+                    value={email}
+                    onChange={e => setEmail(e.target.value)}
                     required
-                    className="restaurar-input"
+                    className="email-input"
+                    placeholder="ejemplo@email.com"
                 />
-                <button
-                    type="submit"
-                    className="restaurar-boton"
-                >
+                <button type="submit" className="email-button">
                     Restablecer contraseña
                 </button>
             </form>

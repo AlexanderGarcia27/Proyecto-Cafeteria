@@ -1,0 +1,320 @@
+ .menu-cards-container {
+        display: flex;
+        justify-content: center;
+        gap: 32px;
+        flex-wrap: wrap;
+    }
+    .menu-card {
+        background-color: rgba(0, 0, 0, 0.85);
+        padding: 32px 28px;
+        border-radius: 16px;
+        width: 420px;
+        color: #fff;
+        font-family: 'Segoe UI', Arial, sans-serif;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+        margin: 40px auto;
+        position: relative;
+    }
+    .menu-title {
+        font-size: 1.1rem;
+        font-style: italic;
+        text-align: center;
+        margin-bottom: 8px;
+        opacity: 0.85;
+    }
+    .menu-header {
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 24px;
+        text-align: center;
+    }
+    .menu-item-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 8px;
+    }
+    .menu-item-name {
+        font-weight: 600;
+        font-size: 1.15rem;
+    }
+    .menu-item-price {
+        font-weight: 500;
+        font-size: 1.1rem;
+        color: #dda15e;
+        margin-left: 12px;
+        position: relative;
+    }
+    .menu-item-price::before {
+        content: "$";
+        margin-right: 2px;
+    }
+    .menu-item-desc {
+        font-size: 0.97rem;
+        color: rgba(255, 255, 255, 0.50);
+        margin-bottom: 12px;
+        margin-right: 100px;
+    }
+    .menu-item-oldprice {
+        text-decoration: line-through;
+        color: rgba(255, 255, 255, 0.35);
+        font-size: 1rem;
+        margin-right: 6px;
+        position: relative;
+    }
+    .menu-item-oldprice::before {
+        content: "$";
+        margin-right: 2px;
+    }
+    .recommend-badge {
+        background: #bc6c25;
+        color: #ffffff;
+        border-radius: 8px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        padding: 2px 10px;
+        margin-left: 10px;
+    }
+    .menu-divider {
+        border: none;
+        border-top: 1px solid #333;
+        margin: 16px 0 12px 0;
+    }
+
+/* Responsive para pantallas grandes */
+@media (min-width: 1200px) {
+    .menu-cards-container {
+        gap: 40px;
+    }
+    
+    .menu-card {
+        width: 450px;
+        padding: 36px 32px;
+    }
+    
+    .menu-header {
+        font-size: 2.2rem;
+    }
+    
+    .menu-item-name {
+        font-size: 1.2rem;
+    }
+    
+    .menu-item-price {
+        font-size: 1.15rem;
+    }
+}
+
+/* Responsive para tablets */
+@media (max-width: 1024px) {
+    .menu-cards-container {
+        gap: 24px;
+        padding: 0 20px;
+    }
+    
+    .menu-card {
+        width: 380px;
+        padding: 28px 24px;
+        margin: 30px auto;
+    }
+    
+    .menu-header {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+    }
+    
+    .menu-item-name {
+        font-size: 1.1rem;
+    }
+    
+    .menu-item-price {
+        font-size: 1.05rem;
+    }
+    
+    .menu-item-desc {
+        font-size: 0.95rem;
+        margin-right: 80px;
+    }
+}
+
+/* Responsive para tablets pequeñas */
+@media (max-width: 768px) {
+    .menu-cards-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 0 15px;
+    }
+    
+    .menu-card {
+        width: 100%;
+        max-width: 500px;
+        padding: 24px 20px;
+        margin: 20px auto;
+    }
+    
+    .menu-header {
+        font-size: 1.7rem;
+        margin-bottom: 18px;
+    }
+    
+    .menu-title {
+        font-size: 1rem;
+    }
+    
+    .menu-item-name {
+        font-size: 1.05rem;
+    }
+    
+    .menu-item-price {
+        font-size: 1rem;
+        margin-left: 8px;
+    }
+    
+    .menu-item-desc {
+        font-size: 0.9rem;
+        margin-right: 60px;
+        margin-bottom: 10px;
+    }
+    
+    .menu-item-oldprice {
+        font-size: 0.95rem;
+    }
+    
+    .recommend-badge {
+        font-size: 0.8rem;
+        padding: 1px 8px;
+        margin-left: 8px;
+    }
+}
+
+/* Responsive para móviles grandes */
+@media (max-width: 480px) {
+    .menu-cards-container {
+        padding: 0 10px;
+        gap: 15px;
+    }
+    
+    .menu-card {
+        padding: 20px 16px;
+        margin: 15px auto;
+        border-radius: 12px;
+    }
+    
+    .menu-header {
+        font-size: 1.5rem;
+        margin-bottom: 16px;
+    }
+    
+    .menu-title {
+        font-size: 0.95rem;
+        margin-bottom: 6px;
+    }
+    
+    .menu-item-row {
+        margin-bottom: 6px;
+    }
+    
+    .menu-item-name {
+        font-size: 1rem;
+    }
+    
+    .menu-item-price {
+        font-size: 0.95rem;
+        margin-left: 6px;
+    }
+    
+    .menu-item-desc {
+        font-size: 0.85rem;
+        margin-right: 40px;
+        margin-bottom: 8px;
+    }
+    
+    .menu-item-oldprice {
+        font-size: 0.9rem;
+        margin-right: 4px;
+    }
+    
+    .recommend-badge {
+        font-size: 0.75rem;
+        padding: 1px 6px;
+        margin-left: 6px;
+    }
+    
+    .menu-divider {
+        margin: 12px 0 8px 0;
+    }
+}
+
+/* Responsive para móviles pequeños */
+@media (max-width: 360px) {
+    .menu-cards-container {
+        padding: 0 8px;
+        gap: 12px;
+    }
+    
+    .menu-card {
+        padding: 16px 12px;
+        margin: 12px auto;
+        border-radius: 10px;
+    }
+    
+    .menu-header {
+        font-size: 1.3rem;
+        margin-bottom: 14px;
+    }
+    
+    .menu-title {
+        font-size: 0.9rem;
+    }
+    
+    .menu-item-name {
+        font-size: 0.95rem;
+    }
+    
+    .menu-item-price {
+        font-size: 0.9rem;
+    }
+    
+    .menu-item-desc {
+        font-size: 0.8rem;
+        margin-right: 30px;
+    }
+    
+    .menu-item-oldprice {
+        font-size: 0.85rem;
+    }
+    
+    .recommend-badge {
+        font-size: 0.7rem;
+        padding: 1px 5px;
+    }
+    
+    .menu-divider {
+        margin: 10px 0 6px 0;
+    }
+}
+
+/* Responsive para pantallas ultra-pequeñas */
+@media (max-width: 320px) {
+    .menu-card {
+        padding: 14px 10px;
+    }
+    
+    .menu-header {
+        font-size: 1.2rem;
+    }
+    
+    .menu-item-name {
+        font-size: 0.9rem;
+    }
+    
+    .menu-item-price {
+        font-size: 0.85rem;
+    }
+    
+    .menu-item-desc {
+        font-size: 0.75rem;
+        margin-right: 20px;
+    }
+}
