@@ -4,6 +4,7 @@
  */
 import React, { useState } from "react";
 import "./PaginaProductos.css";
+import ModalCarrito from "./ModalCarrito";
 // Iconos
 import iconoBebidaFria from "../../assets/tienda-productos/icono-bebida-fria.png";
 import iconoBebidaCaliente from "../../assets/tienda-productos/icono-bebida-caliente.png";
@@ -96,10 +97,31 @@ const productosPorCategoria = {
 const PaginaProductos = () => {
   // Estado para la subcategoría seleccionada
   const [subcatActiva, setSubcatActiva] = useState("bebidas-frias");
+  const [showModal, setShowModal] = useState(false);
+  const [productoSeleccionado, setProductoSeleccionado] = useState(null);
+  
   const productos = productosPorCategoria[subcatActiva] || [];
+
+  const handleAgregarProducto = (producto) => {
+    console.log("Clic en agregar producto:", producto);
+    console.log("Estado actual showModal:", showModal);
+    setProductoSeleccionado(producto);
+    setShowModal(true);
+    console.log("Después de setShowModal(true)");
+  };
+
+  const handleCloseModal = () => {
+    console.log("Cerrando modal");
+    setShowModal(false);
+    setProductoSeleccionado(null);
+  };
+
+  console.log("Renderizando PaginaProductos, showModal:", showModal, "productoSeleccionado:", productoSeleccionado);
 
   return (
     <div className="productos-layout">
+      
+      
       <aside className="menu-categorias">
         <h2>Categorías</h2>
         {categorias.map((cat) => (
@@ -128,14 +150,26 @@ const PaginaProductos = () => {
             <div className="producto-card" key={prod.nombre}>
               <div className="producto-img-wrap">
                 <img src={prod.imagen} alt={prod.nombre} className="producto-img" />
-                <img src={botonMas} alt="Agregar" className="boton-mas-svg" />
+                <img 
+                  src={botonMas} 
+                  alt="Agregar" 
+                  className="boton-mas-svg" 
+                  onClick={() => handleAgregarProducto(prod)}
+                  style={{ cursor: "pointer" }}
+                />
               </div>
-              <div className="producto-nombre">{prod.nombre}</div>
+              <div className="producto-nombre">{prod.nombre}</div>  
               <div className="producto-precio">${prod.precio.toFixed(2)}</div>
             </div>
           ))}
         </div>
       </main>
+      {showModal && productoSeleccionado && (
+        <ModalCarrito 
+          producto={productoSeleccionado} 
+          onClose={handleCloseModal} 
+        />
+      )}
     </div>
   );
 };

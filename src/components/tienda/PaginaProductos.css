@@ -143,6 +143,7 @@ body {
 
 .producto-img-wrap:hover .boton-mas-svg {
   opacity: 1;
+  pointer-events: auto;
 }
 
 .producto-nombre {

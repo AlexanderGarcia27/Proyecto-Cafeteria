@@ -55,6 +55,94 @@ const ModalCarrito = ({ producto = {
             transform: scale(1);
           }
         }
+        
+        @media (max-width: 768px) {
+          .modal-container {
+            padding: 20px !important;
+            min-width: 90vw !important;
+            max-width: 90vw !important;
+            margin: 20px !important;
+          }
+          .modal-title {
+            font-size: 18px !important;
+            margin-bottom: 20px !important;
+          }
+          .product-card {
+            padding: 16px !important;
+            margin-bottom: 24px !important;
+          }
+          .product-image {
+            width: 140px !important;
+            height: 140px !important;
+          }
+          .product-name {
+            font-size: 18px !important;
+          }
+          .product-price {
+            font-size: 18px !important;
+          }
+          .controls-container {
+            flex-direction: column !important;
+            gap: 16px !important;
+            align-items: center !important;
+            justify-content: center !important;
+          }
+          .quantity-controls {
+            justify-content: center !important;
+            align-items: center !important;
+          }
+          .add-button {
+            width: 100% !important;
+            max-width: 200px !important;
+            align-self: center !important;
+          }
+        }
+        
+        @media (max-width: 480px) {
+          .modal-container {
+            padding: 16px !important;
+            min-width: 95vw !important;
+            max-width: 95vw !important;
+          }
+          .modal-title {
+            font-size: 16px !important;
+            margin-bottom: 16px !important;
+          }
+          .product-card {
+            padding: 12px !important;
+            margin-bottom: 20px !important;
+          }
+          .product-image {
+            width: 120px !important;
+            height: 120px !important;
+          }
+          .product-name {
+            font-size: 16px !important;
+          }
+          .product-price {
+            font-size: 16px !important;
+          }
+          .quantity-button {
+            width: 32px !important;
+            height: 32px !important;
+            font-size: 18px !important;
+          }
+          .quantity-display {
+            font-size: 18px !important;
+            min-width: 28px !important;
+          }
+          .add-button {
+            padding: 10px 20px !important;
+            font-size: 16px !important;
+            width: 100% !important;
+            max-width: 180px !important;
+            align-self: center !important;
+          }
+          .controls-container {
+            align-items: center !important;
+            justify-content: center !important;
+          }
+        }
       `}</style>
       <div style={{
         position: "fixed",
@@ -67,19 +155,25 @@ const ModalCarrito = ({ producto = {
         alignItems: "center",
         justifyContent: "center",
         zIndex: 1000,
+        padding: "20px",
+        boxSizing: "border-box",
         ...modalBgAnim
       }}>
-        <div style={{
-          background: "rgba(139, 99, 92, 0.8)",
-          borderRadius: 10,
-          padding: 40,
-          minWidth: 400,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          position: "relative",
-          ...(show ? modalAnim : { opacity: 0, transform: "scale(0.85)" })
-        }}>
+        <div 
+          className="modal-container"
+          style={{
+            background: "rgba(139, 99, 92, 0.8)",
+            borderRadius: 10,
+            padding: 40,
+            minWidth: 400,
+            maxWidth: 500,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            position: "relative",
+            ...(show ? modalAnim : { opacity: 0, transform: "scale(0.85)" })
+          }}
+        >
           {/* Botón de cerrar */}
           {onClose && (
             <button onClick={onClose} style={{
@@ -90,61 +184,117 @@ const ModalCarrito = ({ producto = {
               border: "none",
               fontSize: 22,
               color: "#fff",
-              cursor: "pointer"
+              cursor: "pointer",
+              zIndex: 1
             }}>×</button>
           )}
-          <p style={{ color: "#fff", fontSize: 20, marginBottom: 30, textAlign: "center" }}>
+          <p 
+            className="modal-title"
+            style={{ color: "#fff", fontSize: 20, marginBottom: 30, textAlign: "center" }}
+          >
             ¿Desea añadir el siguiente articulo a su carrito?
           </p>
-          <div style={{
-            background: "rgba(255, 255, 255, 0.97)",
-            borderRadius: 8,
-            padding: 24,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            marginBottom: 32
-          }}>
-            <img src={producto.imagen} alt={producto.nombre} style={{ width: 180, height: 180, objectFit: "cover", borderRadius: 4, marginBottom: 16 }} />
-            <div style={{ color: "#222", fontSize: 20, marginBottom: 4, textAlign: "center" }}>{producto.nombre}</div>
-            <div style={{ color: "#222", fontSize: 20, fontWeight: 500, textAlign: "center" }}>${producto.precio.toFixed(2)}</div>
+          <div 
+            className="product-card"
+            style={{
+              background: "rgba(255, 255, 255, 0.97)",
+              borderRadius: 8,
+              padding: 24,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              marginBottom: 32,
+              width: "100%"
+            }}
+          >
+            <img 
+              src={producto.imagen} 
+              alt={producto.nombre} 
+              className="product-image"
+              style={{ width: 180, height: 180, objectFit: "cover", borderRadius: 4, marginBottom: 16 }} 
+            />
+            <div 
+              className="product-name"
+              style={{ color: "#222", fontSize: 20, marginBottom: 4, textAlign: "center" }}
+            >
+              {producto.nombre}
+            </div>
+            <div 
+              className="product-price"
+              style={{ color: "#222", fontSize: 20, fontWeight: 500, textAlign: "center" }}
+            >
+              ${producto.precio.toFixed(2)}
+            </div>
           </div>
-          <div style={{ display: "flex", gap: 32, width: "100%", justifyContent: "center" }}>
+          <div 
+            className="controls-container"
+            style={{ 
+              display: "flex", 
+              gap: 32, 
+              width: "100%", 
+              justifyContent: "center",
+              alignItems: "center"
+            }}
+          >
             {/* Selector de cantidad */}
-            <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-              <button onClick={disminuirCantidad} style={{
-                background: "#B8742A",
-                color: "#fff",
-                border: "none",
-                borderRadius: 6,
-                width: 36,
-                height: 36,
-                fontSize: 22,
-                cursor: "pointer"
-              }}>−</button>
-              <span style={{ color: "#fff", fontSize: 20, minWidth: 32, textAlign: "center" }}>{cantidad}</span>
-              <button onClick={aumentarCantidad} style={{
-                background: "#B8742A",
-                color: "#fff",
-                border: "none",
-                borderRadius: 6,
-                width: 36,
-                height: 36,
-                fontSize: 22,
-                cursor: "pointer"
-              }}>+</button>
+            <div 
+              className="quantity-controls"
+              style={{ display: "flex", alignItems: "center", gap: 8 }}
+            >
+              <button 
+                onClick={disminuirCantidad} 
+                className="quantity-button"
+                style={{
+                  background: "#B8742A",
+                  color: "#fff",
+                  border: "none",
+                  borderRadius: 6,
+                  width: 36,
+                  height: 36,
+                  fontSize: 22,
+                  cursor: "pointer"
+                }}
+              >
+                −
+              </button>
+              <span 
+                className="quantity-display"
+                style={{ color: "#fff", fontSize: 20, minWidth: 32, textAlign: "center" }}
+              >
+                {cantidad}
+              </span>
+              <button 
+                onClick={aumentarCantidad} 
+                className="quantity-button"
+                style={{
+                  background: "#B8742A",
+                  color: "#fff",
+                  border: "none",
+                  borderRadius: 6,
+                  width: 36,
+                  height: 36,
+                  fontSize: 22,
+                  cursor: "pointer"
+                }}
+              >
+                +
+              </button>
             </div>
             {/* Botón añadir al carrito */}
-            <button onClick={handleAddToCart} style={{
-              background: "#B8742A",
-              color: "#fff",
-              border: "none",
-              borderRadius: 8,
-              padding: "12px 28px",
-              fontSize: 18,
-              fontWeight: 600,
-              cursor: "pointer"
-            }}>
+            <button 
+              onClick={handleAddToCart} 
+              className="add-button"
+              style={{
+                background: "#B8742A",
+                color: "#fff",
+                border: "none",
+                borderRadius: 8,
+                padding: "12px 28px",
+                fontSize: 18,
+                fontWeight: 600,
+                cursor: "pointer"
+              }}
+            >
               Añadir al carrito
             </button>
           </div>
