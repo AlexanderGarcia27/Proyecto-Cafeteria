@@ -3,6 +3,7 @@ import '../css/seccion_6/cssseccion_6.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import {sendEmail} from "../../services/contactService";
 import FAQ from '../FAQ';
+import ModalCarrito from '../tienda/ModalCarrito';
 
 export const Contact = () => {
   const [name, setName] = useState("");
@@ -13,6 +14,7 @@ export const Contact = () => {
   const [errorName, setErrorName] = useState("");
   const [errorEmail, setErrorEmail] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [showModal, setShowModal] = useState(false);
 
   // Función para obtener el año actual
   const getCurrentYear = () => {
@@ -162,6 +164,25 @@ export const Contact = () => {
         </div>
         {/*Aqui inicia lo de preguntas uwu debajo de aqui */}
         <FAQ />
+        {/* Botón para abrir el modal */}
+        <div style={{ display: "flex", justifyContent: "center", margin: "24px 0" }}>
+          <button 
+            style={{
+              background: "#B8742A",
+              color: "#fff",
+              border: "none",
+              borderRadius: 8,
+              padding: "12px 28px",
+              fontSize: 18,
+              fontWeight: 600,
+              cursor: "pointer"
+            }}
+            onClick={() => setShowModal(true)}
+          >
+            Abrir Modal de Carrito
+          </button>
+        </div>
+        {showModal && <ModalCarrito onClose={() => setShowModal(false)} />}
         {/*Aqui termina  lo de preguntas uwu sobre aqui */}
         <div className="contact-footer">
           <div className="contact-info">
