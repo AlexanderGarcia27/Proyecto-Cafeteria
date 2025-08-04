@@ -44,7 +44,7 @@ const Login = () => {
                                 required
                             />
                         </div>
-                        <a href="#" className="forgot-password">¿Olvidaste tu contraseña?</a>
+                        <a href="#" className="forgot-password" onClick={(e) => { e.preventDefault(); navigate('/restaurar-contraseña'); }}>¿Olvidaste tu contraseña?</a>
                         <button type="submit" className="login-button">
                             Iniciar sesion
                         </button>

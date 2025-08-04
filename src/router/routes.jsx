@@ -4,6 +4,7 @@ import Reservacion from "../components/Reservacion";
 import Login from "../components/login/login";
 import Register from "../components/register/register";
 import Tienda from "../components/tienda/index";
+import { Email } from "../components/restaurar_Contraseña/email";
 
 let router = createBrowserRouter([
     {
@@ -25,6 +26,10 @@ let router = createBrowserRouter([
     {
         path: "/tienda",
         Component: Tienda
+    },
+    {
+        path: "/restaurar-contraseña",
+        Component: Email
     }
 ])
 
