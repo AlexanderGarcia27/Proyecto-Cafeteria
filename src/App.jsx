@@ -6,8 +6,8 @@ import { ImageSection } from './components/seccion_2/ImageSection';
 import { TextButtonSection } from './components/seccion_2/TextButtonSection';
 import { Carrusel } from './components/seccion_3/carrusel';
 import './index.css';
-import { Email } from './components/restaurar_Contraseña/email';
-import { Password } from './components/restaurar_Contraseña/password';
+// import { Email } from './components/restaurar_Contraseña/email';
+// import { Password } from './components/restaurar_Contraseña/password';
 import MenuCard from './components/ComponentMenuS4'
 import {Contact} from './components/seccion_6/contact'
 import ComponentTestimonialS5 from './components/ComponentTestimonialS5'
@@ -15,34 +15,34 @@ import ComponentTestimonialS5 from './components/ComponentTestimonialS5'
 function App() {
   return (
     <>
-    <div id='inicio'>
-    <BackgroundSection1>
-      <NavbarInicio />
-      <TextComponent />
-    </BackgroundSection1>
-    </div>
-    <div id='conocenos'>
-    <BackgroundSection>
-      <ImageSection src="../src/assets/imagenes_2/image_2.jpg" alt="Cafe KL">
-        <div className="section2-image-text">
-          Acompañándote desde 2015.<br />El mejor café en Zacualtipan.
-        </div>
-      </ImageSection>
-      <TextButtonSection />
-    </BackgroundSection>
-    </div>
-    <div id='baristas'>
-      <Carrusel/>
-    </div>
-    <div id='menu'>
-      <MenuCard/>
-    </div>
-    <div id='reseñas'>
-      <ComponentTestimonialS5/>
-    </div>
-    <div id='contacto'>
-      <Contact/>
-    </div> 
+      <div id='inicio'>
+      <BackgroundSection1>
+        <NavbarInicio />
+        <TextComponent />
+      </BackgroundSection1>
+      </div>
+      <div id='conocenos'>
+      <BackgroundSection>
+        <ImageSection src="../src/assets/imagenes_2/image_2.jpg" alt="Cafe KL">
+          <div className="section2-image-text">
+            Acompañándote desde 2015.<br />El mejor café en Zacualtipan.
+          </div>
+        </ImageSection>
+        <TextButtonSection />
+      </BackgroundSection>
+      </div>
+      <div id='baristas'>
+        <Carrusel/>
+      </div>
+      <div id='menu'>
+        <MenuCard/>
+      </div>
+      <div id='reseñas'>
+        <ComponentTestimonialS5/>
+      </div>
+      <div id='contacto'>
+        <Contact/>
+      </div> 
     </>
   );
 }

@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 .testimonialXD {
     background-color: #7c5c52;
     font-family: Arial, sans-serif;
