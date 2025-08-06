@@ -25,7 +25,7 @@ export const BurgerMenu = () => {
               <a href="#baristas" className="nav-link">Baristas</a>
               <a href="#menu" className="nav-link">Menús</a>
               <a href="#reseñas" className="nav-link">Reseñas</a>
-              <a href="" className="nav-link">Tienda</a>
+              <a href="/tienda" className="nav-link">Tienda</a>
               <a href="#contacto" className="nav-link">Contacto</a>
               <Link to="/reservacion" className='reservation-btn' style={{ textDecoration: "none" }} >
                 Reservacion <span>↗</span>

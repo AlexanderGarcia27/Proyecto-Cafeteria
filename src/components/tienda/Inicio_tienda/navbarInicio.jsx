@@ -1,27 +1,27 @@
-import './seccion_1/navbarInicio.css'
+import './inicio_css/navbarInicio2.css'
 import { BurgerMenu } from './BurgerMenu'
 
 export const NavbarInicio = () => {
     return (
-        <nav id="navbarInicio">
+        <nav id="tienda-navbarInicio">
             <div>
                 <BurgerMenu />
-                <div className="logo-container">
+                <div className="tienda-logo-container">
                     <img
                         src="/src/assets/imagenes_1/logo.png"
                         alt="Logo Cafetería"
-                        className="logo"
+                        className="tienda-logo"
                     />
-                    <span className="logo-text">Barista</span>
+                    <span className="tienda-logo-text">Barista</span>
                 </div>
-                <div className="nav-links">
-                    <a href="#inicio" className="nav-link">Inicio</a>
-                    <a href="#productos" className="nav-link">Productos</a>
-                    <button className='cart-btn' style={{ textDecoration: "none" }}>
+                <div className="tienda-nav-links">
+                    <a href="#inicio" className="tienda-nav-link">Inicio</a>
+                    <a href="#productos" className="tienda-nav-link">Productos</a>
+                    <button className='tienda-cart-btn' style={{ textDecoration: "none" }}>
                         <img 
                             src="/src/assets/Shopping cart.png" 
                             alt="Carrito de compras" 
-                            className="cart-icon"
+                            className="tienda-cart-icon"
                         />
                     </button>
                 </div>

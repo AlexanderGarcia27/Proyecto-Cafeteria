@@ -29,7 +29,7 @@
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
 .nav-link {
@@ -107,7 +107,7 @@ nav.nav-links a.nav-link {
     }
 
     .logo-container {
-        gap: 1.5rem;
+        gap: 1rem;
         justify-content: center;
         width: 100%;
     }
@@ -140,7 +140,7 @@ nav.nav-links a.nav-link {
     }
 
     .nav-links {
-        gap: 0.8rem;
+        gap: 0.6rem;
     }
 
     .nav-link {
@@ -148,23 +148,26 @@ nav.nav-links a.nav-link {
     }
 
     .reservation-btn {
-        font-size: 1rem;
+        font-size: 0.8rem;
         padding: 0.4rem 1.2rem;
     }
 }
 
 @media (max-width:768px) {
+    .nav-links {
+        gap: 0.3rem;
+    }
     .nav-link {
         font-size: 13px;
     }
 
     .reservation-btn {
-        font-size: 0.7rem;
-        padding: 0.4rem 0.5rem;
+        font-size: 0.6rem;
+        padding: 0.3rem 0.7rem;
     }
 
     .logo-text {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
         font-weight: 700;
         color: #fff;
     }
@@ -457,7 +460,7 @@ nav.nav-links a.nav-link {
         width: 60vw;
         max-width: 280px;
         min-width: 180px;
-        height: 50vh;
+        height: 80vh;
         top: 0;
         left: 0;
         right: auto;
@@ -501,7 +504,7 @@ nav.nav-links a.nav-link {
         width: 60vw;
         max-width: 80vw;
         min-width: 120px;
-        height: 50vh !important;
+        height: 90vh !important;
         padding: 1rem 0.5rem 1rem 0.5rem;
         border-radius: 0 1rem 1rem 0;
         overflow-y: hidden;
