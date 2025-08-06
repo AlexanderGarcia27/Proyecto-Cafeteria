@@ -224,3 +224,35 @@ input.form-input {
   }
 }
 
+.error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.mi-alerta-personalizada {
+    background: linear-gradient(90deg, #b9935a 0%, #6b4f27 100%);
+    color: #fff;
+    button {
+        background-color: #fff;
+        color: #000;
+        border: none;
+        border-radius: 0.75rem;
+        font-size: 1.2rem;
+        cursor: pointer;
+        margin-bottom: 1.3rem;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        font-family: 'AR One Sans', sans-serif;
+        font-weight: 400;
+        &:hover {
+            background-color: #fff;
+            color: #000;
+        }
+    }
+  }

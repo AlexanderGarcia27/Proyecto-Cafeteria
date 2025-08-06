@@ -16,7 +16,8 @@
     "react-calendly": "^4.4.0",
     "react-dom": "^19.1.0",
     "react-router": "^7.6.3",
-    "react-router-dom": "^7.7.1"
+    "react-router-dom": "^7.7.1",
+    "sweetalert2": "^11.22.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.29.0",

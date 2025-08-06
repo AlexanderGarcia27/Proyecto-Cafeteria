@@ -193,3 +193,26 @@ input.form-input {
     border-bottom-left-radius: 1.25rem !important;
   }
 }
+
+.mi-alerta-personalizada {
+    background: linear-gradient(90deg, #b9935a 0%, #6b4f27 100%);
+    color: #fff;
+    button {
+        background-color: #fff;
+        color: #000;
+        border: none;
+        border-radius: 0.75rem;
+        font-size: 1.2rem;
+        cursor: pointer;
+        margin-bottom: 1.3rem;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        font-family: 'AR One Sans', sans-serif;
+        font-weight: 400;
+        &:hover {
+            background-color: #fff;
+            color: #000;
+        }
+    }
+  }

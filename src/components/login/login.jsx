@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import '../css/login/login.css';
 import fondoCel from '../../assets/fondo_cel.jpg';
 
@@ -8,13 +9,68 @@ const Login = () => {
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const showError = (message) => {
+        Swal.fire({
+            icon: 'error',
+            iconColor: '#ffffff',
+            title: 'Lo siento',
+            text: message,
+            customClass: {
+                popup: 'mi-alerta-personalizada'
+            }
+        });
+    };
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Aquí irá la lógica de autenticación
-        console.log('Email:', email, 'Password:', password);
-        // Por ahora, simplemente redirigimos al home
-        // TODO: Agregar validación real de credenciales
-        navigate('/home');
+
+        try {
+            const response = await fetch('https://reservacion-citas.onrender.com/api/auth/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email, password }),
+            });
+
+            if (!response.ok) {
+                const errData = await response.json();
+                showError(errData.message || 'Credenciales inválidas');
+                return;
+            }
+
+            const data = await response.json();
+            console.log('Login exitoso:', data);
+
+            if (data.token) {
+                localStorage.setItem('token', data.token);
+            }
+
+            Swal.fire({
+                icon: 'success',
+                title: '¡Bienvenido!',
+                text: 'Inicio de sesión exitoso.',
+                confirmButtonColor: '#004aad',
+                timer: 1500,
+                showConfirmButton: false,
+                customClass: {
+                    popup: 'mi-alerta-personalizada'
+                }
+            });
+
+            setTimeout(() => {
+                navigate('/home');
+            }, 1600);
+
+        } catch (error) {
+            console.error('Error en el login:', error);
+            showError('Error del servidor. Intente más tarde.');
+        }
+    };
+
+    // ✅ Redirección a Google OAuth
+    const redirectToGoogle = () => {
+        window.location.replace("https://reservacion-citas.onrender.com/api/oauth2/authorization/google");
     };
 
     return (
@@ -22,10 +78,11 @@ const Login = () => {
             <div className="login-flex">
                 <div className="login-card">
                     <h1 className="login-title">Bienvenido</h1>
-                    <p className="login-subtitle">Inicie sesion en su cuenta</p>
+                    <p className="login-subtitle">Inicie sesión en su cuenta</p>
+
                     <form onSubmit={handleSubmit}>
                         <div className="form-group">
-                            <label className="form-label">Correo electronico</label>
+                            <label className="form-label">Correo electrónico</label>
                             <input
                                 type="email"
                                 className="form-input"
@@ -44,16 +101,42 @@ const Login = () => {
                                 required
                             />
                         </div>
-                        <a href="#" className="forgot-password" onClick={(e) => { e.preventDefault(); navigate('/restaurar-contraseña'); }}>¿Olvidaste tu contraseña?</a>
+                        <a
+                            href="#"
+                            className="forgot-password"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                navigate('/restaurar-contraseña');
+                            }}
+                        >
+                            ¿Olvidaste tu contraseña?
+                        </a>
                         <button type="submit" className="login-button">
-                            Iniciar sesion
+                            Iniciar sesión
                         </button>
-                        <button type="button" className="google-button">
+
+                        {/* ✅ Botón Google con funcionalidad */}
+                        <button
+                            type="button"
+                            className="google-button"
+                            onClick={redirectToGoogle}
+                        >
                             <img src="/src/assets/login/image.png" alt="Google logo" />
                             Sign up with Google
                         </button>
+
                         <p className="register-text">
-                            ¿No tienes cuenta? <a href="#" className="register-link" onClick={(e) => { e.preventDefault(); navigate('/register'); }}>Registrate aquí</a>
+                            ¿No tienes cuenta?{' '}
+                            <a
+                                href="#"
+                                className="register-link"
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    navigate('/register');
+                                }}
+                            >
+                                Regístrate aquí
+                            </a>
                         </p>
                     </form>
                 </div>
