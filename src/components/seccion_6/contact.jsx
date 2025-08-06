@@ -4,7 +4,6 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import {sendEmail} from "../../services/contactService";
 import FAQ from '../FAQ';
 
-
 export const Contact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");

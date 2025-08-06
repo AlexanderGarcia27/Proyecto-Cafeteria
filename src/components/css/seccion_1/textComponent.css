@@ -60,7 +60,7 @@ body {
     height: 240px;
     position: absolute;
     top: 8.5rem;
-    right: 1rem;
+    right: 1rem !important;
     background: rgba(20, 20, 20, 0.65);
     transform: rotate(135deg);
     border-radius: 15px;

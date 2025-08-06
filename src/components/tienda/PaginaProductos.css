@@ -6,7 +6,7 @@ body {
   display: flex;
   background: #a97c50;
   border-radius: 8px;
-  padding: 24px;
+  padding-top: 140px;
   max-width: 1100px;
   margin: 32px auto;
   min-height: 500px;
@@ -20,6 +20,9 @@ body {
   margin-right: 32px;
   color: #fff;
   font-family: 'Segoe UI', sans-serif;
+  align-self: flex-start; /* Hace que la columna solo mida lo que ocupa su contenido */
+  height: auto;           /* Asegura que no tome el 100% del layout */
+  min-height: unset;      /* Por si hay un min-height heredado */
 }
 .menu-categorias h2 {
   font-size: 1.3rem;
@@ -181,4 +184,4 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     gap: 18px;
   }
-} 
+}

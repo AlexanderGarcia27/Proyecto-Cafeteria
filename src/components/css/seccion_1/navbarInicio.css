@@ -29,7 +29,7 @@
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 3rem;
+    gap: 2rem;
 }
 
 .nav-link {
@@ -397,7 +397,7 @@ nav.nav-links a.nav-link {
 .burger-nav-links .reservation-btn {
     font-size: 1.3rem;
     padding: 0.8rem 2.2rem;
-    margin-top: 2rem;
+    margin-top: 1rem;
 }
 
 /* Mobile drawer adjustments */
@@ -457,7 +457,7 @@ nav.nav-links a.nav-link {
         width: 60vw;
         max-width: 280px;
         min-width: 180px;
-        height: 70vh;
+        height: 50vh;
         top: 0;
         left: 0;
         right: auto;
@@ -494,14 +494,14 @@ nav.nav-links a.nav-link {
 
     .burger-nav-links .reservation-btn {
         font-size: 0.9rem;
-        padding: 0.7rem 1.6rem;
+        padding: 0.5rem 1.6rem;
     }
 
     .drawer {
         width: 60vw;
         max-width: 80vw;
         min-width: 120px;
-        height: 80vh;
+        height: 50vh !important;
         padding: 1rem 0.5rem 1rem 0.5rem;
         border-radius: 0 1rem 1rem 0;
         overflow-y: hidden;
