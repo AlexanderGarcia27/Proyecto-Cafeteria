@@ -6,6 +6,8 @@ import { ImageSection } from './components/seccion_2/ImageSection';
 import { TextButtonSection } from './components/seccion_2/TextButtonSection';
 import { Carrusel } from './components/seccion_3/carrusel';
 import './index.css';
+// import { Email } from './components/restaurar_Contraseña/email';
+// import { Password } from './components/restaurar_Contraseña/password';
 import MenuCard from './components/ComponentMenuS4'
 import {Contact} from './components/seccion_6/contact'
 import ComponentTestimonialS5 from './components/ComponentTestimonialS5'

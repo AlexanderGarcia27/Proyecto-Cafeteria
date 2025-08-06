@@ -4,6 +4,7 @@ import Reservacion from "../components/Reservacion";
 import Login from "../components/login/login";
 import Register from "../components/register/register";
 import Tienda from "../components/tienda/index";
+import CarritoDeCompras from "../components/carrito-de-compras/carrito-de-compras";
 
 let router = createBrowserRouter([
     {
@@ -25,6 +26,10 @@ let router = createBrowserRouter([
     {
         path: "/tienda",
         Component: Tienda
+    },
+    {
+        path: "/carritodecompras",
+        Component: CarritoDeCompras
     }
 ])
 
