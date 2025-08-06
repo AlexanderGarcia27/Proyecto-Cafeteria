@@ -12,7 +12,8 @@ const modalAnim = {
 const ModalCarrito = ({ producto = {
   nombre: "Cafe clasico",
   precio: 59.0,
-  imagen: cafeF
+  imagen: cafeF,
+  descripcion: "Café clásico preparado con granos selectos, perfecto para comenzar tu día con energía y sabor auténtico."
 }, onClose }) => {
   const [show, setShow] = useState(false);
   const [cantidad, setCantidad] = useState(1);
@@ -81,6 +82,10 @@ const ModalCarrito = ({ producto = {
           .product-price {
             font-size: 18px !important;
           }
+          .product-description {
+            font-size: 13px !important;
+            margin-top: 8px !important;
+          }
           .controls-container {
             flex-direction: column !important;
             gap: 16px !important;
@@ -121,6 +126,10 @@ const ModalCarrito = ({ producto = {
           }
           .product-price {
             font-size: 16px !important;
+          }
+          .product-description {
+            font-size: 12px !important;
+            margin-top: 6px !important;
           }
           .quantity-button {
             width: 32px !important;
@@ -221,9 +230,22 @@ const ModalCarrito = ({ producto = {
             </div>
             <div 
               className="product-price"
-              style={{ color: "#222", fontSize: 20, fontWeight: 500, textAlign: "center" }}
+              style={{ color: "#222", fontSize: 20, fontWeight: 500, textAlign: "center", marginBottom: 12 }}
             >
               ${producto.precio.toFixed(2)}
+            </div>
+            <div 
+              className="product-description"
+              style={{ 
+                color: "#666", 
+                fontSize: 14, 
+                textAlign: "center", 
+                lineHeight: 1.4,
+                maxWidth: "100%",
+                padding: "0 8px"
+              }}
+            >
+              {producto.descripcion}
             </div>
           </div>
           <div 
