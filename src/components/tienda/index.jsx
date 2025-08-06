@@ -1,8 +1,8 @@
-import PaginaProductos from "./PaginaProductos";
+
 function Tienda() {
   return (
     <>
-      <PaginaProductos/>
+      
     </>
   );
 }
