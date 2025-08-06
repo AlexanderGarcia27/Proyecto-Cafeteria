@@ -175,13 +175,13 @@ export const Contact = () => {
               C.P. 43200, México</b>
             </p>
             <div className="social-icons">
-              <a href="#" className="social-icon">
+              <a className="social-icon">
                 <i className="bi bi-facebook"></i>
               </a>
-              <a href="#" className="social-icon">
+              <a className="social-icon">
                 <i className="bi bi-twitter-x"></i>
               </a>
-              <a href="#" className="social-icon">
+              <a className="social-icon">
                 <i className="bi bi-whatsapp"></i>
               </a>
             </div>
