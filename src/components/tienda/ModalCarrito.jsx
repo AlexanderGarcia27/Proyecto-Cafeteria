@@ -23,7 +23,9 @@ const ModalCarrito = ({ producto = {
     setTimeout(() => setShow(true), 10);
   }, []);
 
-  const aumentarCantidad = () => setCantidad(cantidad + 1);
+  const aumentarCantidad = () => {
+    if (cantidad < 10) setCantidad(cantidad + 1);
+  };
   const disminuirCantidad = () => {
     if (cantidad > 1) setCantidad(cantidad - 1);
   };
@@ -289,15 +291,16 @@ const ModalCarrito = ({ producto = {
                 onClick={aumentarCantidad} 
                 className="quantity-button"
                 style={{
-                  background: "#B8742A",
+                  background: cantidad >= 10 ? "#ccc" : "#B8742A",
                   color: "#fff",
                   border: "none",
                   borderRadius: 6,
                   width: 36,
                   height: 36,
                   fontSize: 22,
-                  cursor: "pointer"
+                  cursor: cantidad >= 10 ? "not-allowed" : "pointer"
                 }}
+                disabled={cantidad >= 10}
               >
                 +
               </button>
