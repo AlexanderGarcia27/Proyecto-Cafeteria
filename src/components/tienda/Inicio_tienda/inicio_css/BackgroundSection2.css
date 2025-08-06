@@ -1,4 +1,4 @@
-.section1-background {
+.tienda-section1-background {
   position: relative;
   width: 100vw;
   min-height: 50vh;
@@ -9,7 +9,7 @@
   justify-content: stretch;
 }
 
-.section1-background__image {
+.tienda-section1-background__image {
   position: absolute;
   top: 0;
   left: 0;
@@ -24,7 +24,7 @@
   user-select: none;
 }
 
-.section1-background__overlay {
+.tienda-section1-background__overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -37,7 +37,7 @@
   pointer-events: none;
 }
 
-.section1-background__content {
+.tienda-section1-background__content {
   position: relative;
   z-index: 2;
   width: 100%;
@@ -66,10 +66,10 @@
 }
 
 @media (max-width: 1024px) and (min-width: 769px) {
-  .section1-background,
-  .section1-background__image,
-  .section1-background__overlay,
-  .section1-background__content {
+  .tienda-section1-background,
+  .tienda-section1-background__image,
+  .tienda-section1-background__overlay,
+  .tienda-section1-background__content {
     height: 75vh;
     min-height: 75vh;
     max-height: 75vh;

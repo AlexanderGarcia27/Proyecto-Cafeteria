@@ -7,7 +7,7 @@ export const BurgerMenu = () => {
   return (
     <>
       <button
-        className="burger-menu"
+        className="tienda-burger-menu"
         onClick={() => setOpen(true)}
         aria-label="Open menu"
       >
@@ -16,12 +16,12 @@ export const BurgerMenu = () => {
         <span></span>
       </button>
       {open && (
-        <div className="drawer-overlay" onClick={() => setOpen(false)}>
-          <div className="drawer" onClick={e => e.stopPropagation()}>
-            <button className="close-burger" onClick={() => setOpen(false)}>&times;</button>
-            <nav className="burger-nav-links">
-              <a href="#inicio" className="nav-link">Inicio</a>
-              <a href="#productos" className="nav-link">Productos</a>
+        <div className="tienda-drawer-overlay" onClick={() => setOpen(false)}>
+          <div className="tienda-drawer" onClick={e => e.stopPropagation()}>
+            <button className="tienda-close-burger" onClick={() => setOpen(false)}>&times;</button>
+            <nav className="tienda-burger-nav-links">
+              <a href="#inicio" className="tienda-nav-link">Inicio</a>
+              <a href="#productos" className="tienda-nav-link">Productos</a>
               <Link to="" className='reservation-btn' style={{ textDecoration: "none" }} >
                 Ver carrito<span>↗</span>
               </Link>
