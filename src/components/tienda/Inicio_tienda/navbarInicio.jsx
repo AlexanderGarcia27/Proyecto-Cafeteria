@@ -4,21 +4,21 @@ import { Link } from "react-router-dom";
 
 export const NavbarInicio = () => {
     return (
-        <nav id="tienda-navbarInicio">
+        <nav id="navbarInicio">
             <div>
                 <BurgerMenu />
-                <div className="tienda-logo-container">
+                <div className="logo-container">
                     <img
                         src="/src/assets/imagenes_1/logo.png"
                         alt="Logo Cafetería"
-                        className="tienda-logo"
+                        className="logo"
                     />
-                    <span className="tienda-logo-text">Barista</span>
+                    <span className="logo-text">Barista</span>
                 </div>
                 <div className="nav-links">
                     <Link to="/home" className="nav-link">Inicio</Link>
                     <a href="#productos" className="nav-link">Productos</a>
-                    <button className='cart-btn' style={{ textDecoration: "none" }}>
+                    <button className="tienda-cart-btn" style={{ textDecoration: "none" }}>
                         <img 
                             src="/src/assets/Shopping cart.png" 
                             alt="Carrito de compras" 
