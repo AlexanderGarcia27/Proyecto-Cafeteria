@@ -7,6 +7,7 @@ import fondoCel from '../../assets/fondo_cel.jpg';
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [isSubmitting, setIsSubmitting] = useState(false);
     const navigate = useNavigate();
 
     const showError = (message) => {
@@ -23,6 +24,10 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        
+        if (isSubmitting) return;
+
+        setIsSubmitting(true);
 
         try {
             const response = await fetch('https://reservacion-citas.onrender.com/api/auth/login', {
@@ -36,6 +41,7 @@ const Login = () => {
             if (!response.ok) {
                 const errData = await response.json();
                 showError(errData.message || 'Credenciales inválidas');
+                setIsSubmitting(false);
                 return;
             }
 
@@ -65,6 +71,7 @@ const Login = () => {
         } catch (error) {
             console.error('Error en el login:', error);
             showError('Error del servidor. Intente más tarde.');
+            setIsSubmitting(false);
         }
     };
 
@@ -88,6 +95,7 @@ const Login = () => {
                                 className="form-input"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
+                                disabled={isSubmitting}
                                 required
                             />
                         </div>
@@ -98,6 +106,7 @@ const Login = () => {
                                 className="form-input"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
+                                disabled={isSubmitting}
                                 required
                             />
                         </div>
@@ -111,8 +120,12 @@ const Login = () => {
                         >
                             ¿Olvidaste tu contraseña?
                         </a>
-                        <button type="submit" className="login-button">
-                            Iniciar sesión
+                        <button 
+                            type="submit" 
+                            className={`login-button ${isSubmitting ? 'sending' : ''}`}
+                            disabled={isSubmitting}
+                        >
+                            {isSubmitting ? 'Iniciando sesión...' : 'Iniciar sesión'}
                         </button>
 
                         {/* ✅ Botón Google con funcionalidad */}
@@ -120,6 +133,7 @@ const Login = () => {
                             type="button"
                             className="google-button"
                             onClick={redirectToGoogle}
+                            disabled={isSubmitting}
                         >
                             <img src="/src/assets/login/image.png" alt="Google logo" />
                             Sign up with Google

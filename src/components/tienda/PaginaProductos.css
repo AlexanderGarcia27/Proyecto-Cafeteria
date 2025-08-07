@@ -172,10 +172,14 @@ body {
   .menu-categorias {
     width: 100%;
     border-right: none;
-    border-bottom: 2px solid #e0d2c0;
+    border-bottom: none; /* Remover línea divisoria inferior */
     padding-right: 0;
     margin-right: 0;
     margin-bottom: 24px;
+  }
+  .categoria-bloque {
+    margin-bottom: 24px;
+    border-bottom: none; /* Remover líneas divisorias entre categorías */
   }
   .productos-main {
     align-items: center;

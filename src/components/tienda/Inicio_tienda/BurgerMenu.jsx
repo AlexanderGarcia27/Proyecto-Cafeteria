@@ -20,7 +20,7 @@ export const BurgerMenu = () => {
           <div className="tienda-drawer" onClick={e => e.stopPropagation()}>
             <button className="tienda-close-burger" onClick={() => setOpen(false)}>&times;</button>
             <nav className="tienda-burger-nav-links">
-              <a href="#inicio" className="tienda-nav-link">Inicio</a>
+              <Link to="/home" className="tienda-nav-link">Inicio</Link>
               <a href="#productos" className="tienda-nav-link">Productos</a>
               <Link to="" className='reservation-btn' style={{ textDecoration: "none" }} >
                 Ver carrito<span>↗</span>
