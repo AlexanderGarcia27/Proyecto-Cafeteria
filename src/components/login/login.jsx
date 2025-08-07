@@ -115,7 +115,14 @@ const Login = () => {
                             className="forgot-password"
                             onClick={(e) => {
                                 e.preventDefault();
-                                navigate('/restaurar-contraseña');
+                                if (!isSubmitting) {
+                                    navigate('/restaurar-contraseña');
+                                }
+                            }}
+                            style={{ 
+                                opacity: isSubmitting ? 0.5 : 1,
+                                pointerEvents: isSubmitting ? 'none' : 'auto',
+                                cursor: isSubmitting ? 'not-allowed' : 'pointer'
                             }}
                         >
                             ¿Olvidaste tu contraseña?
@@ -146,7 +153,14 @@ const Login = () => {
                                 className="register-link"
                                 onClick={(e) => {
                                     e.preventDefault();
-                                    navigate('/register');
+                                    if (!isSubmitting) {
+                                        navigate('/register');
+                                    }
+                                }}
+                                style={{ 
+                                    opacity: isSubmitting ? 0.5 : 1,
+                                    pointerEvents: isSubmitting ? 'none' : 'auto',
+                                    cursor: isSubmitting ? 'not-allowed' : 'pointer'
                                 }}
                             >
                                 Regístrate aquí
