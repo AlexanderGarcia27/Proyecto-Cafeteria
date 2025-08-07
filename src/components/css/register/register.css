@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=AR+One+Sans:wght@400;500;600;700&display=swap');
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #B78752;
+    padding: 1.25rem;
+}
+
+.login-flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+    width: 100%;
+    max-width: 45rem;
+    border-radius: 1.25rem;
+    overflow: hidden;
+    background: transparent;
+}
+
+.login-card {
+    background-color: white;
+    padding: 1.8rem;
+    border-radius: 0;
+    width: 50%;
+    max-width: none;
+    box-shadow: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    min-height: 34rem;
+}
+
+.login-image-container {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    min-height: 34rem;
+}
+
+.login-side-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.login-title {
+    color: #C4804D;
+    text-align: center;
+    font-size: 2.1rem;
+    margin-bottom: 0.9rem;
+    font-family: 'AR One Sans', sans-serif;
+    font-weight: 400;
+}
+
+.login-subtitle {
+    color: #666;
+    text-align: center;
+    margin-bottom: 1.8rem;
+    font-family: 'AR One Sans', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+.form-group {
+    margin-bottom: 1.3rem;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.28125rem;
+    color: #333;
+    font-family: 'AR One Sans', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+input.form-input {
+    width: 90%;
+    padding: 0.4375rem;
+    border: 0.0625rem solid #808080;
+    border-radius: 0.75rem;
+    font-size: 1rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.login-button {
+    width: 80%;
+    padding: 0.4375rem;
+    background-color: #BC6C25;
+    color: white;
+    border: none;
+    border-radius: 0.75rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-bottom: 1.3rem;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    font-family: 'AR One Sans', sans-serif;
+    font-weight: 400;
+}
+
+.login-button:hover {
+    background-color: #A67B5B;
+}
+
+.register-text {
+    text-align: center;
+    color: #666;
+    font-family: 'AR One Sans', sans-serif;
+    font-weight: 400;
+    font-size: 0.9rem;
+}
+
+.register-link {
+    color: #C4804D;
+    text-decoration: none;
+    font-family: 'AR One Sans', sans-serif;
+    font-weight: 400;
+    cursor: pointer;
+}
+@media (max-width: 50rem) {
+    .login-flex {
+        flex-direction: column;
+        max-width: 25rem;
+    }
+    .login-card, .login-image-container {
+        width: 100%;
+    }
+    .login-image-container {
+        height: 12.5rem;
+    }
+    .login-side-image {
+        height: 100%;
+        max-height: 12.5rem;
+    }
+}
+
+@media (max-width: 37.5rem) {
+    .login-image-container {
+        display: none !important;
+    }
+}
+
+@media (max-width: 56.25rem) {
+    .login-image-container {
+        display: none !important;
+    }
+}
+
+@media (max-width: 64rem) {
+    .login-image-container {
+        display: none !important;
+    }
+}
+
+@media (max-width: 64rem) and (min-width: 37.5rem) {
+  .login-flex {
+    transform: scale(1.4);
+    max-width: 20rem;
+  }
+}
+
+@media (max-width: 64rem) and (min-width: 51.25rem) {
+  .login-flex {
+    max-width: 44rem;
+  }
+}
+
+@media (max-width: 51.25rem) {
+  .login-card {
+    border-radius: 1.25rem !important;
+  }
+}
+
+@media (max-width: 64rem) {
+  .login-card {
+    border-radius: 1.25rem !important;
+    border-top-right-radius: 1.25rem !important;
+    border-bottom-right-radius: 1.25rem !important;
+    border-top-left-radius: 1.25rem !important;
+    border-bottom-left-radius: 1.25rem !important;
+  }
+}
+
+.mi-alerta-personalizada {
+    background: linear-gradient(90deg, #b9935a 0%, #6b4f27 100%);
+    color: #fff;
+    button {
+        background-color: #fff;
+        color: #000;
+        border: none;
+        border-radius: 0.75rem;
+        font-size: 1.2rem;
+        cursor: pointer;
+        margin-bottom: 1.3rem;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        font-family: 'AR One Sans', sans-serif;
+        font-weight: 400;
+        &:hover {
+            background-color: #fff;
+            color: #000;
+        }
+    }
+  }

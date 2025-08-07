@@ -1,0 +1,191 @@
+body {
+  background: #a97c50 !important;
+}
+
+.productos-layout {
+  display: flex;
+  background: #a97c50;
+  border-radius: 8px;
+  padding-top: 140px;
+  max-width: 1100px;
+  margin: 32px auto;
+  min-height: 500px;
+  box-sizing: border-box;
+}
+
+.menu-categorias {
+  width: 220px;
+  border-right: 2px solid #e0d2c0;
+  padding-right: 24px;
+  margin-right: 32px;
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+  align-self: flex-start; /* Hace que la columna solo mida lo que ocupa su contenido */
+  height: auto;           /* Asegura que no tome el 100% del layout */
+  min-height: unset;      /* Por si hay un min-height heredado */
+}
+.menu-categorias h2 {
+  font-size: 1.3rem;
+  margin-bottom: 18px;
+  font-weight: 600;
+}
+.categoria-bloque {
+  margin-bottom: 24px;
+}
+.categoria-titulo {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.categoria-icono {
+  font-size: 1.3rem;
+}
+.categoria-bloque ul {
+  list-style: none;
+  padding-left: 18px;
+  margin: 0;
+}
+.categoria-bloque li {
+  font-size: 1rem;
+  margin-bottom: 4px;
+  opacity: 0.9;
+}
+
+.subcategoria-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+  margin-bottom: 4px;
+  opacity: 0.9;
+}
+
+.subcategoria-icono {
+  width: 25px;
+  height: 25px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+
+.subcategoria-activa {
+  color: #fa7f04 !important;
+}
+.subcategoria-activa .subcategoria-icono {
+  filter: none !important;
+  /* Si el icono es PNG con color, puedes usar filter: hue-rotate o dejarlo así */
+}
+
+.productos-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.productos-titulo {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+  text-align: left;
+}
+.productos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 32px;
+  width: 100%;
+}
+.producto-card {
+  border-radius: 10px;
+  padding: 18px 12px 16px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.producto-img-wrap {
+  width: 160px;
+  height: 220px;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  border: 2px solid #a97c50;
+  position: relative;
+  cursor: pointer;
+}
+.producto-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.10));
+  transition: opacity 0.3s ease;
+}
+
+.boton-mas-svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 48px;
+  height: 48px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  z-index: 10;
+}
+
+.producto-img-wrap:hover .producto-img {
+  opacity: 0.6;
+}
+
+.producto-img-wrap:hover .boton-mas-svg {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.producto-nombre {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #3a2a1a;
+  margin-bottom: 4px;
+  text-align: center;
+}
+.producto-precio {
+  font-size: 1rem;
+  color: #5a4327;
+  font-weight: 600;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .productos-layout {
+    flex-direction: column;
+    padding: 12px;
+    max-width: 98vw;
+  }
+  .menu-categorias {
+    width: 100%;
+    border-right: none;
+    border-bottom: none; /* Remover línea divisoria inferior */
+    padding-right: 0;
+    margin-right: 0;
+    margin-bottom: 24px;
+  }
+  .categoria-bloque {
+    margin-bottom: 24px;
+    border-bottom: none; /* Remover líneas divisorias entre categorías */
+  }
+  .productos-main {
+    align-items: center;
+  }
+  .productos-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 18px;
+  }
+}
