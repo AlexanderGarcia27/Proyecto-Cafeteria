@@ -253,10 +253,10 @@ body, .carrito-bg {
   }
   
   .carrito-eliminar {
-    width: 2.5rem;
-    height: 2.5rem;
-    font-size: 1.5rem;
-    margin-right: 0.8rem;
+    width: 2.5rem !important;
+    height: 2.5rem !important;
+    font-size: 1.5rem !important;
+    margin-right: 0.8rem !important;
   }
   
   .carrito-producto-nombre {
@@ -391,8 +391,8 @@ body, .carrito-bg {
     font-size: 1.1rem;
   }
   .carrito-eliminar {
-    width: 1.3rem !important;
-    height: 1rem !important;
+    width: 1.4rem !important;
+    height: 1.2rem !important;
     font-size: 0.8rem !important;
     margin-right: 0.2rem !important;
   }
