@@ -6,6 +6,7 @@ import Register from "../components/register/register";
 import Tienda from "../components/tienda/index";
 import { Email } from "../components/restaurar_Contraseña/email";
 import CarritoDeCompras from "../components/carrito-de-compras/carrito-de-compras";
+import ProtectedRoute from "../components/ProtectedRoute";
 
 let router = createBrowserRouter([
     {
@@ -17,24 +18,40 @@ let router = createBrowserRouter([
         Component: Register
     },
     {
-        path: "/home",
-        Component: App
-    },
-    {
-        path: "/reservacion",
-        Component: Reservacion
-    },
-    {
-        path: "/tienda",
-        Component: Tienda
-    },
-    {
         path: "/restaurar-contraseña",
         Component: Email
     },
     {
+        path: "/home",
+        element: (
+            <ProtectedRoute>
+                <App />
+            </ProtectedRoute>
+        )
+    },
+    {
+        path: "/reservacion",
+        element: (
+            <ProtectedRoute>
+                <Reservacion />
+            </ProtectedRoute>
+        )
+    },
+    {
+        path: "/tienda",
+        element: (
+            <ProtectedRoute>
+                <Tienda />
+            </ProtectedRoute>
+        )
+    },
+    {
         path: "/carritodecompras",
-        Component: CarritoDeCompras
+        element: (
+            <ProtectedRoute>
+                <CarritoDeCompras />
+            </ProtectedRoute>
+        )
     }
 ])
 

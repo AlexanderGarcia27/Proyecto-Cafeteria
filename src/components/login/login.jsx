@@ -1,14 +1,24 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import '../css/login/login.css';
 import fondoCel from '../../assets/fondo_cel.jpg';
+import { useAuth } from '../../hooks/useAuth';
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
     const navigate = useNavigate();
+    const { isAuthenticated, login } = useAuth();
+
+    // Verificar si el usuario ya está autenticado al cargar el componente
+    useEffect(() => {
+        if (isAuthenticated) {
+            // Si ya está autenticado, redirigir al home
+            navigate('/home');
+        }
+    }, [isAuthenticated, navigate]);
 
     const showError = (message) => {
         Swal.fire({
@@ -49,7 +59,7 @@ const Login = () => {
             console.log('Login exitoso:', data);
 
             if (data.token) {
-                localStorage.setItem('token', data.token);
+                login(data.token); // Usar el hook de autenticación
             }
 
             Swal.fire({
