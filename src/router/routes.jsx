@@ -4,9 +4,8 @@ import Reservacion from "../components/Reservacion";
 import Login from "../components/login/login";
 import Register from "../components/register/register";
 import Tienda from "../components/tienda/index";
-import { Email } from "../components/restaurar_Contraseña/email";
 import CarritoDeCompras from "../components/carrito-de-compras/carrito-de-compras";
-import ProtectedRoute from "../components/ProtectedRoute";
+import { Email } from "../components/restaurar_Contraseña/email";
 
 let router = createBrowserRouter([
     {
@@ -18,41 +17,26 @@ let router = createBrowserRouter([
         Component: Register
     },
     {
-        path: "/restaurar-contraseña",
-        Component: Email
-    },
-    {
         path: "/home",
-        element: (
-            <ProtectedRoute>
-                <App />
-            </ProtectedRoute>
-        )
+        Component: App
     },
     {
         path: "/reservacion",
-        element: (
-            <ProtectedRoute>
-                <Reservacion />
-            </ProtectedRoute>
-        )
+        Component: Reservacion
     },
     {
         path: "/tienda",
-        element: (
-            <ProtectedRoute>
-                <Tienda />
-            </ProtectedRoute>
-        )
+        Component: Tienda
     },
     {
         path: "/carritodecompras",
-        element: (
-            <ProtectedRoute>
-                <CarritoDeCompras />
-            </ProtectedRoute>
-        )
-    }
+        Component: CarritoDeCompras
+    },
+    {
+        path: "/restaurar-contraseña",
+        Component: Email
+    },
+
 ])
 
 export default router;
