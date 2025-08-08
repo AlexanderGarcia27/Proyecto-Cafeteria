@@ -1,10 +1,23 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "../css/carrito-de-compras/carrito-de-compras.css";
 import cafeImg from "../../assets/tienda-productos/bebidad-calientes/cafe.jpg";
 
 const CarritoDeCompras = () => {
+  const navigate = useNavigate();
+
+  const irATienda = () => {
+    navigate("/tienda");
+  };
+
   return (
     <div className="carrito-bg">
+      <button 
+        className="carrito-ir-tienda" 
+        onClick={irATienda}
+      >
+        Ir a tienda
+      </button>
       <h2 className="carrito-titulo">Carrito de compras</h2>
       <div className="carrito-wrapper">
         <div className="carrito-contenido">
@@ -34,6 +47,7 @@ const CarritoDeCompras = () => {
                 <td className="carrito-td cantidad">4</td>
                 <td className="carrito-td subtotal">$236.00</td>
               </tr>
+              
             </tbody>
           </table>
           <div className="carrito-totales">

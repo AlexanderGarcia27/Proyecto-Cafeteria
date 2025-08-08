@@ -54,6 +54,7 @@ const Login = () => {
 
             Swal.fire({
                 icon: 'success',
+                iconColor: '#ffffff',
                 title: '¡Bienvenido!',
                 text: 'Inicio de sesión exitoso.',
                 confirmButtonColor: '#004aad',
