@@ -1,10 +1,11 @@
-import { createBrowserRouter } from "react-router";
+import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
 import Reservacion from "../components/Reservacion";
 import Login from "../components/login/login";
 import Register from "../components/register/register";
 import Tienda from "../components/tienda/index";
 import CarritoDeCompras from "../components/carrito-de-compras/carrito-de-compras";
+import { Email } from "../components/restaurar_Contraseña/email";
 
 let router = createBrowserRouter([
     {
@@ -30,7 +31,12 @@ let router = createBrowserRouter([
     {
         path: "/carritodecompras",
         Component: CarritoDeCompras
-    }
+    },
+    {
+        path: "/restaurar-contraseña",
+        Component: Email
+    },
+
 ])
 
 export default router;

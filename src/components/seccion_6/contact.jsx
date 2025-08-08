@@ -13,6 +13,7 @@ export const Contact = () => {
   const [errorName, setErrorName] = useState("");
   const [errorEmail, setErrorEmail] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [showModal, setShowModal] = useState(false);
 
   // Función para obtener el año actual
   const getCurrentYear = () => {
@@ -160,7 +161,11 @@ export const Contact = () => {
             </button>
           </form>
         </div>
+        {/*Aqui inicia lo de preguntas uwu debajo de aqui */}
         <FAQ />
+       
+        {showModal && <ModalCarrito onClose={() => setShowModal(false)} />}
+        {/*Aqui termina  lo de preguntas uwu sobre aqui */}
         <div className="contact-footer">
           <div className="contact-info">
             <h4 id="h4-footer">¿Dónde encontrarnos?</h4>
@@ -169,13 +174,13 @@ export const Contact = () => {
               C.P. 43200, México</b>
             </p>
             <div className="social-icons">
-              <a href="#" className="social-icon">
+              <a className="social-icon">
                 <i className="bi bi-facebook"></i>
               </a>
-              <a href="#" className="social-icon">
+              <a className="social-icon">
                 <i className="bi bi-twitter-x"></i>
               </a>
-              <a href="#" className="social-icon">
+              <a className="social-icon">
                 <i className="bi bi-whatsapp"></i>
               </a>
             </div>
