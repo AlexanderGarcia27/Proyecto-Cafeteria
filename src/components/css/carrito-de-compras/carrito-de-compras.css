@@ -188,7 +188,7 @@ body, .carrito-bg {
     font-size: 0.9rem;
   }
   .carrito-th, .carrito-td {
-    font-size: 0.9rem;
+    font-size: 1.7rem;
     padding: 6px 0;
   }
   .carrito-producto-img {
@@ -202,18 +202,100 @@ body, .carrito-bg {
     padding: 32px 5vw 32px 5vw;
     font-size: 1.1rem;
   }
-  .carrito-eliminar {
-    width: 16px;
-    height: 16px;
-    font-size: 0.8rem;
-    margin-right: 2px;
-  }
+
   .carrito-producto-nombre {
     font-size: 0.9rem;
   }
+  .carrito-eliminar {
+    width: 2.2rem !important;
+    height: 2rem !important;
+  }
+  
   
 }
 
+/* Media query específico para iPad Mini (768x1024) */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+  .carrito-titulo {
+    font-size: 2.5rem;
+    margin-top: 2rem;
+    margin-bottom: 2.5rem;
+  }
+  
+  .carrito-contenido {
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+    margin: 0;
+  }
+  
+  .carrito-tabla {
+    min-width: 90vw;
+    max-width: 90vw;
+  min-height: 10vw;
+    font-size: 1.4rem;
+  }
+  
+  .carrito-th td {
+    font-size: 1.5rem;
+    padding: 1.2rem 0;
+  }
+  
+  .carrito-td {
+    font-size: 1.4rem;
+    padding: 1.2rem 0;
+  }
+  
+  .carrito-producto-img {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 0.5rem;
+  }
+  
+  .carrito-eliminar {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.5rem;
+    margin-right: 0.8rem;
+  }
+  
+  .carrito-producto-nombre {
+    font-size: 1.4rem;
+  }
+  
+  
+  .carrito-totales-box {
+    max-width: 90vw !important;
+    min-width: 45vw !important;
+    padding: 2.5rem 2rem;
+    font-size: 1.4rem;
+  }
+  
+  .carrito-totales-titulo {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .carrito-totales-row {
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+    padding-bottom: 0.5rem;
+  }
+  
+  .carrito-totales-row.total {
+    font-size: 1.6rem;
+    margin-top: 1.5rem;
+  }
+  
+  .carrito-comprar {
+    font-size: 1.4rem ;
+    padding: 1rem 0;
+    height: 3rem;
+    margin-top: 2rem;
+  }
+  
+  
+}
 
 @media (max-width: 900px) {
   .carrito-wrapper {
@@ -244,7 +326,7 @@ body, .carrito-bg {
     box-sizing: border-box;
   }
   .carrito-titulo {
-    font-size: 1rem;
+    font-size: 2rem;
     margin-top: 8px;
     margin-bottom: 8px;
   }
@@ -255,8 +337,8 @@ body, .carrito-bg {
     margin-bottom: 1.5rem;
   }
   .carrito-th, .carrito-td {
-    font-size: 0.85rem;
-    padding: 4px 0;
+    font-size: 1.4rem;
+    padding: 1.5rem;
   }
   .carrito-th.producto, .carrito-td.producto {
     width: 70px;
@@ -270,13 +352,16 @@ body, .carrito-bg {
     height: 20px;
   }
   .carrito-eliminar {
-    width: 16px;
-    height: 16px;
-    font-size: 0.7rem;
-    margin-right: 2px;
+    width: 2.2rem !important;
+    height: 1.8rem !important;
   }
   .carrito-producto-nombre {
-    font-size: 0.85rem;
+    font-size: 1.4rem;
+  }
+  .carrito-producto-img {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.5rem;
   }
 }
 
@@ -291,7 +376,7 @@ body, .carrito-bg {
     font-size: 0.9rem;
   }
   .carrito-th, .carrito-td {
-    font-size: 0.9rem;
+    font-size: 0.9rem !important;
     padding: 6px 0;
   }
   .carrito-producto-img {
@@ -306,10 +391,10 @@ body, .carrito-bg {
     font-size: 1.1rem;
   }
   .carrito-eliminar {
-    width: 16px;
-    height: 16px;
-    font-size: 0.8rem;
-    margin-right: 2px;
+    width: 1.3rem !important;
+    height: 1rem !important;
+    font-size: 0.8rem !important;
+    margin-right: 0.2rem !important;
   }
   .carrito-producto-nombre {
     font-size: 0.9rem;
