@@ -34,5 +34,10 @@
   },
   "engines": {
     "node": ">=18.0.0"
+  },
+  "overrides": {
+    "rollup": {
+      "fsevents": "~2.3.3"
+    }
   }
 }
