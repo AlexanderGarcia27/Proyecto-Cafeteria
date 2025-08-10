@@ -39,5 +39,8 @@
     "rollup": {
       "fsevents": "~2.3.3"
     }
+  },
+  "resolutions": {
+    "rollup": "^4.9.0"
   }
 }
