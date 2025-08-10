@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import cafeF from "../../assets/cafeF.jpg";
 import MensajeConfirmacion from "./MensajeConfirmacion";
+import Swal from 'sweetalert2';
 
 const modalBgAnim = {
   animation: "fadeInBg 0.3s ease"
@@ -15,9 +17,11 @@ const ModalCarrito = ({ producto = {
   imagen: cafeF,
   descripcion: "Café clásico preparado con granos selectos, perfecto para comenzar tu día con energía y sabor auténtico."
 }, onClose }) => {
+  const navigate = useNavigate();
   const [show, setShow] = useState(false);
   const [cantidad, setCantidad] = useState(1);
   const [showConfirm, setShowConfirm] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     setTimeout(() => setShow(true), 10);
@@ -30,15 +34,77 @@ const ModalCarrito = ({ producto = {
     if (cantidad > 1) setCantidad(cantidad - 1);
   };
 
-  const handleAddToCart = () => {
-    // Aquí podrías agregar la lógica real de añadir al carrito
-    setShowConfirm(true);
+  const handleAddToCart = async () => {
+    setIsLoading(true);
+    
+    try {
+      console.log('=== AGREGANDO PRODUCTO AL CARRITO ===');
+      console.log('Producto:', producto);
+      console.log('Cantidad:', cantidad);
+      
+      const token = localStorage.getItem('token');
+      console.log('Token disponible:', token ? 'Sí' : 'No');
+      
+      const requestBody = {
+        productId: producto.id,
+        quantity: cantidad,
+        unitaryPrice: parseFloat(producto.precio)
+      };
+      
+      console.log('Datos a enviar:', requestBody);
+      
+      const headers = {
+        'Content-Type': 'application/json',
+      };
+      
+      if (token) {
+        headers['Authorization'] = `Bearer ${token}`;
+      }
+      
+      const response = await fetch('https://reservacion-citas.onrender.com/api/carts/add', {
+        method: 'POST',
+        headers,
+        credentials: 'include',
+        body: JSON.stringify(requestBody),
+      });
+      
+      console.log('Status de respuesta:', response.status);
+      
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error('Error del servidor:', errorText);
+        
+        if (response.status === 401) {
+          throw new Error('No estás autenticado. Inicia sesión nuevamente.');
+        }
+        throw new Error(`Error al agregar al carrito: ${response.status}`);
+      }
+      
+      const result = await response.json();
+      console.log('Producto agregado exitosamente:', result);
+      
+      // Mostrar mensaje de confirmación
+      setShowConfirm(true);
+      
+    } catch (error) {
+      console.error('Error al agregar producto:', error);
+      
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: error.message || 'No se pudo agregar el producto al carrito',
+        confirmButtonColor: '#B8742A',
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleVerCarrito = () => {
+    console.log('Navegando al carrito desde ModalCarrito...');
     setShowConfirm(false);
     if (onClose) onClose();
-    // Aquí podrías navegar al carrito si lo deseas
+    navigate("/carritodecompras");
   };
 
   return (
@@ -309,18 +375,20 @@ const ModalCarrito = ({ producto = {
             <button 
               onClick={handleAddToCart} 
               className="add-button"
+              disabled={isLoading}
               style={{
-                background: "#B8742A",
+                background: isLoading ? "#ccc" : "#B8742A",
                 color: "#fff",
                 border: "none",
                 borderRadius: 8,
                 padding: "12px 28px",
                 fontSize: 18,
                 fontWeight: 600,
-                cursor: "pointer"
+                cursor: isLoading ? "not-allowed" : "pointer",
+                opacity: isLoading ? 0.7 : 1
               }}
             >
-              Añadir al carrito
+              {isLoading ? "Agregando..." : "Añadir al carrito"}
             </button>
           </div>
         </div>

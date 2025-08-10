@@ -1,6 +1,13 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const MensajeConfirmacion = ({ onVerCarrito }) => {
+  const navigate = useNavigate();
+
+  const irACarrito = () => {
+    console.log('Navegando al carrito...');
+    navigate("/carritodecompras");
+  };
   return (
     <>
       <style>{`
@@ -77,7 +84,10 @@ const MensajeConfirmacion = ({ onVerCarrito }) => {
             Producto agregado correctamente
           </div>
           <button
-            onClick={onVerCarrito}
+            onClick={() => {
+              console.log('Botón Ver Carrito clickeado');
+              irACarrito();
+            }}
             className="confirm-button"
             style={{
               background: "#fff",

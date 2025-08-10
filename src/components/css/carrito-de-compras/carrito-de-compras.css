@@ -514,3 +514,28 @@ body, .carrito-bg {
     border-radius: 3px;
   }
 }
+
+/* Estilos para PayPal */
+.paypal-button-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.paypal-button-container > div {
+  width: 100%;
+  max-width: 300px;
+}
+
+/* Responsive para PayPal */
+@media (max-width: 768px) {
+  .paypal-button-container > div {
+    max-width: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .paypal-button-container > div {
+    max-width: 200px;
+  }
+}

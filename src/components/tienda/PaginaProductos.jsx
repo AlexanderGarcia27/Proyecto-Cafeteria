@@ -1,8 +1,8 @@
 /**
  * PaginaProductos.jsx
- * Menú de categorías funcional, productos definidos en el mismo archivo.
+ * Menú de categorías funcional, productos obtenidos desde la base de datos.
  */
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./PaginaProductos.css";
 import ModalCarrito from "./ModalCarrito";
 // Iconos
@@ -61,136 +61,199 @@ const categorias = [
   },
 ];
 
-const productosPorCategoria = {
-  "bebidas-frias": [
-    { 
-      nombre: "Café Helado", 
-      precio: 45, 
-      imagen: cafeHelado,
-      descripcion: "Café negro refrescante servido con hielo, perfecto para los días calurosos. Preparado con granos selectos y un toque de dulzura natural."
-    },
-    { 
-      nombre: "Limonada", 
-      precio: 35, 
-      imagen: limonada,
-      descripcion: "Limonada natural preparada con limones frescos y un toque de menta. Refrescante y revitalizante, ideal para hidratarse."
-    },
-    { 
-      nombre: "Té Helado", 
-      precio: 38, 
-      imagen: teHelado,
-      descripcion: "Té negro infusionado en frío con un sutil toque de limón. Bebida ligera y refrescante con propiedades antioxidantes."
-    },
-  ],
-  "bebidas-calientes": [
-    { 
-      nombre: "Latte Cremoso", 
-      precio: 75, 
-      imagen: latte,
-      descripcion: "Café espresso con leche vaporizada y una suave capa de espuma. Perfecto balance entre el sabor del café y la cremosidad de la leche."
-    },
-    { 
-      nombre: "Café", 
-      precio: 59, 
-      imagen: cafe,
-      descripcion: "Café negro tradicional preparado con granos arábica selectos. Aroma intenso y sabor equilibrado para los amantes del café puro."
-    },
-    { 
-      nombre: "Café Especial", 
-      precio: 62, 
-      imagen: cafe1,
-      descripcion: "Nuestra mezcla especial de granos tostados a la perfección. Un café con cuerpo y aroma excepcionales, servido a la temperatura ideal."
-    },
-  ],
-  "postres-frios": [
-    { 
-      nombre: "Helado", 
-      precio: 40, 
-      imagen: helado,
-      descripcion: "Helado artesanal con sabores naturales. Cremoso y suave, perfecto para endulzar cualquier momento del día."
-    },
-    { 
-      nombre: "Pay de Fresa", 
-      precio: 48, 
-      imagen: payFresa,
-      descripcion: "Pay de fresa casero con base de galleta y crema de fresa natural. El equilibrio perfecto entre dulzura y frescura."
-    },
-    { 
-      nombre: "Pay de Limón", 
-      precio: 48, 
-      imagen: payLimon,
-      descripcion: "Pay de limón con base crujiente y relleno cremoso. Sabor cítrico refrescante que combina perfectamente con cualquier bebida."
-    },
-  ],
-  "postres-calientes": [
-    { 
-      nombre: "Galletas", 
-      precio: 30, 
-      imagen: galletas,
-      descripcion: "Galletas recién horneadas con chispas de chocolate. Crujientes por fuera y suaves por dentro, acompañadas de un toque de canela."
-    },
-    { 
-      nombre: "Hotcakes", 
-      precio: 55, 
-      imagen: hotcakes,
-      descripcion: "Hotcakes esponjosos servidos con mantequilla y jarabe de maple. Desayuno clásico que nunca falla para comenzar el día."
-    },
-    { 
-      nombre: "Waflez", 
-      precio: 50, 
-      imagen: waflez,
-      descripcion: "Waflez belga dorado y crujiente, servido con frutas frescas y crema batida. Textura perfecta y sabor inigualable."
-    },
-  ],
-  "platillos-especiales": [
-    { 
-      nombre: "Lasaña", 
-      precio: 90, 
-      imagen: lasagna,
-      descripcion: "Lasaña casera con capas de pasta, salsa boloñesa, queso mozzarella y bechamel. Horneada hasta obtener el punto perfecto de gratinado."
-    },
-    { 
-      nombre: "Pizza Margarita", 
-      precio: 85, 
-      imagen: pizza,
-      descripcion: "Pizza Margarita tradicional con masa artesanal, salsa de tomate, mozzarella fresca y albahaca. Cocida en horno de piedra para el sabor auténtico."
-    },
-    { 
-      nombre: "Sushi", 
-      precio: 110, 
-      imagen: sushi,
-      descripcion: "Sushi fresco preparado con arroz de primera calidad y pescado de mar. Variedad de sabores y texturas en cada pieza."
-    },
-  ],
-  "platillos-tradicionales": [
-    { 
-      nombre: "Chilaquiles Rojos", 
-      precio: 70, 
-      imagen: chilaquilesRojos,
-      descripcion: "Chilaquiles con salsa roja picante, tortillas crujientes, pollo deshebrado, crema y queso fresco. Desayuno mexicano por excelencia."
-    },
-    { 
-      nombre: "Chilaquiles Verdes", 
-      precio: 70, 
-      imagen: chilaquilesVerdes,
-      descripcion: "Chilaquiles con salsa verde de tomate, cebolla y chile serrano. Acompañados de pollo, crema y queso fresco para un sabor auténtico."
-    },
-    { 
-      nombre: "Huevo Mexicano", 
-      precio: 60, 
-      imagen: huevoMex,
-      descripcion: "Huevos estrellados con salsa de tomate, cebolla y chile. Servidos con frijoles refritos y tortillas calientes. Desayuno nutritivo y sabroso."
-    },
-  ],
+// Función para obtener productos desde la API
+const fetchProductos = async () => {
+  try {
+    console.log('Intentando obtener productos...');
+    console.log('Cookies disponibles:', document.cookie);
+    
+    const token = localStorage.getItem('token');
+    console.log('Token en localStorage:', token ? 'Encontrado' : 'No encontrado');
+    
+    const headers = {
+      'Content-Type': 'application/json',
+    };
+    
+    // Si tenemos token en localStorage, lo usamos en el header Authorization
+    if (token) {
+      headers['Authorization'] = `Bearer ${token}`;
+      console.log('Enviando token en Authorization header');
+    }
+    
+    const response = await fetch('https://reservacion-citas.onrender.com/api/products', {
+      method: 'GET',
+      credentials: 'include', // También intentamos con cookies
+      headers,
+    });
+    
+    console.log('Status de respuesta:', response.status);
+    console.log('URL de la petición:', response.url);
+    
+    if (!response.ok) {
+      const errorText = await response.text();
+      console.log('Respuesta de error:', errorText);
+      
+      if (response.status === 401) {
+        // Si falla la autenticación, limpiar localStorage y redirigir
+        localStorage.removeItem('token');
+        throw new Error('No estás autenticado. Inicia sesión nuevamente.');
+      }
+      throw new Error(`Error al obtener productos: ${response.status} - ${response.statusText}`);
+    }
+    
+    const data = await response.json();
+    console.log('Productos obtenidos:', data);
+    return data;
+  } catch (error) {
+    console.error('Error detallado:', error);
+    return [];
+  }
+};
+
+// Función para organizar productos por categoría
+const organizarProductosPorCategoria = (productos) => {
+  console.log('=== ORGANIZANDO PRODUCTOS ===');
+  console.log('Productos recibidos:', productos);
+  
+  const productosPorCategoria = {
+    "bebidas-frias": [],
+    "bebidas-calientes": [],
+    "postres-frios": [],
+    "postres-calientes": [],
+    "platillos-especiales": [],
+    "platillos-tradicionales": []
+  };
+
+  // Mapeo de categorías del backend a claves del frontend
+  const mapeoCategoriasBackend = {
+    "Bebidas Frias": "bebidas-frias",
+    "Bebidas Calientes": "bebidas-calientes",
+    "Postres Frios": "postres-frios",
+    "Postres Calientes": "postres-calientes",
+    "Platillos Especiales": "platillos-especiales",
+    "Platillos Tradicionales": "platillos-tradicionales"
+  };
+
+  // Mapeo manual por nombre de producto (fallback)
+  const mapeoProductos = {
+    "Cafe Helado": "bebidas-frias",
+    "Limonada": "bebidas-frias", 
+    "Te Helado": "bebidas-frias",
+    "Cafe": "bebidas-calientes",
+    "Cafe Especial": "bebidas-calientes",
+    "Latte Cremoso": "bebidas-calientes",
+    "Helado": "postres-frios",
+    "Pay de Fresa": "postres-frios",
+    "Pay de Limon": "postres-frios",
+    "Galletas": "postres-calientes",
+    "Hotcakes": "postres-calientes",
+    "Waflez": "postres-calientes",
+    "Lasaña": "platillos-especiales",
+    "Pizza Margarita": "platillos-especiales",
+    "Sushi": "platillos-especiales",
+    "Chilaquiles Rojos": "platillos-tradicionales",
+    "Chilaquiles Verdes": "platillos-tradicionales",
+    "Huevo Mexicano": "platillos-tradicionales"
+  };
+
+  productos.forEach(producto => {
+    console.log('Procesando producto:', producto.name);
+    console.log('Categoría del backend:', producto.category?.name);
+    
+    // Primero intentar usar la categoría del backend
+    let categoryKey = null;
+    
+    if (producto.category && producto.category.name) {
+      categoryKey = mapeoCategoriasBackend[producto.category.name];
+      console.log(`Usando categoría del backend: "${producto.category.name}" -> "${categoryKey}"`);
+    }
+    
+    // Si no funciona, usar el mapeo manual por nombre
+    if (!categoryKey) {
+      categoryKey = mapeoProductos[producto.name];
+      console.log(`Usando mapeo manual: "${producto.name}" -> "${categoryKey}"`);
+    }
+    
+    if (categoryKey && productosPorCategoria[categoryKey]) {
+      const productoFormateado = {
+        id: producto.id,
+        nombre: producto.name,
+        precio: producto.price,
+        imagen: producto.urlImage,
+        descripcion: producto.description,
+        stock: producto.stock,
+        categoria: producto.category?.name || producto.name
+      };
+      
+      productosPorCategoria[categoryKey].push(productoFormateado);
+      console.log(`✅ Producto "${producto.name}" agregado a "${categoryKey}"`);
+    } else {
+      console.warn(`❌ Producto "${producto.name}" no tiene mapeo de categoría`);
+      console.warn('Categoría del backend:', producto.category?.name);
+    }
+  });
+
+  console.log('Productos organizados:', productosPorCategoria);
+  return productosPorCategoria;
 };
 
 const PaginaProductos = () => {
-  // Estado para la subcategoría seleccionada
+  // Estados
   const [subcatActiva, setSubcatActiva] = useState("bebidas-frias");
   const [showModal, setShowModal] = useState(false);
   const [productoSeleccionado, setProductoSeleccionado] = useState(null);
-  
-  const productos = productosPorCategoria[subcatActiva] || [];
+  const [productos, setProductos] = useState([]);
+  const [productosPorCategoria, setProductosPorCategoria] = useState({});
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  // Cargar productos al montar el componente
+  useEffect(() => {
+    const cargarProductos = async () => {
+      try {
+        setLoading(true);
+        console.log('=== INICIANDO CARGA DE PRODUCTOS ===');
+        console.log('URL actual:', window.location.href);
+        console.log('Cookies al entrar a tienda:', document.cookie);
+        console.log('localStorage token:', localStorage.getItem('token'));
+        
+        // Verificar si hay alguna cookie específica
+        const cookies = document.cookie.split(';');
+        cookies.forEach(cookie => {
+          const [name, value] = cookie.trim().split('=');
+          console.log(`Cookie: ${name} = ${value}`);
+        });
+        
+        const productosAPI = await fetchProductos();
+        console.log('Productos recibidos de API:', productosAPI);
+        
+        const productosOrganizados = organizarProductosPorCategoria(productosAPI);
+        console.log('Productos organizados:', productosOrganizados);
+        
+        setProductosPorCategoria(productosOrganizados);
+        
+        console.log('Subcategoría activa:', subcatActiva);
+        console.log('Productos para subcategoría:', productosOrganizados[subcatActiva]);
+        
+        setProductos(productosOrganizados[subcatActiva] || []);
+        setError(null);
+      } catch (err) {
+        setError('Error al cargar productos');
+        console.error('Error al cargar productos:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    cargarProductos();
+  }, []);
+
+  // Actualizar productos cuando cambia la subcategoría
+  useEffect(() => {
+    if (productosPorCategoria[subcatActiva]) {
+      setProductos(productosPorCategoria[subcatActiva]);
+    }
+  }, [subcatActiva, productosPorCategoria]);
 
   const handleAgregarProducto = (producto) => {
     console.log("Clic en agregar producto:", producto);
@@ -208,10 +271,42 @@ const PaginaProductos = () => {
 
   console.log("Renderizando PaginaProductos, showModal:", showModal, "productoSeleccionado:", productoSeleccionado);
 
+  if (loading) {
+    return (
+      <div className="productos-layout">
+        <div style={{ 
+          display: 'flex', 
+          justifyContent: 'center', 
+          alignItems: 'center', 
+          height: '50vh',
+          fontSize: '18px',
+          color: '#666'
+        }}>
+          Cargando productos...
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="productos-layout">
+        <div style={{ 
+          display: 'flex', 
+          justifyContent: 'center', 
+          alignItems: 'center', 
+          height: '50vh',
+          fontSize: '18px',
+          color: '#d32f2f'
+        }}>
+          {error}
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="productos-layout">
-      
-      
       <aside className="menu-categorias">
         <h2>Categorías</h2>
         {categorias.map((cat) => (
@@ -235,24 +330,48 @@ const PaginaProductos = () => {
       </aside>
       <main className="productos-main">
         <h1 className="productos-titulo">Productos</h1>
-        <div className="productos-grid">
-          {productos.map((prod) => (
-            <div className="producto-card" key={prod.nombre}>
-              <div className="producto-img-wrap">
-                <img src={prod.imagen} alt={prod.nombre} className="producto-img" />
-                <img 
-                  src={botonMas} 
-                  alt="Agregar" 
-                  className="boton-mas-svg" 
-                  onClick={() => handleAgregarProducto(prod)}
-                  style={{ cursor: "pointer" }}
-                />
+        {productos.length === 0 ? (
+          <div style={{ 
+            textAlign: 'center', 
+            padding: '2rem',
+            color: '#666',
+            fontSize: '18px'
+          }}>
+            No hay productos disponibles en esta categoría
+          </div>
+        ) : (
+          <div className="productos-grid">
+            {(() => {
+              console.log('=== RENDERIZANDO PRODUCTOS ===');
+              console.log('Cantidad de productos:', productos.length);
+              console.log('Productos a renderizar:', productos);
+              return null;
+            })()}
+            {productos.map((prod) => (
+              <div className="producto-card" key={prod.id || prod.nombre}>
+                <div className="producto-img-wrap">
+                  <img 
+                    src={prod.imagen} 
+                    alt={prod.nombre} 
+                    className="producto-img"
+                    onError={(e) => {
+                      e.target.src = '/src/assets/tienda-productos/bebidad-calientes/cafe.jpg'; // Imagen por defecto
+                    }}
+                  />
+                  <img 
+                    src={botonMas} 
+                    alt="Agregar" 
+                    className="boton-mas-svg" 
+                    onClick={() => handleAgregarProducto(prod)}
+                    style={{ cursor: "pointer" }}
+                  />
+                </div>
+                <div className="producto-nombre">{prod.nombre}</div>  
+                <div className="producto-precio">${prod.precio.toFixed(2)}</div>
               </div>
-              <div className="producto-nombre">{prod.nombre}</div>  
-              <div className="producto-precio">${prod.precio.toFixed(2)}</div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </main>
       {showModal && productoSeleccionado && (
         <ModalCarrito 
