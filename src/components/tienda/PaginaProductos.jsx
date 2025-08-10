@@ -393,28 +393,6 @@ const PaginaProductos = () => {
 
   return (
     <div className="productos-layout">
-      {/* Botón de debug temporal */}
-      <div style={{ 
-        position: 'fixed', 
-        top: '10px', 
-        right: '10px', 
-        zIndex: 1000,
-        background: '#004aad',
-        color: 'white',
-        padding: '10px',
-        borderRadius: '5px',
-        cursor: 'pointer',
-        fontSize: '12px'
-      }} onClick={() => {
-        console.log('=== DEBUG INFO ===');
-        console.log('localStorage token:', localStorage.getItem('token'));
-        console.log('Cookies:', document.cookie);
-        console.log('URL:', window.location.href);
-        console.log('User Agent:', navigator.userAgent);
-      }}>
-        Debug Auth
-      </div>
-      
       <aside className="menu-categorias">
         <h2>Categorías</h2>
         {categorias.map((cat) => (
