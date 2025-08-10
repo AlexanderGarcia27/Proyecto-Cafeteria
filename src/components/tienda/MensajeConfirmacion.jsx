@@ -1,12 +1,19 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const MensajeConfirmacion = ({ onVerCarrito }) => {
+const MensajeConfirmacion = ({ onVerCarrito, onSeguirComprando }) => {
   const navigate = useNavigate();
 
   const irACarrito = () => {
     console.log('Navegando al carrito...');
     navigate("/carritodecompras");
+  };
+
+  const seguirComprando = () => {
+    console.log('Cerrando modales y continuando compra...');
+    if (onSeguirComprando) {
+      onSeguirComprando();
+    }
   };
   return (
     <>
@@ -25,6 +32,9 @@ const MensajeConfirmacion = ({ onVerCarrito }) => {
             padding: 12px 24px !important;
             font-size: 16px !important;
           }
+          .confirm-buttons-container {
+            gap: 10px !important;
+          }
         }
         
         @media (max-width: 480px) {
@@ -40,6 +50,9 @@ const MensajeConfirmacion = ({ onVerCarrito }) => {
           .confirm-button {
             padding: 10px 20px !important;
             font-size: 14px !important;
+          }
+          .confirm-buttons-container {
+            gap: 8px !important;
           }
         }
       `}</style>
@@ -83,26 +96,62 @@ const MensajeConfirmacion = ({ onVerCarrito }) => {
           >
             Producto agregado correctamente
           </div>
-          <button
-            onClick={() => {
-              console.log('Botón Ver Carrito clickeado');
-              irACarrito();
-            }}
-            className="confirm-button"
+          <div 
+            className="confirm-buttons-container"
             style={{
-              background: "#fff",
-              color: "#222",
-              border: "none",
-              borderRadius: 10,
-              padding: "10px 28px",
-              fontSize: 18,
-              fontWeight: 500,
-              cursor: "pointer",
-              boxShadow: "0 2px 8px rgba(0,0,0,0.08)"
+              display: "flex",
+              gap: 12,
+              flexDirection: "column",
+              width: "100%"
             }}
           >
-            Ver Carrito
-          </button>
+            <button
+              onClick={() => {
+                console.log('Botón Ver Carrito clickeado');
+                irACarrito();
+              }}
+              className="confirm-button"
+              style={{
+                background: "#fff",
+                color: "#222",
+                border: "none",
+                borderRadius: 10,
+                padding: "10px 28px",
+                fontSize: 18,
+                fontWeight: 500,
+                cursor: "pointer",
+                boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
+                width: "100%"
+              }}
+            >
+              Ver Carrito
+            </button>
+            <button
+              onClick={seguirComprando}
+              style={{
+                background: "transparent",
+                color: "#fff",
+                border: "2px solid #fff",
+                borderRadius: 10,
+                padding: "10px 28px",
+                fontSize: 18,
+                fontWeight: 500,
+                cursor: "pointer",
+                width: "100%",
+                transition: "all 0.3s ease"
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.background = "#fff";
+                e.target.style.color = "#222";
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.background = "transparent";
+                e.target.style.color = "#fff";
+              }}
+            >
+              Seguir Comprando
+            </button>
+          </div>
         </div>
       </div>
     </>

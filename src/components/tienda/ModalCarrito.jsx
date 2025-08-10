@@ -107,6 +107,12 @@ const ModalCarrito = ({ producto = {
     navigate("/carritodecompras");
   };
 
+  const handleSeguirComprando = () => {
+    console.log('Cerrando modales para seguir comprando...');
+    setShowConfirm(false);
+    if (onClose) onClose();
+  };
+
   return (
     <>
       <style>{`
@@ -393,7 +399,10 @@ const ModalCarrito = ({ producto = {
           </div>
         </div>
         {showConfirm && (
-          <MensajeConfirmacion onVerCarrito={handleVerCarrito} />
+          <MensajeConfirmacion 
+            onVerCarrito={handleVerCarrito} 
+            onSeguirComprando={handleSeguirComprando}
+          />
         )}
       </div>
     </>
