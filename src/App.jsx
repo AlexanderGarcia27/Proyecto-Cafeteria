@@ -9,6 +9,7 @@ import './index.css';
 import MenuCard from './components/ComponentMenuS4'
 import {Contact} from './components/seccion_6/contact'
 import ComponentTestimonialS5 from './components/ComponentTestimonialS5'
+import image2 from './assets/imagenes_2/image_2.jpg'
 
 function App() {
   return (
@@ -21,7 +22,7 @@ function App() {
       </div>
       <div id='conocenos'>
       <BackgroundSection>
-        <ImageSection src="../src/assets/imagenes_2/image_2.jpg" alt="Cafe KL">
+        <ImageSection src={image2} alt="Cafe KL">
           <div className="section2-image-text">
             Acompañándote desde 2015.<br />El mejor café en Zacualtipan.
           </div>

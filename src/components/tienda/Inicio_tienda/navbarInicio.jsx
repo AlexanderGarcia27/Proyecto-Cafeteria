@@ -1,6 +1,8 @@
 import './inicio_css/navbarInicio2.css'
 import { BurgerMenu } from './BurgerMenu'
 import { Link } from "react-router-dom";
+import logo from '../../../assets/imagenes_1/logo.png'
+import shoppingCart from '../../../assets/Shopping cart.png'
 
 export const NavbarInicio = () => {
     return (
@@ -9,7 +11,7 @@ export const NavbarInicio = () => {
                 <BurgerMenu />
                 <div className="logo-container">
                     <img
-                        src="/src/assets/imagenes_1/logo.png"
+                        src={logo}
                         alt="Logo Cafetería"
                         className="logo"
                     />
@@ -20,7 +22,7 @@ export const NavbarInicio = () => {
                     <a href="#productos" className="nav-link">Productos</a>
                     <a href="/CarritoDeCompras" className='tienda-cart-btn' style={{ textDecoration: "none" }}>
                         <img
-                            src="/src/assets/Shopping cart.png"
+                            src={shoppingCart}
                             alt="Carrito de compras"
                             className="tienda-cart-icon"
                         />

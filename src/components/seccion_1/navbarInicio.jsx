@@ -2,6 +2,7 @@ import '../css/seccion_1/navbarInicio.css'
 import { BurgerMenu } from './BurgerMenu'
 import { Link, useNavigate } from "react-router-dom"
 import Swal from 'sweetalert2'
+import logo from '../../assets/imagenes_1/logo.png'
 
 export const NavbarInicio = () => {
     const navigate = useNavigate();
@@ -48,7 +49,7 @@ export const NavbarInicio = () => {
                 <BurgerMenu />
                 <div className="logo-container">
                     <img
-                        src="/src/assets/imagenes_1/logo.png"
+                        src={logo}
                         alt="Logo Cafetería"
                         className="logo"
                     />
