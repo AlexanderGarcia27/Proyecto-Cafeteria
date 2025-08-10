@@ -15,10 +15,10 @@ export const Carrusel = () => {
     { name: "Javier", role: "Barista Experto", img: barista2, text: "Conoce los secretos de cada grano, experto en tueste y extracciones perfectas." },
     { name: "Marco", role: "Barista Experto", img: barista3, text: "Innovador de sabores, te sorprenderá con sus bebidas especiales." },
     { name: "Luis", role: "Barista Experto", img: barista4, text: "Rápido y eficiente, tu café favorito listo en un instante." },
-    { name: "Carlos", role: "Barista Dedicado", img: barista5, text: "Perfeccionista del expreso, asegura la intensidad y cremosidad." },
+    { name: "Carlos", role: "Barista", img: barista5, text: "Perfeccionista del expreso, asegura la intensidad y cremosidad." },
     { name: "Diego", role: "Barista Senior", img: barista6, text: "Crea el ambiente perfecto, haciendo de cada visita una experiencia única." },
     { name: "Raúl ", role: "Barista Dedicado", img: barista7, text: "Siempre atento a tus preferencias, para que disfrutes tu café ideal." },
-    { name: "Andrés ", role: "Barista Experto", img: barista8, text: "Comparte su pasión y conocimiento para asegurar la calidad de cada taza." },
+    { name: "Andrés ", role: "Barista", img: barista8, text: "Comparte su pasión y conocimiento para asegurar la calidad de cada taza." },
   ];
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
