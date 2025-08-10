@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.29.0",
+    "@rollup/rollup-win32-x64-msvc": "^4.46.2",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
     "@vitejs/plugin-react": "^4.5.2",
@@ -30,17 +31,9 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.2.0",
-    "vite": "^7.0.0"
+    "vite": "^4.5.0"
   },
   "engines": {
     "node": ">=18.0.0"
-  },
-  "overrides": {
-    "rollup": {
-      "fsevents": "~2.3.3"
-    }
-  },
-  "resolutions": {
-    "rollup": "^4.9.0"
   }
 }
