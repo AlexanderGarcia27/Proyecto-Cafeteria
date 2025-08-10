@@ -33,6 +33,7 @@ export const Contact = () => {
     if (!name.trim()) {
       Swal.fire({
         icon: 'error',
+        iconColor: '#bc6c25',
         title: 'Campo requerido',
         text: 'Por favor, ingresa tu nombre.',
         confirmButtonColor: '#bc6c25'
@@ -43,6 +44,7 @@ export const Contact = () => {
     if (!email.trim()) {
       Swal.fire({
         icon: 'error',
+        iconColor: '#bc6c25',
         title: 'Campo requerido',
         text: 'Por favor, ingresa tu correo electrónico.',
         confirmButtonColor: '#bc6c25'
@@ -53,6 +55,7 @@ export const Contact = () => {
     if (!validateEmail(email)) {
       Swal.fire({
         icon: 'error',
+        iconColor: '#bc6c25',
         title: 'Email inválido',
         text: 'Por favor, ingresa un correo válido.',
         confirmButtonColor: '#bc6c25'
@@ -63,6 +66,7 @@ export const Contact = () => {
     if (!message.trim()) {
       Swal.fire({
         icon: 'error',
+        iconColor: '#bc6c25',
         title: 'Campo requerido',
         text: 'Por favor, escribe tu mensaje.',
         confirmButtonColor: '#bc6c25'
@@ -79,6 +83,7 @@ export const Contact = () => {
       if (result && result.message && !result.message.toLowerCase().includes("error")) {
         Swal.fire({
           icon: 'success',
+          iconColor: '#bc6c25',
           title: '¡Mensaje enviado!',
           text: 'Tu mensaje ha sido enviado correctamente.',
           confirmButtonColor: '#bc6c25',
@@ -94,6 +99,7 @@ export const Contact = () => {
       } else {
         Swal.fire({
           icon: 'error',
+          iconColor: '#bc6c25',
           title: 'Error al enviar',
           text: 'Hubo un error al enviar el mensaje. Inténtalo de nuevo.',
           confirmButtonColor: '#bc6c25'
@@ -105,6 +111,7 @@ export const Contact = () => {
     } catch (error) {
       Swal.fire({
         icon: 'error',
+        iconColor: '#bc6c25',
         title: 'Error al enviar',
         text: 'Hubo un error al enviar el mensaje. Inténtalo de nuevo.',
         confirmButtonColor: '#bc6c25'
