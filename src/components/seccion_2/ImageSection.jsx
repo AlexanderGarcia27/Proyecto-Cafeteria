@@ -1,4 +1,4 @@
-import '../../components/css/seccion_2/imageSection.css';
+import '../../components/css/seccion_2/ImageSection.css';
 
 export const ImageSection = ({ src, alt, children }) => {
   return (

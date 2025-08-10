@@ -1,4 +1,4 @@
-import '../../components/css/seccion_2/backgroundSection.css';
+import '../../components/css/seccion_2/BackgroundSection.css';
 
 export const BackgroundSection = ({ children }) => {
   return (

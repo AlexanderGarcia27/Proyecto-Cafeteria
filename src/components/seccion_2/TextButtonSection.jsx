@@ -1,4 +1,4 @@
-import '../css/seccion_2/textButtonSection.css'
+import '../css/seccion_2/TextButtonSection.css'
 
 export const TextButtonSection = () => {
   return (
