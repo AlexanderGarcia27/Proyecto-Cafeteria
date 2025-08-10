@@ -1,5 +1,6 @@
 import { InlineWidget } from "react-calendly";
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const imageTexts = [
   {
@@ -24,6 +25,7 @@ const Reservacion = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 900);
   const [textIndex, setTextIndex] = useState(0);
   const [fade, setFade] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleResize = () => {
@@ -58,6 +60,28 @@ const Reservacion = () => {
           padding: "0 1rem",
         }}
       >
+        {/* Botón ir a home */}
+        <button
+          onClick={() => navigate('/home')}
+          style={{
+            position: 'absolute',
+            top: '30px',
+            left: '30px',
+            zIndex: 1000,
+            padding: '12px 24px',
+            background: '#B78752',
+            color: '#fff',
+            border: 'none',
+            borderRadius: '8px',
+            cursor: 'pointer',
+            fontSize: '16px',
+            fontWeight: 'bold',
+            boxShadow: '0 4px 12px rgba(0,0,0,0.3)'
+          }}
+        >
+          Ir a Home
+        </button>
+        
         <h2 style={{
           color: "#fff",
           fontWeight: 700,
@@ -100,6 +124,8 @@ const Reservacion = () => {
         overflow: "hidden",
       }}
     >
+
+      
       {/* Columna izquierda - Calendario */}
       <div
         style={{
@@ -111,12 +137,36 @@ const Reservacion = () => {
           alignItems: "center",
           justifyContent: "center",
           boxSizing: "border-box",
+          position: "relative"
         }}
       >
+        {/* Botón ir a home - Desktop */}
+        <button
+          onClick={() => navigate('/home')}
+          style={{
+            position: 'absolute',
+            top: '30px',
+            left: '30px',
+            zIndex: 1000,
+            padding: '12px 24px',
+            background: '#fff',
+            color: '#B78752',
+            border: '2px solid #B78752',
+            borderRadius: '8px',
+            cursor: 'pointer',
+            fontSize: '16px',
+            fontWeight: 'bold',
+            boxShadow: '0 4px 12px rgba(0,0,0,0.3)'
+          }}
+        >
+          Ir a Home
+        </button>
+        
         <div style={{ width: "100%", maxWidth: 600, height: "600px" }}>
           <InlineWidget
             url="https://calendly.com/mxvalentin1822/30min"
             styles={{
+              marginTop: "20px",
               width: "100%",
               height: "100%",
               border: "none",

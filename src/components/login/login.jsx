@@ -35,6 +35,7 @@ const Login = () => {
                 headers: {
                     'Content-Type': 'application/json',
                 },
+                credentials: 'include',
                 body: JSON.stringify({ email, password }),
             });
 
@@ -47,13 +48,20 @@ const Login = () => {
 
             const data = await response.json();
             console.log('Login exitoso:', data);
+            console.log('Headers de respuesta del login:', response.headers);
+            console.log('Cookies después del login:', document.cookie);
 
+            // Guardar token en localStorage si el backend lo envía
             if (data.token) {
                 localStorage.setItem('token', data.token);
+                console.log('Token guardado en localStorage:', data.token);
+            } else {
+                console.warn('El backend no envió el token en la respuesta JSON');
             }
 
             Swal.fire({
                 icon: 'success',
+                iconColor: '#ffffff',
                 title: '¡Bienvenido!',
                 text: 'Inicio de sesión exitoso.',
                 confirmButtonColor: '#004aad',

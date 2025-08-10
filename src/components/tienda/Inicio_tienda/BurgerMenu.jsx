@@ -22,7 +22,7 @@ export const BurgerMenu = () => {
             <nav className="tienda-burger-nav-links">
               <Link to="/home" className="tienda-nav-link">Inicio</Link>
               <a href="#productos" className="tienda-nav-link">Productos</a>
-              <Link to="" className='reservation-btn' style={{ textDecoration: "none" }} >
+              <Link to="/CarritoDeCompras" className='reservation-btn' style={{ textDecoration: "none" }} >
                 Ver carrito<span>↗</span>
               </Link>
             </nav>

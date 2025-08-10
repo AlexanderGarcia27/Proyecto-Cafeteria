@@ -13,7 +13,7 @@ export const TextComponent = () => {
                 </div>
                 <div className="tienda-button-row">
                     <a className="tienda-btn tienda-btn-white" href='#productos'>Productos</a>
-                    <a className="tienda-btn tienda-btn-orange" href='#menu'>Ver carrito</a>
+                    <a className="tienda-btn tienda-btn-orange" href='/CarritoDeCompras'>Ver carrito</a>
                 </div>
             </div>
         </div>

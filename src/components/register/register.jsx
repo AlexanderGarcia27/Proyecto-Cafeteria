@@ -139,10 +139,17 @@ const Register = () => {
               ¿Ya tienes una cuenta?{' '}
               <a
                 href="#"
-                className="register-link"
+                className={`register-link ${isSubmitting ? 'disabled-link' : ''}`}
                 onClick={(e) => {
                   e.preventDefault();
-                  navigate('/');
+                  if (!isSubmitting) {
+                    navigate('/');
+                  }
+                }}
+                style={{
+                  pointerEvents: isSubmitting ? 'none' : 'auto',
+                  opacity: isSubmitting ? 0.5 : 1,
+                  cursor: isSubmitting ? 'not-allowed' : 'pointer'
                 }}
               >
                 Inicia sesión aquí
