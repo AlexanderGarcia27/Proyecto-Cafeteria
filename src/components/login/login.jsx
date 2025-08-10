@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import '../css/login/login.css';
 import fondoCel from '../../assets/fondo_cel.jpg';
@@ -10,6 +10,44 @@ const Login = () => {
     const [password, setPassword] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
     const navigate = useNavigate();
+    const location = useLocation();
+
+    // Verificar si hay token en la URL (después de login con Google)
+    useEffect(() => {
+        const urlParams = new URLSearchParams(location.search);
+        const token = urlParams.get('token');
+        
+        if (token) {
+            console.log('Token encontrado en URL después de login con Google:', token);
+            
+            // Guardar token en localStorage
+            localStorage.setItem('token', token);
+            console.log('Token guardado en localStorage desde Google OAuth');
+            
+            // Limpiar la URL
+            const cleanUrl = window.location.pathname;
+            window.history.replaceState({}, document.title, cleanUrl);
+            
+            // Mostrar mensaje de éxito
+            Swal.fire({
+                icon: 'success',
+                iconColor: '#ffffff',
+                title: '¡Bienvenido!',
+                text: 'Inicio de sesión con Google exitoso.',
+                confirmButtonColor: '#004aad',
+                timer: 1500,
+                showConfirmButton: false,
+                customClass: {
+                    popup: 'mi-alerta-personalizada'
+                }
+            });
+            
+            // Redirigir a home después de un breve delay
+            setTimeout(() => {
+                navigate('/home');
+            }, 1600);
+        }
+    }, [location, navigate]);
 
     const showError = (message) => {
         Swal.fire({

@@ -128,25 +128,18 @@ const MensajeConfirmacion = ({ onVerCarrito, onSeguirComprando }) => {
             </button>
             <button
               onClick={seguirComprando}
+              className="confirm-button"
               style={{
-                background: "transparent",
-                color: "#fff",
-                border: "2px solid #fff",
+                background: "#fff",
+                color: "#222",
+                border: "none",
                 borderRadius: 10,
                 padding: "10px 28px",
                 fontSize: 18,
                 fontWeight: 500,
                 cursor: "pointer",
-                width: "100%",
-                transition: "all 0.3s ease"
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.background = "#fff";
-                e.target.style.color = "#222";
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.background = "transparent";
-                e.target.style.color = "#fff";
+                boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
+                width: "100%"
               }}
             >
               Seguir Comprando
