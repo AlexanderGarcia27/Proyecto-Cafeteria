@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import '../css/login/login.css';
 import fondoCel from '../../assets/fondo_cel.jpg';
+import googleLogo from '../../assets/login/image.png';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -150,7 +151,7 @@ const Login = () => {
                             onClick={redirectToGoogle}
                             disabled={isSubmitting}
                         >
-                            <img src="/src/assets/login/image.png" alt="Google logo" />
+                            <img src={googleLogo} alt="Google logo" />
                             Sign up with Google
                         </button>
 
