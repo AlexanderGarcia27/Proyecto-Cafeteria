@@ -238,6 +238,7 @@ textarea::placeholder {
 }
 
 .success-message {
+  background: linear-gradient(90deg, #b9935a 0%, #6b4f27 100%);
   color: #fff;
   padding: 1rem 2rem;
   border-radius: 8px;
@@ -247,6 +248,8 @@ textarea::placeholder {
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   animation: fadeIn 0.5s;
 }
+
+
 
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(-10px);}

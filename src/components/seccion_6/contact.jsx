@@ -3,6 +3,7 @@ import '../css/seccion_6/cssseccion_6.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import {sendEmail} from "../../services/contactService";
 import FAQ from '../FAQ';
+import Swal from 'sweetalert2';
 
 export const Contact = () => {
   const [name, setName] = useState("");
@@ -10,9 +11,6 @@ export const Contact = () => {
   const [message, setMessage] = useState("");
   const [successMsg, setSuccessMsg] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [errorName, setErrorName] = useState("");
-  const [errorEmail, setErrorEmail] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
   const [showModal, setShowModal] = useState(false);
 
   // Función para obtener el año actual
@@ -29,30 +27,46 @@ export const Contact = () => {
     e.preventDefault();
     if (isSubmitting) return;
 
-    // Limpiar errores previos
-    setErrorName("");
-    setErrorEmail("");
-    setErrorMessage("");
     setSuccessMsg("");
 
-    let valid = true;
+    // Validar campos
     if (!name.trim()) {
-      setErrorName("Por favor, ingresa tu nombre.");
-      valid = false;
+      Swal.fire({
+        icon: 'error',
+        title: 'Campo requerido',
+        text: 'Por favor, ingresa tu nombre.',
+        confirmButtonColor: '#bc6c25'
+      });
+      return;
     }
+    
     if (!email.trim()) {
-      setErrorEmail("Por favor, ingresa tu correo electrónico.");
-      valid = false;
-    } else if (!validateEmail(email)) {
-      setErrorEmail("Por favor, ingresa un correo válido.");
-      valid = false;
+      Swal.fire({
+        icon: 'error',
+        title: 'Campo requerido',
+        text: 'Por favor, ingresa tu correo electrónico.',
+        confirmButtonColor: '#bc6c25'
+      });
+      return;
     }
+    
+    if (!validateEmail(email)) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Email inválido',
+        text: 'Por favor, ingresa un correo válido.',
+        confirmButtonColor: '#bc6c25'
+      });
+      return;
+    }
+    
     if (!message.trim()) {
-      setErrorMessage("Por favor, escribe tu mensaje.");
-      valid = false;
-    }
-    if (!valid) {
-      setIsSubmitting(false);
+      Swal.fire({
+        icon: 'error',
+        title: 'Campo requerido',
+        text: 'Por favor, escribe tu mensaje.',
+        confirmButtonColor: '#bc6c25'
+      });
       return;
     }
 
@@ -63,7 +77,14 @@ export const Contact = () => {
     try {
       const result = await sendEmail(data);
       if (result && result.message && !result.message.toLowerCase().includes("error")) {
-        setSuccessMsg("¡Mensaje enviado correctamente!");
+        Swal.fire({
+          icon: 'success',
+          title: '¡Mensaje enviado!',
+          text: 'Tu mensaje ha sido enviado correctamente.',
+          confirmButtonColor: '#bc6c25',
+          timer: 2000,
+          showConfirmButton: false
+        });
         setName("");
         setEmail("");
         setMessage("");
@@ -71,33 +92,40 @@ export const Contact = () => {
           window.location.reload();
         }, 2000);
       } else {
-        setSuccessMsg("Hubo un error al enviar el mensaje. Inténtalo de nuevo.");
+        Swal.fire({
+          icon: 'error',
+          title: 'Error al enviar',
+          text: 'Hubo un error al enviar el mensaje. Inténtalo de nuevo.',
+          confirmButtonColor: '#bc6c25'
+        });
         setTimeout(() => {
           window.location.reload();
-        }, 5000); // Espera 5 segundos antes de recargar
+        }, 5000);
       }
     } catch (error) {
-      setSuccessMsg("Hubo un error al enviar el mensaje. Inténtalo de nuevo.");
+      Swal.fire({
+        icon: 'error',
+        title: 'Error al enviar',
+        text: 'Hubo un error al enviar el mensaje. Inténtalo de nuevo.',
+        confirmButtonColor: '#bc6c25'
+      });
       setTimeout(() => {
         window.location.reload();
-      }, 5000); // Espera 5 segundos antes de recargar
+      }, 5000);
     } finally {
       setIsSubmitting(false);
     }
   }
 
-  // Limpiar error al escribir
+  // Manejar cambios en los inputs
   const handleNameChange = (e) => {
     setName(e.target.value);
-    if (errorName) setErrorName("");
   };
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
-    if (errorEmail) setErrorEmail("");
   };
   const handleMessageChange = (e) => {
     setMessage(e.target.value);
-    if (errorMessage) setErrorMessage("");
   };
 
 
@@ -107,9 +135,6 @@ export const Contact = () => {
         <div className="contact-container">
           <h3>Saludar</h3>
           <h1>Contacto</h1>
-          {successMsg && (
-            <div className="success-message">{successMsg}</div>
-          )}
           <form className="contact-form" onSubmit={handleSubmit}>
             <div className="input-group">
               <div className="input-field">
@@ -121,9 +146,6 @@ export const Contact = () => {
                   onChange={handleNameChange}
                   disabled={isSubmitting}
                 />
-                <div className="error-message" style={{ minHeight: "1.5em" }}>
-                  {errorName}
-                </div>
               </div>
               <div className="input-field">
                 <label>Correo electrónico</label>
@@ -134,9 +156,6 @@ export const Contact = () => {
                   onChange={handleEmailChange}
                   disabled={isSubmitting}
                 />
-                <div className="error-message" style={{ minHeight: "1.5em" }}>
-                  {errorEmail}
-                </div>
               </div>
             </div>
             <div className="input-field">
@@ -148,9 +167,6 @@ export const Contact = () => {
                 onChange={handleMessageChange}
                 disabled={isSubmitting}
               />
-              <div className="error-message" style={{ minHeight: "1.5em" }}>
-                {errorMessage}
-              </div>
             </div>
             <button 
               type="submit" 

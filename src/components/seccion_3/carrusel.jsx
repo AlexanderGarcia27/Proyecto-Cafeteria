@@ -1,16 +1,24 @@
 import { useState, useEffect, useRef } from "react";
 import '../css/seccion_3/cssseccion_3.css';
+import barista1 from '../../assets/baristas-carrusel/pexels-mizunokozuki-13736419.jpg';
+import barista2 from '../../assets/baristas-carrusel/barista-2.jpg';
+import barista3 from '../../assets/baristas-carrusel/barista-3.jpg';
+import barista4 from '../../assets/baristas-carrusel/barista-4.jpg';
+import barista5 from '../../assets/baristas-carrusel/barista.jpg';
+import barista6 from '../../assets/baristas-carrusel/barista-5.jpg';
+import barista7 from '../../assets/baristas-carrusel/_barista-haciendo-cafe-de-filtro_0.jpg';
+import barista8 from '../../assets/baristas-carrusel/pexels-elletakesphotos-2101154.jpg';
 
 export const Carrusel = () => {
   const baristas = [
-    { name: "Ana", role: "Maestra Barista", img: "pexels-mizunokozuki-13736419.jpg", text: "Maestra del latte art, convierte cada café en una obra de Zacualtipán" },
-    { name: "Javier", role: "Barista Experto", img: "barista-2.jpg", text: "Conoce los secretos de cada grano, experto en tueste y extracciones perfectas." },
-    { name: "Marco", role: "Barista Experto", img: "barista-3.jpg", text: "Innovador de sabores, te sorprenderá con sus bebidas especiales." },
-    { name: "Luis", role: "Barista Experto", img: "barista-4.jpg", text: "Rápido y eficiente, tu café favorito listo en un instante." },
-    { name: "Carlos", role: "Barista Dedicado", img: "barista.jpg", text: "Perfeccionista del expreso, asegura la intensidad y cremosidad." },
-    { name: "Diego", role: "Barista Senior", img: "barista-5.jpg", text: "Crea el ambiente perfecto, haciendo de cada visita una experiencia única." },
-    { name: "Raúl ", role: "Barista Dedicado", img: "_barista-haciendo-cafe-de-filtro_0.jpg", text: "Siempre atento a tus preferencias, para que disfrutes tu café ideal." },
-    { name: "Andrés ", role: "Barista Experto", img: "pexels-elletakesphotos-2101154.jpg", text: "Comparte su pasión y conocimiento para asegurar la calidad de cada taza." },
+    { name: "Ana", role: "Maestra Barista", img: barista1, text: "Maestra del latte art, convierte cada café en una obra de Zacualtipán" },
+    { name: "Javier", role: "Barista Experto", img: barista2, text: "Conoce los secretos de cada grano, experto en tueste y extracciones perfectas." },
+    { name: "Marco", role: "Barista Experto", img: barista3, text: "Innovador de sabores, te sorprenderá con sus bebidas especiales." },
+    { name: "Luis", role: "Barista Experto", img: barista4, text: "Rápido y eficiente, tu café favorito listo en un instante." },
+    { name: "Carlos", role: "Barista Dedicado", img: barista5, text: "Perfeccionista del expreso, asegura la intensidad y cremosidad." },
+    { name: "Diego", role: "Barista Senior", img: barista6, text: "Crea el ambiente perfecto, haciendo de cada visita una experiencia única." },
+    { name: "Raúl ", role: "Barista Dedicado", img: barista7, text: "Siempre atento a tus preferencias, para que disfrutes tu café ideal." },
+    { name: "Andrés ", role: "Barista Experto", img: barista8, text: "Comparte su pasión y conocimiento para asegurar la calidad de cada taza." },
   ];
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -105,7 +113,7 @@ export const Carrusel = () => {
         <div className="team-container" ref={containerRef}>
           {extendedList.map((person, idx) => (
             <div className="team-card" key={idx}>
-              <img src={`src/assets/baristas-carrusel/${person.img}`} alt={person.name} />
+              <img src={person.img} alt={person.name} />
               <div className="team-info">
                 <h3>{person.name} <span className="badge boss">{person.role}</span></h3>
                 <p>{person.text}</p>
