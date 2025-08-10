@@ -95,7 +95,7 @@ const Reservacion = () => {
         </h2>
         <div style={{ width: "100%", maxWidth: 600, height: "600px" }}>
           <InlineWidget
-            url="https://calendly.com/mxvalentin1822/30min?hide_gdpr_banner=1"
+            url="https://calendly.com/mxvalen13/30min?hide_gdpr_banner=1"
             styles={{
               width: "100%",
               height: "100%",
@@ -165,7 +165,7 @@ const Reservacion = () => {
         
         <div style={{ width: "100%", maxWidth: 600, height: "600px" }}>
           <InlineWidget
-            url="https://calendly.com/mxvalentin1822/30min"
+            url="https://calendly.com/mxvalen13/30min"
             styles={{
               marginTop: "20px",
               width: "100%",
