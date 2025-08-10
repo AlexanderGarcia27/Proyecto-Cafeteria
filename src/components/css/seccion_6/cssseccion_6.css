@@ -238,7 +238,6 @@ textarea::placeholder {
 }
 
 .success-message {
-  background: linear-gradient(90deg, #b9935a 0%, #6b4f27 100%);
   color: #fff;
   padding: 1rem 2rem;
   border-radius: 8px;
