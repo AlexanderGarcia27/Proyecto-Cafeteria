@@ -1,6 +1,7 @@
 import { InlineWidget } from "react-calendly";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import calendarioImage from '../assets/calendario/kris-tian-FUHRgV7Pjr8-unsplash.jpg';
 
 const imageTexts = [
   {
@@ -190,7 +191,7 @@ const Reservacion = () => {
         style={{
           flex: isMobile ? "none" : "0 0 50%",
           height: isMobile ? "40vh" : "100vh",
-          background: `linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(188, 108, 37, 0.7)), url('/src/assets/calendario/kris-tian-FUHRgV7Pjr8-unsplash.jpg')`,
+          background: `linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(188, 108, 37, 0.7)), url(${calendarioImage})`,
           backgroundSize: "cover",
           backgroundPosition: "center left",
           backgroundRepeat: "no-repeat",
