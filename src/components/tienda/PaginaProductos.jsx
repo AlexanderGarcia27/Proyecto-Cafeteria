@@ -61,65 +61,24 @@ const categorias = [
   },
 ];
 
-// Función para verificar si el token es válido
-const verificarToken = async (token) => {
-  try {
-    const response = await fetch('https://reservacion-citas.onrender.com/api/auth/verify', {
-      method: 'GET',
-      headers: {
-        'Authorization': `Bearer ${token}`,
-        'Content-Type': 'application/json',
-      },
-      credentials: 'include',
-    });
-    
-    console.log('Verificación de token - Status:', response.status);
-    return response.ok;
-  } catch (error) {
-    console.log('Error al verificar token:', error);
-    return false;
-  }
-};
-
 // Función para obtener productos desde la API
-const fetchProductos = async (retryCount = 0) => {
+const fetchProductos = async () => {
   try {
-    console.log('=== FETCH PRODUCTOS (intento ' + (retryCount + 1) + ') ===');
     console.log('Intentando obtener productos...');
-    console.log('User Agent:', navigator.userAgent);
-    console.log('Es móvil:', /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
     console.log('Cookies disponibles:', document.cookie);
     
-    let token = localStorage.getItem('token');
+    const token = localStorage.getItem('token');
     console.log('Token en localStorage:', token ? 'Encontrado' : 'No encontrado');
-    console.log('Longitud del token:', token ? token.length : 0);
-    
-    // Si tenemos token, verificar si es válido
-    if (token && retryCount === 0) {
-      const tokenValido = await verificarToken(token);
-      console.log('Token válido:', tokenValido);
-      
-      if (!tokenValido) {
-        console.log('Token inválido, limpiando localStorage');
-        localStorage.removeItem('token');
-        token = null;
-      }
-    }
     
     const headers = {
       'Content-Type': 'application/json',
     };
     
-    // Si tenemos token válido, lo usamos en el header Authorization
+    // Si tenemos token en localStorage, lo usamos en el header Authorization
     if (token) {
       headers['Authorization'] = `Bearer ${token}`;
       console.log('Enviando token en Authorization header');
-      console.log('Headers completos:', headers);
-    } else {
-      console.log('No hay token válido, enviando petición sin Authorization header');
     }
-    
-    console.log('Iniciando fetch a:', 'https://reservacion-citas.onrender.com/api/products');
     
     const response = await fetch('https://reservacion-citas.onrender.com/api/products', {
       method: 'GET',
@@ -129,24 +88,13 @@ const fetchProductos = async (retryCount = 0) => {
     
     console.log('Status de respuesta:', response.status);
     console.log('URL de la petición:', response.url);
-    console.log('Headers de respuesta:', Array.from(response.headers.entries()));
     
     if (!response.ok) {
       const errorText = await response.text();
       console.log('Respuesta de error:', errorText);
       
       if (response.status === 401) {
-        console.log('Error 401 - Token inválido o expirado');
-        
-        // Si es el primer intento, intentar una vez más sin token
-        if (retryCount === 0) {
-          console.log('Primer intento falló con 401, intentando sin token...');
-          localStorage.removeItem('token');
-          return await fetchProductos(1);
-        }
-        
         // Si falla la autenticación, limpiar localStorage y redirigir
-        console.log('Error 401 - Limpiando localStorage');
         localStorage.removeItem('token');
         throw new Error('No estás autenticado. Inicia sesión nuevamente.');
       }
@@ -154,19 +102,10 @@ const fetchProductos = async (retryCount = 0) => {
     }
     
     const data = await response.json();
-    console.log('Productos obtenidos exitosamente:', data);
-    console.log('Cantidad de productos:', data.length || 0);
+    console.log('Productos obtenidos:', data);
     return data;
   } catch (error) {
-    console.error('Error detallado en fetchProductos:', error);
-    console.error('Stack trace:', error.stack);
-    
-    // Si es el primer intento y hay error, intentar una vez más
-    if (retryCount === 0) {
-      console.log('Primer intento falló, intentando una vez más...');
-      return await fetchProductos(1);
-    }
-    
+    console.error('Error detallado:', error);
     return [];
   }
 };
@@ -268,25 +207,6 @@ const PaginaProductos = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Función para verificar y guardar token de la URL
-  const verificarTokenEnURL = () => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const tokenFromURL = urlParams.get('token');
-    
-    if (tokenFromURL) {
-      console.log('Token encontrado en URL, guardando en localStorage...');
-      localStorage.setItem('token', tokenFromURL);
-      
-      // Limpiar la URL
-      const newURL = window.location.pathname;
-      window.history.replaceState({}, document.title, newURL);
-      
-      console.log('Token guardado y URL limpiada');
-      return true;
-    }
-    return false;
-  };
-
   // Cargar productos al montar el componente
   useEffect(() => {
     const cargarProductos = async () => {
@@ -296,12 +216,6 @@ const PaginaProductos = () => {
         console.log('URL actual:', window.location.href);
         console.log('Cookies al entrar a tienda:', document.cookie);
         console.log('localStorage token:', localStorage.getItem('token'));
-        
-        // Verificar si hay token en la URL
-        const tokenGuardado = verificarTokenEnURL();
-        if (tokenGuardado) {
-          console.log('Token guardado desde URL, continuando...');
-        }
         
         // Verificar si hay alguna cookie específica
         const cookies = document.cookie.split(';');
