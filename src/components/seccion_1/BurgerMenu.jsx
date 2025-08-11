@@ -17,7 +17,8 @@ export const BurgerMenu = () => {
       });
 
       // Limpiar localStorage también
-      localStorage.removeItem('token');
+      localStorage.clear();
+      //localStorage.removeItem('token');
       
       // Mostrar mensaje de confirmación
       Swal.fire({

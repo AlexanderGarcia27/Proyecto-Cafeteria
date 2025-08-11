@@ -10,8 +10,25 @@ import MenuCard from './components/ComponentMenuS4'
 import {Contact} from './components/seccion_6/contact'
 import ComponentTestimonialS5 from './components/ComponentTestimonialS5'
 import image2 from './assets/imagenes_2/image_2.jpg'
+import { useLocation, useNavigate } from 'react-router';
+import { useEffect } from 'react';
 
 function App() {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const token = params.get("token");
+
+    if(token) {
+      localStorage.setItem("token", token);
+
+      navigate("/home", {replace: true});
+    }
+
+  }, [location, navigate])
+
   return (
     <>
       <div id='inicio'>
