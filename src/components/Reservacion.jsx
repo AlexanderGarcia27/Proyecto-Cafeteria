@@ -152,7 +152,7 @@ const Reservacion = () => {
           width: "100%", 
           maxWidth: isTablet ? 800 : 600, 
           height: isTablet ? "500px" : "600px",
-          marginTop: isTablet ? "2rem" : "20px"
+          marginTop: isTablet ? "2rem" : "4rem"
         }}>
           <InlineWidget
             url="https://calendly.com/mxvalen13/30min"

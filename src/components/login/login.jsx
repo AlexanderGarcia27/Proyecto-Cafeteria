@@ -12,10 +12,11 @@ const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
 
-    // Verificar si hay token en la URL (después de login con Google)
+    // Verificar si hay token o error en la URL (después de login con Google)
     useEffect(() => {
         const urlParams = new URLSearchParams(location.search);
         const token = urlParams.get('token');
+        const error = urlParams.get('error');
         
         if (token) {
             console.log('Token encontrado en URL después de login con Google:', token);
@@ -46,6 +47,31 @@ const Login = () => {
             setTimeout(() => {
                 navigate('/home');
             }, 1600);
+        }
+        
+        if (error) {
+            console.log('Error encontrado en URL después de login con Google:', error);
+            
+            // Decodificar el error de la URL
+            const decodedError = decodeURIComponent(error);
+            console.log('Error decodificado:', decodedError);
+            
+            // Limpiar la URL
+            const cleanUrl = window.location.pathname;
+            window.history.replaceState({}, document.title, cleanUrl);
+            
+            // Mostrar mensaje de error
+            Swal.fire({
+                icon: 'warning',
+                iconColor: '#ffffff',
+                title: 'Cuenta existente',
+                text: decodedError,
+                confirmButtonColor: '#004aad',
+                confirmButtonText: 'Entendido',
+                customClass: {
+                    popup: 'mi-alerta-personalizada'
+                }
+            });
         }
     }, [location, navigate]);
 
