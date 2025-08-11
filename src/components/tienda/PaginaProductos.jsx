@@ -5,6 +5,7 @@
 import React, { useState, useEffect } from "react";
 import "./PaginaProductos.css";
 import ModalCarrito from "./ModalCarrito";
+import { useToken } from "../../hooks/useToken";
 // Iconos
 import iconoBebidaFria from "../../assets/tienda-productos/icono-bebida-fria.png";
 import iconoBebidaCaliente from "../../assets/tienda-productos/icono-bebida-caliente.png";
@@ -62,23 +63,33 @@ const categorias = [
 ];
 
 // Función para obtener productos desde la API
-const fetchProductos = async () => {
+const fetchProductos = async (retryCount = 0) => {
   try {
+    console.log('=== FETCH PRODUCTOS (intento ' + (retryCount + 1) + ') ===');
     console.log('Intentando obtener productos...');
+    console.log('User Agent:', navigator.userAgent);
+    console.log('Es móvil:', /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
     console.log('Cookies disponibles:', document.cookie);
     
-    const token = localStorage.getItem('token');
-    console.log('Token en localStorage:', token ? 'Encontrado' : 'No encontrado');
+    // Usar el token del hook o localStorage como fallback
+    let currentToken = token || localStorage.getItem('token');
+    console.log('Token actual:', currentToken ? 'Encontrado' : 'No encontrado');
+    console.log('Longitud del token:', currentToken ? currentToken.length : 0);
     
     const headers = {
       'Content-Type': 'application/json',
     };
     
-    // Si tenemos token en localStorage, lo usamos en el header Authorization
-    if (token) {
-      headers['Authorization'] = `Bearer ${token}`;
+    // Si tenemos token, lo usamos en el header Authorization
+    if (currentToken) {
+      headers['Authorization'] = `Bearer ${currentToken}`;
       console.log('Enviando token en Authorization header');
+      console.log('Headers completos:', headers);
+    } else {
+      console.log('No hay token, enviando petición sin Authorization header');
     }
+    
+    console.log('Iniciando fetch a:', 'https://reservacion-citas.onrender.com/api/products');
     
     const response = await fetch('https://reservacion-citas.onrender.com/api/products', {
       method: 'GET',
@@ -88,13 +99,24 @@ const fetchProductos = async () => {
     
     console.log('Status de respuesta:', response.status);
     console.log('URL de la petición:', response.url);
+    console.log('Headers de respuesta:', Array.from(response.headers.entries()));
     
     if (!response.ok) {
       const errorText = await response.text();
       console.log('Respuesta de error:', errorText);
       
       if (response.status === 401) {
+        console.log('Error 401 - Token inválido o expirado');
+        
+        // Si es el primer intento, intentar una vez más sin token
+        if (retryCount === 0) {
+          console.log('Primer intento falló con 401, intentando sin token...');
+          localStorage.removeItem('token');
+          return await fetchProductos(1);
+        }
+        
         // Si falla la autenticación, limpiar localStorage y redirigir
+        console.log('Error 401 - Limpiando localStorage');
         localStorage.removeItem('token');
         throw new Error('No estás autenticado. Inicia sesión nuevamente.');
       }
@@ -102,10 +124,19 @@ const fetchProductos = async () => {
     }
     
     const data = await response.json();
-    console.log('Productos obtenidos:', data);
+    console.log('Productos obtenidos exitosamente:', data);
+    console.log('Cantidad de productos:', data.length || 0);
     return data;
   } catch (error) {
-    console.error('Error detallado:', error);
+    console.error('Error detallado en fetchProductos:', error);
+    console.error('Stack trace:', error.stack);
+    
+    // Si es el primer intento y hay error, intentar una vez más
+    if (retryCount === 0) {
+      console.log('Primer intento falló, intentando una vez más...');
+      return await fetchProductos(1);
+    }
+    
     return [];
   }
 };
@@ -207,6 +238,9 @@ const PaginaProductos = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  // Hook para manejar el token
+  const { token, isLoading: tokenLoading, checkToken, verifyToken } = useToken();
+
   // Cargar productos al montar el componente
   useEffect(() => {
     const cargarProductos = async () => {
@@ -216,6 +250,7 @@ const PaginaProductos = () => {
         console.log('URL actual:', window.location.href);
         console.log('Cookies al entrar a tienda:', document.cookie);
         console.log('localStorage token:', localStorage.getItem('token'));
+        console.log('Token del hook:', token);
         
         // Verificar si hay alguna cookie específica
         const cookies = document.cookie.split(';');
@@ -245,8 +280,11 @@ const PaginaProductos = () => {
       }
     };
 
-    cargarProductos();
-  }, []);
+    // Esperar a que el token se cargue antes de hacer la petición
+    if (!tokenLoading) {
+      cargarProductos();
+    }
+  }, [token, tokenLoading]);
 
   // Actualizar productos cuando cambia la subcategoría
   useEffect(() => {
