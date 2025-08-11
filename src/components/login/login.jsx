@@ -14,66 +14,38 @@ const Login = () => {
 
     // Verificar si hay token en la URL (después de login con Google)
     useEffect(() => {
-        console.log('=== VERIFICANDO TOKEN EN URL ===');
-        console.log('URL completa:', window.location.href);
-        console.log('Search params:', location.search);
-        
         const urlParams = new URLSearchParams(location.search);
         const token = urlParams.get('token');
         
-        console.log('Token encontrado en URL:', token ? 'SÍ' : 'NO');
-        
         if (token) {
             console.log('Token encontrado en URL después de login con Google:', token);
-            console.log('Longitud del token:', token.length);
             
-            // Verificar que el token no esté vacío
-            if (token.trim() === '') {
-                console.error('Token está vacío');
-                return;
-            }
+            // Guardar token en localStorage
+            localStorage.setItem('token', token);
+            console.log('Token guardado en localStorage desde Google OAuth');
             
-            try {
-                // Guardar token en localStorage
-                localStorage.setItem('token', token);
-                console.log('✅ Token guardado exitosamente en localStorage');
-                
-                // Verificar que se guardó correctamente
-                const tokenGuardado = localStorage.getItem('token');
-                console.log('Token verificado en localStorage:', tokenGuardado ? 'SÍ' : 'NO');
-                console.log('Longitud del token guardado:', tokenGuardado ? tokenGuardado.length : 0);
-                
-                // Limpiar la URL
-                const cleanUrl = window.location.pathname;
-                window.history.replaceState({}, document.title, cleanUrl);
-                console.log('URL limpiada:', cleanUrl);
-                
-                // Mostrar mensaje de éxito
-                Swal.fire({
-                    icon: 'success',
-                    iconColor: '#ffffff',
-                    title: '¡Bienvenido!',
-                    text: 'Inicio de sesión con Google exitoso.',
-                    confirmButtonColor: '#004aad',
-                    timer: 1500,
-                    showConfirmButton: false,
-                    customClass: {
-                        popup: 'mi-alerta-personalizada'
-                    }
-                });
-                
-                // Redirigir a home después de un breve delay
-                setTimeout(() => {
-                    console.log('Redirigiendo a /home...');
-                    navigate('/home');
-                }, 1600);
-                
-            } catch (error) {
-                console.error('Error al guardar token en localStorage:', error);
-                showError('Error al guardar la sesión. Intente nuevamente.');
-            }
-        } else {
-            console.log('No hay token en la URL');
+            // Limpiar la URL
+            const cleanUrl = window.location.pathname;
+            window.history.replaceState({}, document.title, cleanUrl);
+            
+            // Mostrar mensaje de éxito
+            Swal.fire({
+                icon: 'success',
+                iconColor: '#ffffff',
+                title: '¡Bienvenido!',
+                text: 'Inicio de sesión con Google exitoso.',
+                confirmButtonColor: '#004aad',
+                timer: 1500,
+                showConfirmButton: false,
+                customClass: {
+                    popup: 'mi-alerta-personalizada'
+                }
+            });
+            
+            // Redirigir a home después de un breve delay
+            setTimeout(() => {
+                navigate('/home');
+            }, 1600);
         }
     }, [location, navigate]);
 
