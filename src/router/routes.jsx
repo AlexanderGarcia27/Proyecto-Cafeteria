@@ -6,6 +6,7 @@ import Register from "../components/register/register";
 import Tienda from "../components/tienda/index";
 import CarritoDeCompras from "../components/carrito-de-compras/carrito-de-compras";
 import { Email } from "../components/restaurar_Contraseña/email";
+import Productos from "../components/administrador/productos/productos";
 
 let router = createBrowserRouter([
     {
@@ -36,6 +37,10 @@ let router = createBrowserRouter([
         path: "/restaurar-contraseña",
         Component: Email
     },
+    {
+        path: "/administrador-productos",
+        Component: Productos
+    }
 
 ])
 

@@ -1,0 +1,705 @@
+/* Forzar el color de fondo para la página de administrador */
+.admin-productos-layout {
+    background-color: #7C5C52 !important;
+}
+
+/* También aplicar al body cuando estemos en esta página */
+body.admin-productos-page {
+    background-color: #7C5C52 !important;
+}
+
+/* Aplicar a todo el contenedor principal */
+.productos-container {
+    background-color: #7C5C52 !important;
+    min-height: 100vh;
+    padding: 0;
+}
+
+/* Navbar del administrador */
+.admin-navbar {
+    background-color: #5a4337;
+    border-radius: 25px;
+    margin: 20px auto;
+    max-width: 1200px;
+    padding: 15px 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.admin-navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100%;
+}
+
+.admin-navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.admin-navbar-icon {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.admin-navbar-title {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.admin-navbar-links {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.admin-navbar-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: 'Segoe UI', sans-serif;
+    transition: color 0.3s ease;
+    padding: 8px 12px;
+    border-radius: 8px;
+}
+
+.admin-navbar-link:hover {
+    color: #fa7f04;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Contenido principal */
+.admin-productos-layout {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Filtro de categorías */
+.filtro-categorias {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.filtro-categorias h2 {
+    color: white;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.categoria-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.categoria-btn {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 12px 24px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.categoria-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: #fa7f04;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(250, 127, 4, 0.3);
+}
+
+.categoria-btn.active {
+    background-color: #fa7f04;
+    border-color: #fa7f04;
+    color: white;
+    box-shadow: 0 4px 15px rgba(250, 127, 4, 0.4);
+}
+
+/* Grid de productos */
+.productos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+    padding: 20px 0;
+}
+
+/* Tarjetas de productos */
+.tienda-product-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 15px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.tienda-product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    border-color: #fa7f04;
+}
+
+.tienda-product-image-container {
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.tienda-product-image {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.tienda-add-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fa7f04;
+    color: white;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+    opacity: 0;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.tienda-product-image-container:hover .tienda-add-button {
+    opacity: 1;
+}
+
+.tienda-product-image-container:hover .tienda-product-image {
+    opacity: 0.7;
+}
+
+.tienda-product-name,
+.tienda-product-price,
+.tienda-product-stock {
+    color: white;
+    margin: 5px 0;
+    font-weight: 500;
+}
+
+.tienda-product-name {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.tienda-product-price {
+    font-size: 0.95rem;
+    color: #ffb347;
+}
+
+.tienda-product-stock {
+    font-size: 0.9rem;
+    color: #e0d2c0;
+}
+
+/* Modal de agregar stock */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Asegurar que quede por encima del navbar (z-index: 9999) */
+    z-index: 20000;
+    backdrop-filter: blur(5px);
+}
+
+.modal-container {
+    background-color: #7C5C52;
+    border-radius: 20px;
+    padding: 0;
+    max-width: 500px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8) translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.modal-header {
+    background-color: #725226;
+    border-radius: 20px 20px 0 0;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-header h2 {
+    color: white;
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.modal-close:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: rotate(90deg);
+}
+
+.modal-content {
+    padding: 30px;
+    background-color: #725226;
+}
+
+.producto-info-card {
+    background-color: white;
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.producto-imagen-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.producto-imagen-modal {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 3px solid #7C5C52;
+}
+
+.producto-details {
+    text-align: left;
+}
+
+.producto-details p {
+    margin: 12px 0;
+    font-size: 1.1rem;
+    color: #333;
+    line-height: 1.5;
+}
+
+.producto-details strong {
+    color: #7C5C52;
+    font-weight: 600;
+}
+
+.stock-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn-decrement,
+.btn-increment {
+    background-color: #7C5C52;
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-decrement:hover,
+.btn-increment:hover {
+    background-color: #6a4f47;
+    transform: scale(1.1);
+}
+
+.btn-decrement:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.cantidad-display {
+    background-color: white;
+    color: #7C5C52;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    min-width: 60px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: 2px solid #7C5C52;
+}
+
+.btn-agregar-stock {
+    background-color: #7C5C52;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-agregar-stock:hover {
+    background-color: #6a4f47;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(124, 92, 82, 0.4);
+}
+
+/* Notificación personalizada */
+.notificacion-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 30000;
+    backdrop-filter: blur(3px);
+}
+
+.notificacion-container {
+    background-color: transparent;
+    padding: 20px;
+    border-radius: 0;
+    animation: notificacionSlideIn 0.5s ease-out;
+}
+
+.notificacion-mensaje {
+    background-color: #B78752;
+    color: white;
+    padding: 20px 40px;
+    border-radius: 25px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(250, 127, 4, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    animation: notificacionPulse 0.6s ease-out;
+}
+
+@keyframes notificacionSlideIn {
+    from {
+        opacity: 0;
+        transform: scale(0.5) translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@keyframes notificacionPulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .admin-navbar {
+        margin: 10px;
+        padding: 12px 20px;
+        border-radius: 15px;
+    }
+    
+    .admin-navbar-content {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .admin-navbar-brand {
+        justify-content: center;
+    }
+    
+    .admin-navbar-title {
+        font-size: 1.3rem;
+    }
+    
+    .admin-navbar-links {
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .admin-navbar-link {
+        font-size: 0.9rem;
+        padding: 6px 10px;
+    }
+    
+    /* Filtro responsivo */
+    .categoria-buttons {
+        gap: 10px;
+    }
+    
+    .categoria-btn {
+        padding: 10px 16px;
+        font-size: 0.9rem;
+    }
+    
+    .productos-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 10px;
+    }
+    
+    .tienda-product-card {
+        padding: 12px;
+    }
+    
+    .tienda-product-image {
+        height: 120px;
+    }
+    
+    .tienda-product-name {
+        font-size: 0.9rem;
+    }
+    
+    .tienda-product-price,
+    .tienda-product-stock {
+        font-size: 0.8rem;
+    }
+    
+    /* Modal responsivo */
+    .modal-container {
+        width: 95%;
+        max-width: 400px;
+    }
+    
+    .modal-header {
+        padding: 15px 20px;
+    }
+    
+    .modal-header h2 {
+        font-size: 1.3rem;
+    }
+    
+    .modal-content {
+        padding: 20px;
+    }
+    
+    .producto-info-card {
+        padding: 20px;
+    }
+    
+    .producto-imagen-modal {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .producto-details p {
+        font-size: 1rem;
+        margin: 8px 0;
+    }
+    
+    .stock-controls {
+        gap: 10px;
+    }
+    
+    .btn-decrement,
+    .btn-increment {
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
+    }
+    
+    .cantidad-display {
+        padding: 10px 15px;
+        font-size: 1.2rem;
+        min-width: 50px;
+    }
+    
+    .btn-agregar-stock {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+    
+    /* Notificación responsiva */
+    .notificacion-mensaje {
+        padding: 15px 30px;
+        font-size: 1.1rem;
+        border-radius: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .admin-navbar-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .admin-navbar-link {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Estilos para el contenedor principal (para centrar y dar espacio) */
+.productos-container {
+    background-color: #7B5C58; /* Color de fondo del body */
+    min-height: 100vh;
+    padding-top: 10rem; /* Espacio para que el contenido no quede debajo del navbar fijo */
+}
+
+.admin-productos-layout {
+    max-width: 1200px;
+    margin: 0 auto; /* Centra el layout */
+    padding: 0 1.5rem;
+}
+
+/* --- ESTILOS DE LA CUADRÍCULA DE PRODUCTOS --- */
+.productos-grid {
+    display: grid;
+    /* Usa grid para crear columnas, 3 columnas para el diseño de la imagen */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 2rem; /* Espacio entre las tarjetas */
+    justify-content: center; /* Centra la cuadrícula si hay menos de 3 elementos */
+    padding: 2rem 0;
+}
+
+/* --- ESTILOS DE LA TARJETA DE PRODUCTO INDIVIDUAL --- */
+.tienda-product-card {
+    background-color: #7B5C58; /* Mismo color que el fondo para un efecto de "no borde" */
+    color: #fff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.tienda-product-image-container {
+    position: relative;
+    width: 100%;
+    /* Hace que el contenedor de la imagen tenga una relación de aspecto cuadrada */
+    padding-bottom: 100%; 
+    overflow: hidden;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+}
+
+.tienda-product-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que la imagen cubra el contenedor */
+    display: block;
+    border-radius: 8px;
+    filter: brightness(0.85); /* Oscurece un poco la imagen para el texto */
+}
+
+/* Estilos para la información de texto */
+.tienda-product-name,
+.tienda-product-price,
+.tienda-product-stock {
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+.tienda-product-name {
+    font-weight: 600;
+}
+
+/* Estilos del botón de añadir (+) */
+.tienda-add-button {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background-color: #FF8C00; /* Naranja/Ámbar */
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 700;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+/* Media Query para pantallas más pequeñas (opcional, pero recomendado) */
+@media (max-width: 900px) {
+    .productos-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablets */
+    }
+}
+
+@media (max-width: 550px) {
+    .productos-grid {
+        grid-template-columns: 1fr; /* 1 columna en móviles */
+    }
+    .productos-container {
+        padding-top: 8rem;
+    }
+}
