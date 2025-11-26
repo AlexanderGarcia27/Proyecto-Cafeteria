@@ -1,0 +1,53 @@
+/* Contenedor principal */
+.resumen-container {
+    width: 100%;
+    padding: 40px 20px;
+    margin-top: 40px;
+    border-radius: 10px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Título */
+.resumen-title {
+    text-align: center;
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+    font-family: "Segoe UI", sans-serif;
+}
+
+/* Grid de tarjetas */
+.resumen-cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+/* Tarjeta individual */
+.resumen-card {
+    background-color: #e8d9c8;
+    padding: 25px 35px;
+    width: 180px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+    font-family: "Segoe UI", sans-serif;
+}
+
+.resumen-card h3 {
+    margin: 0;
+    font-size: 1rem;
+    color: #5a4337;
+    font-weight: 600;
+}
+
+/* Texto de valor */
+.resumen-value {
+    margin-top: 12px;
+    font-size: 1.2rem;
+    color: #fa7f04; /* naranja bonito */
+    font-weight: 600;
+}

@@ -1,0 +1,126 @@
+/* Forzar el color de fondo para la página de administrador */
+.admin-productos-layout {
+    background-color: #7C5C52 !important;
+}
+
+/* También aplicar al body cuando estemos en esta página */
+body.admin-productos-page {
+    background-color: #7C5C52 !important;
+}
+
+/* Aplicar a todo el contenedor principal */
+.productos-container {
+    min-height: 100vh;
+    padding: 0;
+    background-image: url("../images/fondo.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    position: relative; /* Necesario para el overlay */
+}
+
+.productos-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* 70% de opacidad negra */
+    z-index: 0; /* debajo del contenido, sobre la imagen */
+}
+
+
+/* Navbar del administrador */
+.admin-navbar {
+    background-color: #5a4337;
+    border-radius: 25px;
+    margin: 20px auto;
+    max-width: 1200px;
+    padding: 15px 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.admin-navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100%;
+}
+
+.admin-navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.admin-navbar-icon {
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.admin-navbar-title {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.admin-navbar-links {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.admin-navbar-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: 'Segoe UI', sans-serif;
+    transition: color 0.3s ease;
+    padding: 8px 12px;
+    border-radius: 8px;
+}
+
+.admin-navbar-link:hover {
+    color: #fa7f04;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Contenido principal */
+.admin-productos-layout {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: transparent !important;
+    position: relative;
+    z-index: 1;
+}
+
+body.admin-productos-page {
+    background: transparent !important;
+}
+
+.admin-welcome-text {
+    position: relative;
+    z-index: 2; /* Arriba del overlay */
+    color: white;
+    text-align: center;
+    margin-top: 290px;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.admin-welcome-text h1 {
+    font-size: 2.3rem;
+    font-weight: 700;
+}
+
+.admin-welcome-text p {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-top: 10px;
+}

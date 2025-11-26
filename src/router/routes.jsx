@@ -7,6 +7,9 @@ import Tienda from "../components/tienda/index";
 import CarritoDeCompras from "../components/carrito-de-compras/carrito-de-compras";
 import { Email } from "../components/restaurar_Contraseña/email";
 import Productos from "../components/administrador/productos/productos";
+import InicioAdmin from "../components/administrador/inicio/app";
+
+
 
 let router = createBrowserRouter([
     {
@@ -40,6 +43,10 @@ let router = createBrowserRouter([
     {
         path: "/administrador-productos",
         Component: Productos
+    },
+    {
+        path: "/administrador-inicio",
+        Component: InicioAdmin
     }
 
 ])
