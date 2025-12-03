@@ -18,7 +18,7 @@ export const NavbarInicio = () => {
                     <span className="tienda-logo-text">El Rincon del Cafe</span>
                 </div>
                 <div className="tienda-nav-links">
-                    <Link to="" className="tienda-nav-link">Agregar Productos</Link> 
+                    <Link to="/administrador-agregar-producto" className="tienda-nav-link">Agregar Productos</Link> 
                     <Link to="" className="tienda-nav-link">Ventas y gráficas</Link> 
                     <Link to="" className="tienda-nav-link">Inicio</Link>
                 </div>

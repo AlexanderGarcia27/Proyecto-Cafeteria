@@ -13,6 +13,7 @@ body.admin-productos-page {
     background-color: #7C5C52 !important;
     min-height: 100vh;
     padding: 0;
+    padding-top: 6rem;
 }
 
 /* Navbar del administrador */
@@ -85,6 +86,7 @@ body.admin-productos-page {
 .filtro-categorias {
     margin: 20px 0;
     text-align: center;
+    margin-top: 8rem !important;   /* Ajusta este valor a tu gusto */
 }
 
 .filtro-categorias h2 {

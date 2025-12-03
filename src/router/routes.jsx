@@ -8,6 +8,7 @@ import CarritoDeCompras from "../components/carrito-de-compras/carrito-de-compra
 import { Email } from "../components/restaurar_Contraseña/email";
 import Productos from "../components/administrador/productos/productos";
 import InicioAdmin from "../components/administrador/inicio/app";
+import AgregarProducto from "../components/administrador/productos/AgregarProducto";
 
 
 
@@ -47,6 +48,10 @@ let router = createBrowserRouter([
     {
         path: "/administrador-inicio",
         Component: InicioAdmin
+    },
+    {
+        path: "/administrador-agregar-producto",
+        Component: AgregarProducto
     }
 
 ])
