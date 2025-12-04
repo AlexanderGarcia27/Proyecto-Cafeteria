@@ -21,7 +21,6 @@ export const BurgerMenu = () => {
             <button className="tienda-close-burger" onClick={() => setOpen(false)}>&times;</button>
             <nav className="tienda-burger-nav-links">
               <Link to="/administrador-productos" className="tienda-nav-link">Productos</Link>
-              <Link to="" className="tienda-nav-link">Ventas y gráficas</Link>
               <Link to="" className="tienda-nav-link">Mensajes</Link>
             </nav>
           </div>

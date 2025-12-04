@@ -20,9 +20,8 @@ export const BurgerMenu = () => {
           <div className="tienda-drawer" onClick={e => e.stopPropagation()}>
             <button className="tienda-close-burger" onClick={() => setOpen(false)}>&times;</button>
             <nav className="tienda-burger-nav-links">
-              <Link to="" className="tienda-nav-link">Agregar Productos</Link>
-              <Link to="" className="tienda-nav-link">Ventas y gráficas</Link>
-              <Link to="" className="tienda-nav-link">Inicio</Link>
+              <Link to="/administrador-agregar-producto">Agregar Productos</Link>
+              <Link to="/administrador-inicio"  className="tienda-nav-link">Inicio</Link>
             </nav>
           </div>
         </div>

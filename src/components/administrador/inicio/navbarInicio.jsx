@@ -14,11 +14,10 @@ export const NavbarInicio = () => {
                         alt="Logo Cafetería"
                         className="tienda-logo"
                     />
-                    <span className="tienda-logo-text">El Rincon del Cafe</span>
+                    <span className="tienda-logo-text">Cafeteria Klang</span>
                 </div>
                 <div className="tienda-nav-links">
                     <Link to="/administrador-productos" className="tienda-nav-link">Productos</Link> 
-                    <Link to="" className="tienda-nav-link">Ventas y gráficas</Link> 
                     <Link to="" className="tienda-nav-link">Mensajes</Link>
                 </div>
             </div>

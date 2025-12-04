@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 import "./css/agregarProducto.css";
+import { useNavigate } from "react-router-dom";
+
 
 export default function AgregarProducto() {
+  const navigate = useNavigate();
+  const handleCancelar = () => {
+    navigate("/administrador-productos");
+  };
 
   const [producto, setProducto] = useState({
     nombre: "",
@@ -103,7 +109,9 @@ export default function AgregarProducto() {
         </form>
 
         <div className="botonera">
-          <button className="btn-cancelar">Cancelar</button>
+          <button className="btn-cancelar" onClick={handleCancelar}>
+            Cancelar
+          </button>
           <button className="btn-registrar" onClick={handleSubmit}>Registrar</button>
         </div>
 

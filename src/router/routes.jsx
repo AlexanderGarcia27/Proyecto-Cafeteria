@@ -52,7 +52,7 @@ let router = createBrowserRouter([
     {
         path: "/administrador-agregar-producto",
         Component: AgregarProducto
-    }
+    },
 
 ])
 
