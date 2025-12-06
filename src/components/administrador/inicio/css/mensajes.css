@@ -1,0 +1,189 @@
+/* Styles for mensajes.jsx - make the section standalone (not superposed) */
+.mensajes-page {
+  width: 100%;
+  /* add top margin so this section doesn't overlap the previous one */
+  margin-top: 80px;
+  /* background image of cafeteria */
+  background-image: url('../images/fondo.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  /* generous padding so the overlay appears as a distinct section */
+  padding: 60px 20px 100px;
+  position: relative;
+}
+
+/* Dark overlay for readability */
+.mensajes-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+}
+
+/* overlay acts as a content card inside its own section */
+.overlay {
+  width: 92%;
+  max-width: 1000px;
+  margin: 0 auto 20px; /* center */
+  /* glassmorphism style like FAQ */
+  background: rgba(255, 255, 255, 0.014);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 44px 48px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  z-index: 1;
+}
+
+.title {
+  text-align: center;
+  color: #fff;
+  font-size: 2.4rem;
+  margin-bottom: 26px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.messages-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Accordion item container */
+.message-item {
+  background: transparent;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 4px 16px rgba(151, 106, 65, 0.10);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  margin-bottom: 1rem;
+}
+
+.message-item:hover {
+  box-shadow: 0 4px 16px rgba(188, 108, 37, 0.18);
+  border-color: rgba(255,255,255,0.24);
+}
+
+.message-item.expanded {
+  box-shadow: 0 4px 16px rgba(188, 108, 37, 0.18);
+}
+
+/* Button header (always visible) */
+.message-question {
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.message-question:hover {
+  background: rgba(151, 106, 65, 0.1);
+}
+
+.message-question.active {
+  background: rgba(151, 106, 65, 0.15);
+}
+
+/* Header content structure */
+.message-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 22px;
+}
+
+.message-info {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.msg-name {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1rem;
+  min-width: 160px;
+}
+
+.msg-email {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  flex: 1;
+}
+
+/* Icon wrapper */
+.message-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.message-icon-wrapper svg {
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.rotar-taza {
+  transition: transform 0.4s cubic-bezier(0.4, 0.2, 0.2, 1);
+  transform: rotate(180deg);
+}
+
+/* Expandable content */
+.message-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  background: transparent;
+}
+
+.message-content.open {
+  max-height: 300px;
+}
+
+.message-body {
+  padding: 0 22px 18px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.message-text {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 12px 0;
+  font-weight: 400;
+}
+
+.message-date {
+  display: block;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.85rem;
+  margin-top: 8px;
+}
+
+@media (max-width: 720px) {
+  .mensajes-page { padding: 24px 12px 48px; }
+  .overlay { padding: 20px; }
+  .title { font-size: 1.6rem; }
+  .message-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+  .message-info { flex-direction: column; align-items: flex-start; gap: 4px; }
+  .msg-name { min-width: auto; width: 100%; }
+  .msg-email { width: 100%; }
+  .message-content.open { max-height: 500px; }
+}
