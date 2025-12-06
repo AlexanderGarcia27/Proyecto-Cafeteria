@@ -1,4 +1,5 @@
 import Inicio from "./inicio";
+import Mensajes from "./mensajes";
 import ResumenDia from "./resumen";
 
 function InicioAdmin() {
@@ -6,6 +7,7 @@ function InicioAdmin() {
     <>
       <Inicio />
       <ResumenDia />
+      <Mensajes/>
     </>
   );
 }
