@@ -11,12 +11,13 @@
     margin-left: 3rem;
     margin-right: 3rem;
     border-radius: 16px;
-    z-index: 1000;
+    z-index: 9999 !important;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
 }
+
 
 #tienda-navbarInicio>div {
     display: flex;

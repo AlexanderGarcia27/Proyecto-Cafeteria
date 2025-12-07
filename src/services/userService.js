@@ -1,6 +1,6 @@
 export const registerUser = async (name, email, password) => {
   try {
-    const response = await fetch("https://reservacion-citas.onrender.com/api/users", {
+    const response = await fetch("https://proyecto-cafeteria-lm3l.onrender.com/api/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

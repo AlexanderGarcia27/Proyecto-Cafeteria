@@ -1,7 +1,7 @@
 /* Contenedor principal */
 .resumen-container {
     width: 100%;
-    padding: 40px 20px 60px; /* extra bottom padding to separate from next section */
+    padding: 40px 20px 60px;
     margin-top: 40px;
     border-radius: 10px;
     position: relative;
@@ -18,19 +18,22 @@
     font-family: "Segoe UI", sans-serif;
 }
 
-/* Grid de tarjetas */
+/* Contenedor de tarjetas */
 .resumen-cards {
     display: flex;
+    flex-wrap: wrap; /* Permite que el mensaje baje */
     justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 25px;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 /* Tarjeta individual */
 .resumen-card {
     background-color: #e8d9c8;
-    padding: 25px 35px;
-    width: 180px;
+    padding: 25px;
+    width: 220px;
     border-radius: 15px;
     text-align: center;
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
@@ -44,10 +47,24 @@
     font-weight: 600;
 }
 
-/* Texto de valor */
+/* Valor dentro de cada tarjeta */
 .resumen-value {
-    margin-top: 12px;
+    margin-top: 10px;
     font-size: 1.2rem;
-    color: #fa7f04; /* naranja bonito */
+    color: #fa7f04;
     font-weight: 600;
+}
+
+/* 🔥 Último mensaje más ancho para no deformar el resto */
+.mensaje-card {
+    width: 470px !important;
+    text-align: left;
+}
+
+.dashboard-content,
+.resumen-container,
+#resumenDia {
+    padding-top: 6rem; /* 🟢 espacio bajo el navbar */
+    position: relative;
+    z-index: 1;
 }

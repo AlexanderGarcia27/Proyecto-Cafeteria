@@ -1,6 +1,6 @@
 export const sendEmail = async(data) => {
     try {
-        const response = await fetch("https://reservacion-citas.onrender.com/api/emails/send", {
+        const response = await fetch("https://proyecto-cafeteria-lm3l.onrender.com/api/emails/send", {
             method: "POST",
             headers: {
                 "Content-type": "application/json"

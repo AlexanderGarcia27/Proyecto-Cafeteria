@@ -33,7 +33,7 @@ const CarritoDeCompras = () => {
       }
       
       // Intentar obtener el producto específico
-      const response = await fetch(`https://reservacion-citas.onrender.com/api/products/${productId}`, {
+      const response = await fetch(`https://proyecto-cafeteria-lm3l.onrender.com/api/products/${productId}`, {
         method: 'GET',
         headers,
         credentials: 'include',
@@ -47,7 +47,7 @@ const CarritoDeCompras = () => {
       
       // Si no funciona el endpoint específico, obtener todos los productos y filtrar
       console.log('Intentando obtener todos los productos para filtrar...');
-      const allProductsResponse = await fetch('https://reservacion-citas.onrender.com/api/products', {
+      const allProductsResponse = await fetch('https://proyecto-cafeteria-lm3l.onrender.com/api/products', {
         method: 'GET',
         headers,
         credentials: 'include',
@@ -88,9 +88,9 @@ const CarritoDeCompras = () => {
       
       // Intentar diferentes endpoints posibles
       const endpointsPosibles = [
-        `https://reservacion-citas.onrender.com/api/carts/${carritoId}/items`,
-        `https://reservacion-citas.onrender.com/api/carts/${carritoId}`,
-        `https://reservacion-citas.onrender.com/api/carts/items`
+        `https://proyecto-cafeteria-lm3l.onrender.com/api/carts/${carritoId}/items`,
+        `https://proyecto-cafeteria-lm3l.onrender.com/api/carts/${carritoId}`,
+        `https://proyecto-cafeteria-lm3l.onrender.com/api/carts/items`
       ];
       
       for (const endpoint of endpointsPosibles) {
@@ -137,7 +137,7 @@ const CarritoDeCompras = () => {
         headers['Authorization'] = `Bearer ${token}`;
       }
       
-      const response = await fetch('https://reservacion-citas.onrender.com/api/carts/active', {
+      const response = await fetch('https://proyecto-cafeteria-lm3l.onrender.com/api/carts/active', {
         method: 'GET',
         headers,
         credentials: 'include',
@@ -204,7 +204,7 @@ const CarritoDeCompras = () => {
         }
         
         try {
-          const allProductsResponse = await fetch('https://reservacion-citas.onrender.com/api/products', {
+          const allProductsResponse = await fetch('https://proyecto-cafeteria-lm3l.onrender.com/api/products', {
             method: 'GET',
             headers,
             credentials: 'include',
@@ -284,7 +284,7 @@ const CarritoDeCompras = () => {
       console.log('=== CAMBIANDO ESTADO DEL CARRITO ===');
       console.log('Carrito ID:', carrito.id);
       
-      const changeStatusResponse = await fetch('https://reservacion-citas.onrender.com/api/carts/change-status', {
+      const changeStatusResponse = await fetch('https://proyecto-cafeteria-lm3l.onrender.com/api/carts/change-status', {
         method: 'POST',
         headers,
         credentials: 'include',
@@ -397,8 +397,8 @@ const CarritoDeCompras = () => {
         headers['Authorization'] = `Bearer ${token}`;
       }
       
-      const response = await fetch(`https://reservacion-citas.onrender.com/api/carts/delete/${itemId}`, {
-        method: 'POST',
+      const response = await fetch(`https://proyecto-cafeteria-lm3l.onrender.com/api/carts/delete/${itemId}`, {
+        method: 'DELETE',
         headers,
         credentials: 'include',
       });

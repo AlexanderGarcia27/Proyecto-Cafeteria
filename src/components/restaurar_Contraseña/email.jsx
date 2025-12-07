@@ -27,7 +27,7 @@ export const Email = () => {
             console.log('=== RESTAURANDO CONTRASEÑA ===');
             console.log('Email:', email);
 
-            const response = await fetch('https://reservacion-citas.onrender.com/api/users/restore-password', {
+            const response = await fetch('https://proyecto-cafeteria-lm3l.onrender.com/api/users/restore-password', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

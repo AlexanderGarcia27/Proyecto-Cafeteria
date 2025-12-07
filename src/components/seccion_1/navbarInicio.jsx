@@ -9,7 +9,7 @@ export const NavbarInicio = () => {
 
     const handleLogout = async () => {
         try {
-            const response = await fetch('https://reservacion-citas.onrender.com/api/auth/logout', {
+            const response = await fetch('https://proyecto-cafeteria-lm3l.onrender.com/api/auth/logout', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

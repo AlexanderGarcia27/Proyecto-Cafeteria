@@ -61,7 +61,7 @@ const ModalCarrito = ({ producto = {
         headers['Authorization'] = `Bearer ${token}`;
       }
       
-      const response = await fetch('https://reservacion-citas.onrender.com/api/carts/add', {
+      const response = await fetch('https://proyecto-cafeteria-lm3l.onrender.com/api/carts/add', {
         method: 'POST',
         headers,
         credentials: 'include',

@@ -17,18 +17,18 @@ const Login = () => {
         const urlParams = new URLSearchParams(location.search);
         const token = urlParams.get('token');
         const error = urlParams.get('error');
-        
+
         if (token) {
             console.log('Token encontrado en URL después de login con Google:', token);
-            
+
             // Guardar token en localStorage
             localStorage.setItem('token', token);
             console.log('Token guardado en localStorage desde Google OAuth');
-            
+
             // Limpiar la URL
             const cleanUrl = window.location.pathname;
             window.history.replaceState({}, document.title, cleanUrl);
-            
+
             // Mostrar mensaje de éxito
             Swal.fire({
                 icon: 'success',
@@ -42,24 +42,24 @@ const Login = () => {
                     popup: 'mi-alerta-personalizada'
                 }
             });
-            
+
             // Redirigir a home después de un breve delay
             setTimeout(() => {
                 navigate('/home');
             }, 1600);
         }
-        
+
         if (error) {
             console.log('Error encontrado en URL después de login con Google:', error);
-            
+
             // Decodificar el error de la URL
             const decodedError = decodeURIComponent(error);
             console.log('Error decodificado:', decodedError);
-            
+
             // Limpiar la URL
             const cleanUrl = window.location.pathname;
             window.history.replaceState({}, document.title, cleanUrl);
-            
+
             // Mostrar mensaje de error
             Swal.fire({
                 icon: 'warning',
@@ -89,13 +89,13 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        
+
         if (isSubmitting) return;
 
         setIsSubmitting(true);
 
         try {
-            const response = await fetch('https://reservacion-citas.onrender.com/api/auth/login', {
+            const response = await fetch('https://proyecto-cafeteria-lm3l.onrender.com/api/auth/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -124,6 +124,10 @@ const Login = () => {
                 console.warn('El backend no envió el token en la respuesta JSON');
             }
 
+            if (data.user?.role) {
+                localStorage.setItem('role', data.user.role);
+            }
+
             Swal.fire({
                 icon: 'success',
                 iconColor: '#ffffff',
@@ -138,8 +142,13 @@ const Login = () => {
             });
 
             setTimeout(() => {
-                navigate('/home');
+                if (email.toLowerCase() === 'administrador@gmail.com') {
+                    navigate('/administrador-inicio');
+                } else {
+                    navigate('/home');
+                }
             }, 1600);
+
 
         } catch (error) {
             console.error('Error en el login:', error);
@@ -150,7 +159,7 @@ const Login = () => {
 
     // ✅ Redirección a Google OAuth
     const redirectToGoogle = () => {
-        window.location.replace("https://reservacion-citas.onrender.com/api/oauth2/authorization/google");
+        window.location.replace("https://proyecto-cafeteria-lm3l.onrender.com/api/oauth2/authorization/google");
     };
 
     return (
@@ -192,7 +201,7 @@ const Login = () => {
                                     navigate('/restaurar-contraseña');
                                 }
                             }}
-                            style={{ 
+                            style={{
                                 opacity: isSubmitting ? 0.5 : 1,
                                 pointerEvents: isSubmitting ? 'none' : 'auto',
                                 cursor: isSubmitting ? 'not-allowed' : 'pointer'
@@ -200,8 +209,8 @@ const Login = () => {
                         >
                             ¿Olvidaste tu contraseña?
                         </a>
-                        <button 
-                            type="submit" 
+                        <button
+                            type="submit"
                             className={`login-button ${isSubmitting ? 'sending' : ''}`}
                             disabled={isSubmitting}
                         >
@@ -230,7 +239,7 @@ const Login = () => {
                                         navigate('/register');
                                     }
                                 }}
-                                style={{ 
+                                style={{
                                     opacity: isSubmitting ? 0.5 : 1,
                                     pointerEvents: isSubmitting ? 'none' : 'auto',
                                     cursor: isSubmitting ? 'not-allowed' : 'pointer'

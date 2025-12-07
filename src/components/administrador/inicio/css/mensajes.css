@@ -3,8 +3,6 @@
   width: 100%;
   /* add top margin so this section doesn't overlap the previous one */
   margin-top: 80px;
-  /* background image of cafeteria */
-  background-image: url('../images/fondo.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -24,7 +22,6 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.4);
   pointer-events: none;
 }
 

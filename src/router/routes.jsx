@@ -9,6 +9,8 @@ import { Email } from "../components/restaurar_Contraseña/email";
 import Productos from "../components/administrador/productos/productos";
 import InicioAdmin from "../components/administrador/inicio/app";
 import AgregarProducto from "../components/administrador/productos/AgregarProducto";
+import Mensajes from "../components/administrador/inicio/mensajes";
+import ActualizarProducto from "../components/administrador/productos/ActualizarProducto";
 
 
 
@@ -53,6 +55,14 @@ let router = createBrowserRouter([
         path: "/administrador-agregar-producto",
         Component: AgregarProducto
     },
+    {
+        path: "/administrador-mensajes",
+        Component: Mensajes
+    },
+    {
+        path: "/administrador-actualizar-producto",
+        Component: ActualizarProducto
+    }
 
 ])
 

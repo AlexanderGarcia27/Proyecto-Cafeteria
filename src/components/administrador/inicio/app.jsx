@@ -6,8 +6,6 @@ function InicioAdmin() {
   return (
     <>
       <Inicio />
-      <ResumenDia />
-      <Mensajes/>
     </>
   );
 }

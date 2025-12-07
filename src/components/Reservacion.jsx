@@ -155,7 +155,7 @@ const Reservacion = () => {
           marginTop: isTablet ? "2rem" : "4rem"
         }}>
           <InlineWidget
-            url="https://calendly.com/mxvalen13/30min"
+            url="https://calendly.com/valenhernandez474/30min"
             styles={{
               width: "100%",
               height: "100%",

@@ -80,7 +80,7 @@ const fetchProductos = async () => {
       console.log('Enviando token en Authorization header');
     }
     
-    const response = await fetch('https://reservacion-citas.onrender.com/api/products', {
+    const response = await fetch('https://proyecto-cafeteria-lm3l.onrender.com/api/products', {
       method: 'GET',
       credentials: 'include', // También intentamos con cookies
       headers,

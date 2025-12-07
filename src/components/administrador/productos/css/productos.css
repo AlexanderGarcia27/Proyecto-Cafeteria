@@ -310,6 +310,31 @@ body.admin-productos-page {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
+.btn-eliminar {
+  background-color: #725226;
+  color: white;
+  padding: 6px 10px;
+  border: none;
+  width: 70%;
+  cursor: pointer;
+  margin-top: 8px;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.btn-actualizar {
+  margin-top: 8px;
+  width: 70%;
+  padding: 8px;
+  background-color: #ad751c;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+
 .producto-imagen-container {
     text-align: center;
     margin-bottom: 20px;

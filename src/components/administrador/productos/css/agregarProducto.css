@@ -1,108 +1,92 @@
-@import url('https://fonts.googleapis.com/css2?family=AR+One+Sans:wght@400;500;600;700&display=swap');
-
+/* FONDO GENERAL */
 .agregar-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;              /* evita crecer más que la pantalla */
-    background-color: #B78752;
-    padding: 1.5rem;
-    overflow: hidden;           /* bloquea scroll en la pantalla */
+  width: 100%;
+  height: 100vh;
+  background: #b8864f; /* Color del fondo del mockup */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-
+/* TARJETA */
 .agregar-card {
-    background: white;
-    padding: 2rem;
-    width: 26rem;
-    border-radius: 1.25rem;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    text-align: left;
-    font-family: 'AR One Sans', sans-serif;
-    max-height: 90vh;        /* se ajusta a pantallas pequeñas */
-    overflow-y: auto;  
+  width: 380px;
+  background: white;
+  border-radius: 16px;
+  padding: 25px 30px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
+/* TITULOS */
 .agregar-title {
-    color: #C4804D;
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
+  text-align: center;
+  color: #b46e2b;
+  font-size: 26px;
+  margin: 0;
 }
 
 .agregar-subtitle {
-    text-align: center;
-    color: #555;
-    margin-bottom: 1.5rem;
-    font-size: 0.95rem;
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 14px;
+  color: #444;
 }
 
+/* FORMULARIO */
 .form-group {
-    margin-bottom: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
 }
 
 .form-label {
-    display: block;
-    margin-bottom: 0.4rem;
-    color: #333;
-    padding-left: 0.4rem;
+  font-size: 13px;
+  margin-bottom: 5px;
+  color: #333;
 }
 
 .form-input,
 .form-select,
-.form-file,
-.form-textarea {
-    width: 100%;
-    padding: 0.5rem;
-    border: 1px solid #808080;
-    border-radius: 0.75rem;
-    font-size: 1rem;
+.form-textarea,
+.form-file {
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
+  color: #333;
 }
 
 .form-textarea {
-    min-height: 4rem;
-    resize: none;
+  height: 65px;
+  resize: none;
 }
 
+/* BOTONES */
 .botonera {
-    margin-top: 1.4rem;
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
 }
 
 .btn-cancelar,
 .btn-registrar {
-    width: 45%;
-    padding: 0.6rem;
-    border-radius: 0.75rem;
-    font-size: 1.1rem;
-    border: none;
-    cursor: pointer;
-    font-family: 'AR One Sans', sans-serif;
+  width: 120px;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: #c06d2d;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.2s;
 }
 
-.btn-cancelar {
-    background: #BC6C25;
-    color: white;
-}
-
-.btn-cancelar:hover {
-    background: #a55d20;
-}
-
-.btn-registrar {
-    background: #BC6C25;
-    color: white;
-}
-
+.btn-cancelar:hover,
 .btn-registrar:hover {
-    background: #a55d20;
-}
-
-/* Responsive */
-
-@media (max-width: 500px) {
-    .agregar-card {
-        width: 90%;
-    }
+  background: #a95a21;
 }
